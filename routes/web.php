@@ -2,10 +2,6 @@
 
 declare(strict_types=1);
 
-Route::get('/', static function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
