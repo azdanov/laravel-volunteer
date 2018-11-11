@@ -54,4 +54,4 @@ Follow a couple of simple rules and save yourself a world of hurt.
 
 * Run composer outside of the php container, as doing so would install all your dependencies owned by `root` within your vendor folder.
 * Run commands (ie Symfony's console, or Laravel artisan) straight inside of your container. You can easily open a shell as described above and do your thing from there.
-* On MacOS Docker is slow. This guide on [laradock](https://laradock.io/#improve-speed-on-macos) might help.
+* On MacOS Docker is slow. This guide on [laradock](https://laradock.io/#improve-speed-on-macos) might help. Another solution is described on [medium](https://medium.com/@sean.handley/how-to-set-up-docker-for-mac-with-native-nfs-145151458adc).
