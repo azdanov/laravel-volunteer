@@ -1051,25 +1051,29 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.34.1",
+            "version": "1.34.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "19201b87f7dba2a7cbf1cccdf0e1da13c04ee9c9"
+                "reference": "43c7426adf88345b00d480893f2efdf8cd59be3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/19201b87f7dba2a7cbf1cccdf0e1da13c04ee9c9",
-                "reference": "19201b87f7dba2a7cbf1cccdf0e1da13c04ee9c9",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/43c7426adf88345b00d480893f2efdf8cd59be3d",
+                "reference": "43c7426adf88345b00d480893f2efdf8cd59be3d",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
-                "symfony/translation": "~2.6 || ~3.0 || ~4.0"
+                "ext-json": "*",
+                "php": "^7.1.8",
+                "symfony/translation": "^4.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "~2",
-                "phpunit/phpunit": "^4.8.35 || ^5.7"
+                "phpunit/phpunit": "^7.1.5"
+            },
+            "suggest": {
+                "friendsofphp/php-cs-fixer": "Needed for the `composer phpcs` command. Allow to automatically fix code style.",
+                "phpstan/phpstan": "Needed for the `composer phpstan` command. Allow to detect potential errors."
             },
             "type": "library",
             "extra": {
@@ -1081,7 +1085,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "": "src/"
+                    "Carbon\\": "src/Carbon/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1102,7 +1106,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-11-08T13:33:47+00:00"
+            "time": "2018-11-12T21:46:13+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -5500,16 +5504,16 @@
         },
         {
             "name": "spatie/phpunit-watcher",
-            "version": "1.7.0",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/phpunit-watcher.git",
-                "reference": "c394fb05c3d29c27e78a70ce8b938ccac5223cbd"
+                "reference": "0e938021326609d5a081b3579123438f9a7a4296"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/phpunit-watcher/zipball/c394fb05c3d29c27e78a70ce8b938ccac5223cbd",
-                "reference": "c394fb05c3d29c27e78a70ce8b938ccac5223cbd",
+                "url": "https://api.github.com/repos/spatie/phpunit-watcher/zipball/0e938021326609d5a081b3579123438f9a7a4296",
+                "reference": "0e938021326609d5a081b3579123438f9a7a4296",
                 "shasum": ""
             },
             "require": {
@@ -5551,7 +5555,7 @@
                 "phpunit-watcher",
                 "spatie"
             ],
-            "time": "2018-10-18T21:33:07+00:00"
+            "time": "2018-11-12T15:25:46+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
