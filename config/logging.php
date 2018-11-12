@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Default Log Channel
@@ -61,7 +62,7 @@ return [
         ],
 
         'papertrail' => [
-            'driver'  => 'monolog',
+            'driver' => 'monolog',
             'level' => 'debug',
             'handler' => SyslogUdpHandler::class,
             'handler_with' => [
@@ -73,9 +74,7 @@ return [
         'stderr' => [
             'driver' => 'monolog',
             'handler' => StreamHandler::class,
-            'with' => [
-                'stream' => 'php://stderr',
-            ],
+            'with' => ['stream' => 'php://stderr'],
         ],
 
         'syslog' => [
@@ -88,5 +87,4 @@ return [
             'level' => 'debug',
         ],
     ],
-
 ];
