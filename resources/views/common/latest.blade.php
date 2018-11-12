@@ -1,7 +1,7 @@
-<div class="bg-transparent text-left mt-5 pb-5 sm:mb-1 lg:px-5">
+<div class="bg-transparent text-left mt-3 pb-5 sm:mb-1 lg:px-5">
     <p class="ml-2 mb-1 text-grey-dark text-sm">Latest</p>
     <div class="bg-grey-lighter shadow text-white leading-none sm:rounded-sm">
-        <div class="bg-green px-2 py-2 sm:rounded-t">
+        <div class="bg-grey-dark px-2 py-2 sm:rounded-t">
             <div class="flex">
                 <div class="w-2/3">
                     <p class="font-bold mr-6 text-white no-underline">Job Title</p>

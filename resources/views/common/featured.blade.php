@@ -1,7 +1,7 @@
 <div class="bg-transparent text-left sm:mb-1 lg:px-5">
     <div
         class="bg-grey-lighter shadow text-white leading-none sm:rounded">
-        <div class="bg-green px-2 py-2 sm:rounded-t">
+        <div class="bg-grey-dark px-2 py-2 sm:rounded-t">
             <a class="font-bold mr-6 text-white no-underline"
                href="#">Featured</a>
         </div>
