@@ -18,16 +18,16 @@ use App\Region;
                     <a class="font-bold mr-6 text-2xl text-green-darker no-underline"
                        href="{{ route('user.region.store', $country) }}">{{ $country->name }}</a>
                 </div>
-                <div class="flex px-4 py-4">
+                <div class="flex flex-wrap lg:flex-no-wrap px-4 py-4">
                     @foreach($country->children as $stateIndex => $state)
-                        <div class="w-full ml-6 mt-3">
+                        <div class="w-1/2 md:w-1/3 lg:w-full lg:ml-6 mt-3 mb-3 lg:mb-0">
                             <div>
-                                <a class="font-semibold text-left text-xl text-green-darker no-underline"
+                                <a class="font-semibold text-left text-xl text-green-darker no-underline whitespace-no-wrap"
                                    href="{{ route('user.region.store', $state) }}">
                                     {{ $state->name }}
                                 </a>
 
-                                <hr class="border-b">
+                                <hr class="border-b mr-12 md:mr-0">
 
                                 @foreach ($state->children as $cityIndex => $city)
                                     <p class="flex items-center mt-2">
