@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" class="bg-grey-lightest subpixel-antialiased">
 <head>
-    @include('layouts.partials.head')
+    @include('partials.head')
 </head>
 <body class="font-sans font-normal text-green-darker leading-normal flex flex-col min-h-screen">
 
-@include('layouts.partials.navigation')
-@include('layouts.partials.flash')
+@include('partials.navigation')
+@include('partials.flash')
 
 <div class="container mx-auto flex-grow">
     <main>
@@ -14,6 +14,6 @@
     </main>
 </div>
 
-@include('layouts.partials.footer')
+@include('partials.footer')
 </body>
 </html>

@@ -1,11 +1,14 @@
 <div class="bg-green shadow mb-4">
     <nav class="flex items-center justify-between flex-wrap container mx-auto py-2 px-2 sm:px-0">
-        <div class="flex items-center flex-no-shrink text-white ml-4 mr-6 mb-2 md:mb-0">
-            @include('layouts.partials.logo')
-            <a href="{{ url('/') }}"
-               class="font-semibold text-2xl tracking-tight text-white no-underline ml-1">
-                Volunteer
-            </a>
+        <div class="flex items-center flex-no-shrink text-white -mt-1 ml-4 mr-6 mb-2 md:mb-0">
+            @include('partials.logo')
+            <div class="ml-1">
+                <a href="{{ route('home') }}"
+                   class="font-semibold text-2xl tracking-tight text-white no-underline">
+                    Volunteer
+                </a>
+                <small class="block select-none -mt-2 ml-1">{{ $region->name }}</small>
+            </div>
         </div>
 
         <div class="block sm:hidden">
@@ -23,7 +26,8 @@
             <div class="flex items-center">
                 <input
                     class="appearance-none bg-green-lightest w-full text-grey-darkest px-2 py-1 leading-tight focus:outline-none rounded-l"
-                    type="text" placeholder="Find Volunteer Positions.." aria-label="Find Volunteer Positions">
+                    type="text" placeholder="Find Volunteer Positions.."
+                    aria-label="Find Volunteer Positions">
                 <button
                     class="flex-no-shrink bg-green-light hover:bg-green-dark text-lg text-white px-2 py-1 rounded-r"
                     type="submit">

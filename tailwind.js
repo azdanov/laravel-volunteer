@@ -758,14 +758,14 @@ module.exports = {
 
   /*
   |-----------------------------------------------------------------------------
-  | Z-index                                https://tailwindcss.com/docs/z-index
+  | Z-home                                https://tailwindcss.com/docs/z-index
   |-----------------------------------------------------------------------------
   |
-  | Here is where you define your z-index utility values. By default we
+  | Here is where you define your z-home utility values. By default we
   | provide a sensible numeric scale. You can, of course, modify these
   | values as needed.
   |
-  | Class name: .z-{index}
+  | Class name: .z-{home}
   |
   */
 

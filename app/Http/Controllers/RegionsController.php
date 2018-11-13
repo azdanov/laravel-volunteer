@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Region;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use function compact;
 
-class HomeController extends Controller
+class RegionsController extends Controller
 {
     public function index(): View
     {
         $regions = Region::get()->toTree();
 
-        return view('home.index', compact('regions'));
+        return view('regions.index', compact('regions'));
     }
 }
