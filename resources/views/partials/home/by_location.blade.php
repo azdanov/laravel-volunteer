@@ -14,7 +14,7 @@ use App\Region;
                href="{{ route('regions') }}">By Region</a>
         </div>
         <div class="flex flex-wrap px-4 py-4">
-            <div class="w-full md:w-3/4">
+            <div class="w-full md:w-4/5">
                 @foreach($regions as $country)
                     <a class="block font-semibold text-green-darker no-underline"
                        href="{{ route('user.region.store', $country) }}">{{ $country->name }}</a>
@@ -53,14 +53,14 @@ use App\Region;
                 @endforeach;
             </div>
             <div
-                class="w-full md:w-1/4 -mt-2 flex items-center justify-center md:border-l sm:pl-5">
+                class="w-full md:w-1/5 -mt-2 flex items-center justify-center md:border-l sm:pl-4">
                 <svg class="opacity-75 h-4 w-4 mr-1 invisible md:visible"
                      xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 24 24">
                     <path
                         d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
                 </svg>
-                <a class="font-semibold text-left text-green-darker no-underline"
+                <a class="font-semibold text-left text-green-darker no-underline whitespace-no-wrap"
                    href="{{ route('regions') }}">
                     More Regions
                 </a>
