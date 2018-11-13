@@ -2,12 +2,12 @@
     <nav class="flex items-center justify-between flex-wrap container mx-auto py-2 px-2 sm:px-0">
         <div class="flex items-center flex-no-shrink text-white -mt-1 ml-4 mr-6 mb-2 md:mb-0">
             @include('partials.logo')
-            <div class="ml-1">
+            <div class="ml-1 w-24 flex flex-wrap">
                 <a href="{{ route('home') }}"
                    class="font-semibold text-2xl tracking-tight text-white no-underline">
                     Volunteer
                 </a>
-                <small class="block select-none -mt-2 ml-1">{{ $region->name }}</small>
+                <a class="-mt-2 select-none ml-1 text-sm no-underline text-white hover:underline" href="{{ route('categories.index', [$region]) }}">{{ $region->name }}</a>
             </div>
         </div>
 

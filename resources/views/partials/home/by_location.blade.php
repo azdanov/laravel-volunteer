@@ -11,7 +11,7 @@ use App\Region;
     <div class="bg-grey-lighter shadow border border-t-0 text-white text-center md:text-left leading-none sm:rounded">
         <div class="bg-grey-light border border-r-0 border-l-0 px-4 py-2 sm:rounded-t">
             <a class="font-bold md:mr-6 text-green-darker no-underline"
-               href="{{ route('regions') }}">By Region</a>
+               href="{{ route('regions.index') }}">By Region</a>
         </div>
         <div class="flex flex-wrap px-4 py-4">
             <div class="w-full md:w-4/5">
@@ -61,7 +61,7 @@ use App\Region;
                         d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
                 </svg>
                 <a class="font-semibold text-left text-green-darker no-underline whitespace-no-wrap"
-                   href="{{ route('regions') }}">
+                   href="{{ route('regions.index') }}">
                     More Regions
                 </a>
             </div>

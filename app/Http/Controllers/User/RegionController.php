@@ -7,6 +7,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Region;
 use Illuminate\Http\RedirectResponse;
+use function compact;
 
 class RegionController extends Controller
 {
@@ -14,6 +15,6 @@ class RegionController extends Controller
     {
         session(['region' => $region->slug]);
 
-        return redirect()->back();
+        return redirect()->route('categories.index', compact('region'));
     }
 }

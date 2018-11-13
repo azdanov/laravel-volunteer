@@ -10,7 +10,7 @@ use App\Region;
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="text-3xl">Regions</h2>
+    {{ Breadcrumbs::render('regions') }}
     <div class="bg-transparent text-left sm:mb-1 sm:pt-3 lg:px-5">
         <div class="bg-grey-lighter shadow border border-t-0 text-white leading-none sm:rounded">
             @foreach($regions as $country)
@@ -19,7 +19,7 @@ use App\Region;
                        href="{{ route('user.region.store', $country) }}">{{ $country->name }}</a>
                 </div>
                 <div class="flex flex-wrap lg:flex-no-wrap px-4 py-4">
-                    @foreach($country->children as $stateIndex => $state)
+                    @foreach($country->children as $state)
                         <div class="w-1/2 md:w-1/3 lg:w-full lg:ml-6 mt-3 mb-3 lg:mb-0">
                             <div>
                                 <a class="font-semibold text-left text-xl text-green-darker no-underline whitespace-no-wrap"
