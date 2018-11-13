@@ -11,8 +11,12 @@ class Authenticate extends Middleware
 {
     /**
      * Get the path the user should be redirected to when they are not authenticated.
+     *
+     * @param Request $request
+     *
+     * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
      */
-    protected function redirectTo(Request $request): string
+    protected function redirectTo($request): string
     {
         if (! $request->expectsJson()) {
             return route('login');
