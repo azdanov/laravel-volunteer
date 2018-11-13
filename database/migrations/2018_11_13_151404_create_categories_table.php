@@ -14,7 +14,6 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug')->unique();
-            $table->boolean('featured')->default(false);
             $table->nestedSet();
             $table->timestamps();
         });

@@ -7,6 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use Kalnoy\Nestedset\Collection;
 use Kalnoy\Nestedset\NodeTrait;
 
 /**
@@ -21,6 +22,7 @@ use Kalnoy\Nestedset\NodeTrait;
  * @property int|null $parent_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ * @method static Builder|Category d()
  * @method static Builder|Category newModelQuery()
  * @method static Builder|Category newQuery()
  * @method static Builder|Category query()
@@ -33,6 +35,8 @@ use Kalnoy\Nestedset\NodeTrait;
  * @method static Builder|Category whereRgt($value)
  * @method static Builder|Category whereSlug($value)
  * @method static Builder|Category whereUpdatedAt($value)
+ * @property Collection|Category[] $children
+ * @property Category|null $parent
  * @mixin \Eloquent
  */
 class Category extends Model
