@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Factory;
 */
 
 /** @var Factory $factory */
-$factory->define(App\User::class, static function (Faker $faker) {
+$factory->define(App\Models\User::class, static function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,

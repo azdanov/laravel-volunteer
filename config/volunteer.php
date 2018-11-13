@@ -3,5 +3,5 @@
 declare(strict_types=1);
 
 return [
-    'default' => ['region' => 'estonia', 'cost' => 700],
+    'default' => ['region' => 'estonia', 'cost' => 700, 'listing_pagination' => 10],
 ];

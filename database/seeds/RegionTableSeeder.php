@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Region;
+use App\Models\Region;
 use Illuminate\Database\Seeder;
 
 class RegionTableSeeder extends Seeder

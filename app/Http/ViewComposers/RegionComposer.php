@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\ViewComposers;
 
-use App\Region;
+use App\Models\Region;
 use Illuminate\View\View;
 
 class RegionComposer

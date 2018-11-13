@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Region;
+use App\Models\Region;
 
 /** @var Region[] $regions */
 ?>
@@ -11,13 +11,13 @@ use App\Region;
     <div class="bg-grey-lighter shadow border border-t-0 text-white text-center md:text-left leading-none sm:rounded">
         <div class="bg-grey-light border border-r-0 border-l-0 px-4 py-2 sm:rounded-t">
             <a class="font-bold md:mr-6 text-green-darker no-underline"
-               href="{{ route('regions.index') }}">By Region</a>
+               href="{{ route('region.index') }}">By Region</a>
         </div>
         <div class="flex flex-wrap px-4 py-4">
             <div class="w-full md:w-4/5">
                 @foreach($regions as $country)
                     <a class="block font-semibold text-green-darker no-underline"
-                       href="{{ route('user.region.store', $country) }}">{{ $country->name }}</a>
+                       href="{{ route('region.store', $country) }}">{{ $country->name }}</a>
                     <hr class="border-b mr-6">
                     <div class="flex flex-wrap justify-between">
                         @foreach($country->children as $stateIndex => $state)
@@ -28,7 +28,7 @@ use App\Region;
                             <div class="w-1/2 lg:w-auto lg:mr-6 mb-4 md:mb-6">
                                 <div>
                                     <a class="font-semibold text-green-darker no-underline mb-2"
-                                       href="{{ route('user.region.store', $state) }}">
+                                       href="{{ route('region.store', $state) }}">
                                         {{ $state->name }}
                                     </a>
 
@@ -41,7 +41,7 @@ use App\Region;
                                         <p class="flex items-center justify-center md:justify-start mt-2">
                                             <span class="mr-2 text-green-darker select-none invisible md:visible">&middot;</span>
                                             <a class="font-semibold text-green-darker no-underline"
-                                               href="{{ route('user.region.store', $city) }}">
+                                               href="{{ route('region.store', $city) }}">
                                                 {{ $city->name }}
                                             </a>
                                         </p>
@@ -61,7 +61,7 @@ use App\Region;
                         d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
                 </svg>
                 <a class="font-semibold text-left text-green-darker no-underline whitespace-no-wrap"
-                   href="{{ route('regions.index') }}">
+                   href="{{ route('region.index') }}">
                     More Regions
                 </a>
             </div>

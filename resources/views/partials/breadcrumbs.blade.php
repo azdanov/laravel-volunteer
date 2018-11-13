@@ -12,6 +12,9 @@
                         </a>
                     </li>
                     <li><span class="mx-2 select-none">/</span></li>
+                @elseif (!$loop->last)
+                    <li>{{ $breadcrumb->title }}</li>
+                    <li><span class="mx-2 select-none">/</span></li>
                 @else
                     <li>{{ $breadcrumb->title }}</li>
                 @endif

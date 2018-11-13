@@ -7,7 +7,10 @@
                    class="font-semibold text-2xl tracking-tight text-white no-underline">
                     Volunteer
                 </a>
-                <a class="-mt-2 select-none ml-1 text-sm no-underline text-white hover:underline" href="{{ route('categories.index', [$region]) }}">{{ $region->name }}</a>
+                @if ($region)
+                    <a class="-mt-2 select-none ml-1 text-sm no-underline text-white hover:underline"
+                       href="{{ route('categories.index', [$region]) }}">{{ $region->name }}</a>
+                @endif
             </div>
         </div>
 

@@ -2,20 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App;
+namespace App\Models;
 
-use App\Models\Category;
 use App\Traits\Orderable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Support\Carbon;
 use function array_merge;
 
 /**
- * App\Listing.
+ * App\Models\Listing.
  *
  * @property int $id
  * @property string $title
@@ -43,31 +41,44 @@ use function array_merge;
  * @method static Builder|Listing whereUpdatedAt($value)
  * @method static Builder|Listing whereUserId($value)
  * @mixin \Eloquent
+ * @property-read Category $category
+ * @property-read Region $region
+ * @property-read User $user
+ * @method static bool|null forceDelete()
+ * @method static Builder|Listing fromCategory(Category $category)
+ * @method static Builder|Listing inRegion(Region $region)
+ * @method static Builder|Listing isDraft()
+ * @method static Builder|Listing isLive()
+ * @method static Builder|Listing latestFirst()
+ * @method static Builder|Listing onlyTrashed()
+ * @method static bool|null restore()
+ * @method static Builder|Listing withTrashed()
+ * @method static Builder|Listing withoutTrashed()
  */
 class Listing extends Model
 {
     use SoftDeletes;
     use Orderable;
 
-    public function scopeIsLive(QueryBuilder $query): QueryBuilder
+    public function scopeIsLive(Builder $query): Builder
     {
         return $query->where('live', true);
     }
 
-    public function scopeIsDraft(QueryBuilder $query): QueryBuilder
+    public function scopeIsDraft(Builder $query): Builder
     {
         return $query->where('live', false);
     }
 
-    public function scopeFromCategory(QueryBuilder $query, Category $category): QueryBuilder
+    public function scopeFromCategory(Builder $query, Category $category): Builder
     {
         return $query->where('category_id', $category->id);
     }
 
-    public function scopeInRegion(QueryBuilder $query, Region $region): QueryBuilder
+    public function scopeInRegion(Builder $query, Region $region): Builder
     {
         return $query->whereIn(
-            'area_id',
+            'region_id',
             array_merge([$region->id], $region->descendants()->pluck('id')->toArray())
         );
     }
@@ -87,7 +98,7 @@ class Listing extends Model
         return $this->belongsTo(Region::class);
     }
 
-    public function isLive(): bool
+    public function live(): bool
     {
         return $this->live;
     }

@@ -6,11 +6,11 @@ namespace App\Http\Controllers\Category;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Region;
+use App\Models\Region;
 use Illuminate\View\View;
 use function compact;
 
-class CategoriesController extends Controller
+class CategoryController extends Controller
 {
     public function index(Region $region): View
     {
