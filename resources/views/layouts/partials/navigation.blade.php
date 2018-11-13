@@ -1,7 +1,7 @@
 <div class="bg-green shadow mb-4">
     <nav class="flex items-center justify-between flex-wrap container mx-auto py-2 px-2 sm:px-0">
         <div class="flex items-center flex-no-shrink text-white ml-4 mr-6 mb-2 md:mb-0">
-            @include('common.logo')
+            @include('layouts.partials.logo')
             <a href="{{ url('/') }}"
                class="font-semibold text-2xl tracking-tight text-white no-underline ml-1">
                 Volunteer

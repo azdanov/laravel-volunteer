@@ -13,7 +13,7 @@
                 </label>
                 <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline{{$errors->has('name'? 'border-red mb-2':'')}}"
-                    id="name" type="name" name="name" placeholder="Name"
+                    id="name" type="text" name="name" placeholder="Name"
                     value="{{ old('name') }}" required>
                 @if ($errors->has('name'))
                     <p role="alert" class="text-red text-xs italic">{{ $errors->first('name') }}</p>

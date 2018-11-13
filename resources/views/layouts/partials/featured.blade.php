@@ -1,13 +1,12 @@
 <div class="bg-transparent text-left sm:mb-1 lg:px-5">
-    <div
-        class="bg-grey-lighter shadow text-white leading-none sm:rounded">
-        <div class="bg-grey-dark px-2 py-2 sm:rounded-t">
-            <a class="font-bold mr-6 text-white no-underline"
+    <div class="bg-grey-lighter shadow border border-t-0 text-white leading-none sm:rounded">
+        <div class="bg-grey-light border border-r-0 border-l-0 px-2 py-2 sm:rounded-t">
+            <a class="font-bold mr-6 text-green-darker no-underline"
                href="#">Featured</a>
         </div>
         <div class="flex justify-between flex-wrap lg:flex-no-wrap px-2 py-4">
             <div class="w-full sm:mt-2 lg:mt-0 inline-flex items-center">
-                <svg class="text-green-darker opacity-75 h-4 w-4 mr-2"
+                <svg class="opacity-75 h-4 w-4 mr-2"
                      xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 24 24">
                     <path
@@ -20,7 +19,7 @@
                 </a>
             </div>
             <div class="sm:w-full mt-2 lg:mt-0 inline-flex items-center">
-                <svg class="text-green-darker opacity-75 h-4 w-4 mr-2"
+                <svg class="opacity-75 h-4 w-4 mr-2"
                      xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 24 24">
                     <path
@@ -33,7 +32,7 @@
                 </a>
             </div>
             <div class="sm:w-full mt-2 lg:mt-0 inline-flex items-center">
-                <svg class="text-green-darker opacity-75 h-4 w-4 mr-2"
+                <svg class="opacity-75 h-4 w-4 mr-2"
                      xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 24 24">
                     <path
@@ -46,7 +45,7 @@
                 </a>
             </div>
             <div class="w-full mt-2 lg:mt-0 inline-flex items-center">
-                <svg class="text-green-darker opacity-75 h-4 w-4 mr-2"
+                <svg class="opacity-75 h-4 w-4 mr-2"
                      xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 24 24">
                     <path
