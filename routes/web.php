@@ -22,7 +22,9 @@ Route::group(['prefix' => '{region}'], static function (): void {
         Route::get('/', 'Category\RegionCategoryController@show')->name('region_category.show');
 
         Route::group(['prefix' => '{category}'], static function (): void {
-            Route::get('/', 'Listing\RegionCategoryListingController@index')->name('region_category_listing.index');
+            Route::get('/listing', 'Listing\RegionCategoryListingController@index')->name(
+                'region_category_listing.index'
+            );
         });
     });
 });

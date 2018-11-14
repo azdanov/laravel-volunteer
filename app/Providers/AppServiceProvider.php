@@ -14,16 +14,12 @@ class AppServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        /** Add region slug */
         Region::creating(static function ($region): void {
-            $prefix = $region->parent ? $region->parent->name . ' ' :'';
-            $region->slug = str_slug($prefix . $region->name);
+            $region->slug = str_slug($region->name);
         });
 
-        /** Add categories slug */
         Category::creating(static function ($category): void {
-            $prefix = $category->parent ? $category->parent->name . ' ' :'';
-            $category->slug = str_slug($prefix . $category->name);
+            $category->slug = str_slug($category->name);
         });
 
         Paginator::defaultView('vendor.pagination.default');

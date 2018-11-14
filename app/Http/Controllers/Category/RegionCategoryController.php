@@ -16,7 +16,7 @@ class RegionCategoryController extends Controller
     {
         $categories = Category::get()->toTree();
 
-        return view('category.index', compact('categories'));
+        return view('region_category.index', compact('categories'));
     }
 
     public function show(Region $region): View
