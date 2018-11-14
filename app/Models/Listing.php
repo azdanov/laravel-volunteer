@@ -6,8 +6,10 @@ namespace App\Models;
 
 use App\Traits\Orderable;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use function array_merge;
@@ -41,9 +43,10 @@ use function array_merge;
  * @method static Builder|Listing whereUpdatedAt($value)
  * @method static Builder|Listing whereUserId($value)
  * @mixin \Eloquent
- * @property-read Category $category
- * @property-read Region $region
- * @property-read User $user
+ * @property Category $category
+ * @property Region $region
+ * @property User $user
+ * @property Collection|User[] $favorites
  * @method static bool|null forceDelete()
  * @method static Builder|Listing fromCategory(Category $category)
  * @method static Builder|Listing inRegion(Region $region)
@@ -109,5 +112,15 @@ class Listing extends Model
     public function cost(): int
     {
         return $this->featured ? (int) config('volunteer.default.cost') : 0;
+    }
+
+    public function favorites(): MorphToMany
+    {
+        return $this->morphToMany(User::class, 'favorite');
+    }
+
+    public function favoritedBy(User $user): bool
+    {
+        return $this->favorites->contains($user);
     }
 }

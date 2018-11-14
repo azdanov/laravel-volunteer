@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
@@ -24,6 +26,7 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property DatabaseNotificationCollection|DatabaseNotification[] $notifications
+ * @property Collection|Listing[] $favoriteListings
  * @method static Builder|User query()
  * @method static Builder|User newQuery()
  * @method static Builder|User newModelQuery()
@@ -45,4 +48,11 @@ class User extends Authenticatable
 
     /** @var string[] */
     protected $hidden = ['password', 'remember_token'];
+
+    public function favoriteListings(): MorphToMany
+    {
+        return $this
+            ->morphedByMany(Listing::class, 'favorite')
+            ->withPivot(['created_at']);
+    }
 }

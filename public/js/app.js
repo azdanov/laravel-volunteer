@@ -68,17 +68,43 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-module.exports = __webpack_require__(2);
+module.exports = __webpack_require__(3);
 
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__forms__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__forms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__forms__);
 
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+var favoriteListingForm = document.querySelector("#favorite-listing-form");
+
+if (favoriteListingForm) {
+    favoriteListingForm.addEventListener("submit", function submitForm(event) {
+        event.preventDefault();
+
+        fetch(this.getAttribute("action"), {
+            method: "post",
+            credentials: "same-origin",
+            body: new FormData(favoriteListingForm)
+        }).then(function () {
+            var button = favoriteListingForm.querySelector("button");
+            button.innerText = "Favorited!";
+            button.blur();
+        });
+    });
+}
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
