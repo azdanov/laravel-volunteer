@@ -91,7 +91,7 @@ use App\Models\Region;
                 <div
                     class="w-full mb-4 lg:my-0 text-green-darker leading-none md:rounded">
                     <div
-                        class="flex justify-around lg:flex-col lg:justify-start lg:mr-6 mt-1">
+                        class="flex justify-around lg:flex-col lg:justify-start mt-1">
                         <a href="#"
                            class="bg-transparent hover:bg-green text-green-dark font-semibold hover:text-white md:my-2 py-2 px-4 border border-green hover:border-transparent rounded no-underline">
                             Email to a friend
@@ -103,16 +103,12 @@ use App\Models\Region;
                     </div>
                 </div>
             @endif
-            <div class="flex flex-wrap mb-4 justify-center md:justify-between lg:justify-start block">
-                <div class="inline-block mt-1 lg:mt-3">
-                    @include('partials.ad')
-                </div>
-                <div class="inline-block mt-1 lg:mt-3">
-                    @include('partials.ad')
-                </div>
+            <div
+                class="flex flex-wrap self-start my-4 justify-around lg:justify-center rounded shadow bg-grey-lightest">
+                @include('partials.ad')
+                @include('partials.ad')
             </div>
         </div>
-    </div>
-
+    </div>w
 
 @endsection
