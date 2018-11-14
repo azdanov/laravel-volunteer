@@ -9,6 +9,8 @@ if (favoriteListingForm) {
             credentials: "same-origin",
             body: new FormData(favoriteListingForm)
         }).then(() => {
+            favoriteListingForm.removeEventListener("submit", submitForm);
+
             const button = favoriteListingForm.querySelector("button");
             button.innerText = "Favorited!";
             button.blur();
