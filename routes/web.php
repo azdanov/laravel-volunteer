@@ -19,17 +19,17 @@ Route::group(['prefix' => '{region}'], static function (): void {
     Route::get('/', 'Region\RegionController@store')->name('region.store');
 
     Route::group(['prefix' => 'category'], static function (): void {
-        Route::get('/', 'Category\RegionCategoryController@show')->name(
-            'region_category.show'
-        );
+        Route::get('/', 'Category\RegionCategoryController@show')->name('region_category.show');
 
         Route::group(['prefix' => '{category}/listing'], static function (): void {
             Route::get('/', 'Listing\RegionCategoryListingController@index')->name(
                 'region_category_listing.index'
             );
+
             Route::get('{listing}', 'Listing\RegionCategoryListingController@show')->name(
                 'region_category_listing.show'
             );
         });
     });
 });
+
