@@ -25,7 +25,7 @@ return [
     |
     */
 
-    'view' => 'partials.breadcrumbs',
+    'view' => 'vendor.breadcrumbs.breadcrumbs',
 
     /*
     |--------------------------------------------------------------------------

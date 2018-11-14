@@ -18,7 +18,7 @@ use App\Models\Listing;
             <div class="bg-grey-light border border-r-0 border-l-0 px-4 py-2 sm:rounded-t">
                 <h2 class="font-bold mr-6 text-2xl text-green-darker">{{ $category->name }}</h2>
             </div>
-            <div class="flex flex-wrap lg:flex-no-wrap px-4 py-4">
+            <div class="flex flex-wrap px-4 py-4">
                 @if ($listings->count())
                     @foreach($listings as $listing)
                         @include('partials.listings.listing', compact('listing'))

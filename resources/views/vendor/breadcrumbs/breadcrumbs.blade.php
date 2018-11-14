@@ -1,6 +1,6 @@
 @if (count($breadcrumbs))
 
-    <nav class="ml-6 rounded">
+    <nav class="md:ml-2 lg:ml-6 rounded overflow-auto">
         <ol class="list-reset flex text-grey-dark">
             @foreach ($breadcrumbs as $breadcrumb)
 
@@ -16,7 +16,7 @@
                     <li>{{ $breadcrumb->title }}</li>
                     <li><span class="mx-2 select-none">/</span></li>
                 @else
-                    <li>{{ $breadcrumb->title }}</li>
+                    <li class="font-bold">{{ $breadcrumb->title }}</li>
                 @endif
 
             @endforeach

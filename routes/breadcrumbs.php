@@ -5,6 +5,7 @@
 declare(strict_types=1);
 
 use App\Models\Category;
+use App\Models\Listing;
 use App\Models\Region;
 use DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator as Crumbs;
 
@@ -59,5 +60,18 @@ Breadcrumbs::for(
                 route('region_category_listing.index', compact('region', 'category'))
             );
         }
+    }
+);
+
+// Home > {Region} > Categories > {Category} > Listings > {Listing}
+Breadcrumbs::for(
+    'region_category_listing',
+    static function (Crumbs $crumbs, Region $region, Category $category, Listing $listing): void {
+        $crumbs->parent('region_category', $region, $category->parent);
+        $crumbs->push(
+            $category->name,
+            route('region_category_listing.index', compact('region', 'category'))
+        );
+        $crumbs->push($listing->title);
     }
 );
