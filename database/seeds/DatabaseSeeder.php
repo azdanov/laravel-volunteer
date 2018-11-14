@@ -8,6 +8,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+         $this->call(UserTableSeeder::class);
          $this->call(RegionTableSeeder::class);
          $this->call(CategoryTableSeeder::class);
     }
