@@ -15,7 +15,11 @@ use App\Models\Listing;
                 {{ $listing->title }}
             </a>
             @if($region->children->count())
-                in {{ $listing->region->name }}
+                in
+                <a class="font-semibold text-green-darker no-underline"
+                   href="{{ route('region.store', $listing->region) }}">
+                    {{ $listing->region->name }}
+                </a>
             @endif
         </h5>
         <p class="mt-2 text-xs">Created

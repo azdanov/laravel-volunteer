@@ -13,12 +13,11 @@ use App\Models\Region;
 use Illuminate\View\View;
 use function compact;
 
-class ListingController extends Controller
+class CategoryListingController extends Controller
 {
     public function show(Category $category): View
     {
-        $listings = Listing::with(['user'])
-            ->isLive()
+        $listings = Listing::isLive()
             ->fromCategory($category)
             ->latestFirst()
             ->paginate(config('volunteer.default.listing_pagination'));

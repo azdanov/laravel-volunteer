@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
-use Kalnoy\Nestedset\Collection;
+use Kalnoy\Nestedset\Collection as NestedCollection;
 use Kalnoy\Nestedset\NodeTrait;
 
 /**
@@ -35,8 +37,11 @@ use Kalnoy\Nestedset\NodeTrait;
  * @method static Builder|Category whereRgt($value)
  * @method static Builder|Category whereSlug($value)
  * @method static Builder|Category whereUpdatedAt($value)
- * @property Collection|Category[] $children
+ * @method static Builder|Category withListingsInRegion(Region $region)
+ * @method static Builder|Category withListings()
+ * @property NestedCollection|Category[] $children
  * @property Category|null $parent
+ * @property Collection|Listing[] $listings
  * @mixin \Eloquent
  */
 class Category extends Model
@@ -49,5 +54,45 @@ class Category extends Model
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    public function listings(): HasMany
+    {
+        return $this->hasMany(Listing::class);
+    }
+
+    public function scopeWithListings(Builder $query): Builder
+    {
+        return $query->with([
+            'listings' => static function (HasMany $listing): void {
+                /** @var HasMany|Listing $listing */
+                $listing->isLive();
+            },
+        ]);
+    }
+
+    public function scopeWithListingsInRegion(Builder $query, Region $region): Builder
+    {
+        return $query->with([
+            'listings' => static function (HasMany $listing) use ($region): void {
+                /** @var HasMany|Listing $listing */
+                $listing->isLive()->inRegion($region);
+            },
+        ]);
+    }
+
+    public function listingsCount(): int
+    {
+        return $this->subCategoryListingsCount() + $this->categoryListingsCount();
+    }
+
+    private function categoryListingsCount(): int
+    {
+        return $this->listings->count();
+    }
+
+    private function subCategoryListingsCount(): int
+    {
+        return $this->children->map->listings->sum->count();
     }
 }

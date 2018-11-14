@@ -13,16 +13,17 @@ use App\Models\Region;
 use Illuminate\View\View;
 use function compact;
 
-class ListingController extends Controller
+class RegionCategoryListingController extends Controller
 {
-    public function show(Category $category): View
+    public function index(Region $region, Category $category): View
     {
-        $listings = Listing::with(['user'])
+        $listings = Listing::with(['user', 'region'])
             ->isLive()
+            ->inRegion($region)
             ->fromCategory($category)
             ->latestFirst()
             ->paginate(config('volunteer.default.listing_pagination'));
 
-        return view('listings.show', compact('listings', 'category'));
+        return view('region_category_listing.index', compact('listings', 'category', 'region'));
     }
 }

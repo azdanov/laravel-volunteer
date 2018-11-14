@@ -23,6 +23,6 @@ class RegionController extends Controller
     {
         session(['region' => $region->slug]);
 
-        return redirect()->route('categories.index', compact('region'));
+        return redirect()->route('region_category.show', compact('region'));
     }
 }

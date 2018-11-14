@@ -72,7 +72,10 @@ class Listing extends Model
 
     public function scopeFromCategory(Builder $query, Category $category): Builder
     {
-        return $query->where('category_id', $category->id);
+        return $query->whereIn(
+            'category_id',
+            array_merge([$category->id], $category->descendants()->pluck('id')->toArray())
+        );
     }
 
     public function scopeInRegion(Builder $query, Region $region): Builder

@@ -10,12 +10,19 @@ use App\Models\Region;
 use Illuminate\View\View;
 use function compact;
 
-class CategoryController extends Controller
+class RegionCategoryController extends Controller
 {
     public function index(): View
     {
-        $categories = Category::withListings()->get()->toTree();
+        $categories = Category::get()->toTree();
 
         return view('category.index', compact('categories'));
+    }
+
+    public function show(Region $region): View
+    {
+        $categories = Category::withListingsInRegion($region)->get()->toTree();
+
+        return view('region_category.show', compact('categories', 'region'));
     }
 }

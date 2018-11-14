@@ -11,7 +11,7 @@ use App\Models\Region;
     <div class="bg-grey-lighter shadow border border-t-0 text-white text-center md:text-left leading-none sm:rounded">
         <div class="bg-grey-light border border-r-0 border-l-0 px-4 py-2 sm:rounded-t">
             <a class="font-bold md:mr-6 text-green-darker no-underline"
-               href="{{ route('region.index') }}">By Region</a>
+               href="{{ route('region.index') }}">Regions</a>
         </div>
         <div class="flex flex-wrap px-4 py-4">
             <div class="w-full md:w-4/5">

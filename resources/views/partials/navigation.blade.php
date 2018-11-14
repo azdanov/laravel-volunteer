@@ -9,7 +9,7 @@
                 </a>
                 @if ($region)
                     <a class="-mt-2 select-none ml-1 text-sm no-underline text-white hover:underline"
-                       href="{{ route('categories.index', [$region]) }}">{{ $region->name }}</a>
+                       href="{{ route('region_category.show', [$region]) }}">{{ $region->name }}</a>
                 @endif
             </div>
         </div>

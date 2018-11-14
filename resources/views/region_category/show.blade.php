@@ -20,8 +20,14 @@ use App\Models\Category;
                 @foreach($categories as $category)
                     <div class="w-1/2 md:w-1/3 lg:w-full lg:ml-6 mt-3 mb-3 lg:mb-0">
                         <div>
-                            <h3 class="font-semibold text-left text-xl text-green-darker whitespace-no-wrap">
-                                {{ $category->name }} (x)
+                            <h3 class="font-semibold text-left text-green-darker text-xl whitespace-no-wrap">
+                                <a class="text-green-darker no-underline"
+                                   href="{{ route('region_category_listing.index', [$region, $category]) }}">
+                                    {{ $category->name }}
+                                </a>
+                                <small class="font-normal ml-1 select-none">
+                                    ({{ $category->listingsCount() }})
+                                </small>
                             </h3>
 
                             <hr class="border-b mr-12 md:mr-0">
@@ -30,10 +36,12 @@ use App\Models\Category;
                                 <p class="flex items-center text-green-darker mt-2">
                                     <span class="mr-2 select-none">&middot;</span>
                                     <a class="font-semibold text-left text-green-darker no-underline"
-                                       href="{{ route('listing.index', [$region, $subCategory]) }}">
+                                       href="{{ route('region_category_listing.index', [$region, $subCategory]) }}">
                                         {{ $subCategory->name }}
                                     </a>
-                                    &nbsp;(x)
+                                    <small class="ml-1 select-none">
+                                        ({{ $subCategory->listingsCount() }})
+                                    </small>
                                 </p>
                             @endforeach
 
@@ -42,5 +50,7 @@ use App\Models\Category;
                 @endforeach
             </div>
         </div>
+        {{--TODO: add regions--}}
     </div>
 @endsection
+

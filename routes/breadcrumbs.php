@@ -29,30 +29,35 @@ Breadcrumbs::for('region', static function (Crumbs $crumbs, Region $region): voi
     $crumbs->push($region->name, route('region.store', $region));
 });
 
-// Home > {Region} > Categories > {Category}
-Breadcrumbs::for(
-    'category_meta',
-    static function (Crumbs $crumbs, Region $region, Category $category): void {
-        $crumbs->parent('region', $region);
+// Home > Categories
+Breadcrumbs::for('categories', static function (Crumbs $crumbs): void {
+    $crumbs->parent('home');
+    $crumbs->push('Categories', route('category.index'));
+});
 
-        if ($category->parent) {
-            $crumbs->push($category->name, route('categories.index', $region));
-        } else {
-            $crumbs->push($category->name);
-        }
+// Home > {Category}
+Breadcrumbs::for('category', static function (Crumbs $crumbs, Category $category): void {
+    if ($category->parent) {
+        $crumbs->parent('category', $category->parent);
+    } else {
+        $crumbs->parent('categories');
     }
-);
+    $crumbs->push($category->name, route('listing.show', $category));
+});
 
 // Home > {Region} > Categories > {Category}
 Breadcrumbs::for(
-    'category',
+    'region_category',
     static function (Crumbs $crumbs, Region $region, Category $category): void {
         if ($category->parent) {
-            $crumbs->parent('category', $region, $category->parent);
-            $crumbs->push($category->name, route('categories.index', $region));
+            $crumbs->parent('region_category', $region, $category->parent);
+            $crumbs->push($category->name, route('region_category.show', $region));
         } else {
             $crumbs->parent('region', $region);
-            $crumbs->push($category->name);
+            $crumbs->push(
+                $category->name,
+                route('region_category_listing.index', compact('region', 'category'))
+            );
         }
     }
 );

@@ -11,7 +11,7 @@ use App\Models\Listing;
 @extends('layouts.app')
 
 @section('content')
-    {{ Breadcrumbs::render('category', $region, $category) }}
+    {{ Breadcrumbs::render('category', $category) }}
 
     <div class="bg-transparent text-left sm:mb-1 sm:pt-3 lg:px-5">
         <div class="bg-grey-lighter shadow border border-t-0 text-white leading-none sm:rounded">
