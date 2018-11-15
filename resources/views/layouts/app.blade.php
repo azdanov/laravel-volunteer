@@ -6,13 +6,11 @@
 <body class="font-sans font-normal text-green-darker leading-normal flex flex-col min-h-screen">
 
 @include('partials.navigation')
-@include('partials.flash')
+@include('partials.flash.index')
 
-<div class="container mx-auto flex-grow">
-    <main>
-        @yield('content')
-    </main>
-</div>
+<main class="container mx-auto flex-grow my-4">
+    @yield('content')
+</main>
 
 @include('partials.footer')
 </body>

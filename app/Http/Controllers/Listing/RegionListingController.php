@@ -25,7 +25,7 @@ class RegionListingController extends Controller
 
         $user->favoriteListings()->syncWithoutDetaching([$listing->id]);
 
-        return back();
+        return back()->with('success', 'Listing added to favorites!');
     }
 
     public function destroy(Region $region, Listing $listing): RedirectResponse
@@ -35,6 +35,6 @@ class RegionListingController extends Controller
 
         $user->favoriteListings()->detach($listing);
 
-        return back();
+        return back()->with('success', 'Listing removed from favorites!');
     }
 }

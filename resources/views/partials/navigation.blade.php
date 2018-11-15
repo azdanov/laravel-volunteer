@@ -1,4 +1,4 @@
-<div class="bg-green shadow mb-4">
+<div class="bg-green shadow">
     <nav class="flex items-center justify-between flex-wrap container mx-auto py-2 px-2 sm:px-0">
         <div class="flex items-center flex-no-shrink text-white -mt-1 ml-4 mr-6 mb-2 md:mb-0">
             @include('partials.logo')

@@ -79,6 +79,9 @@ module.exports = __webpack_require__(3);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__forms__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__forms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__forms__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__flash__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__flash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__flash__);
+
 
 
 /***/ }),
@@ -87,12 +90,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /**
 |--------------------------------------------------
-| Favorite Listing
+| Favorite Listing (Disabled for demo)
 |--------------------------------------------------
 */
 var favoriteListingForm = document.querySelector("#favorite-listing-form");
 
-if (favoriteListingForm) {
+if (favoriteListingForm && false) {
     favoriteListingForm.addEventListener("submit", function submitForm(event) {
         event.preventDefault();
 
@@ -111,18 +114,18 @@ if (favoriteListingForm) {
 
 /**
 |--------------------------------------------------
-| Delete Favorite Listing
+| Delete Favorite Listing (Disabled for demo)
 |--------------------------------------------------
 */
 var deleteFavoriteListingForms = document.querySelectorAll("#delete-favorite-listing-form");
 
-if (deleteFavoriteListingForms.length) {
+if (deleteFavoriteListingForms.length && false) {
     deleteFavoriteListingForms.forEach(function (form) {
         form.addEventListener("submit", function submitDeleteForm(event) {
             event.preventDefault();
 
             fetch(this.getAttribute("action"), {
-                method: "post",
+                method: "delete",
                 credentials: "same-origin",
                 body: new FormData(form)
             }).then(function () {
@@ -140,6 +143,29 @@ if (deleteFavoriteListingForms.length) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */
+/***/ (function(module, exports) {
+
+/**
+|--------------------------------------------------
+| Close Flash (Disabled for demo)
+|--------------------------------------------------
+*/
+var flashCloseButtons = document.querySelectorAll("#flash-close");
+
+if (flashCloseButtons.length && false) {
+    flashCloseButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            button.parentNode.parentNode.removeChild(button.parentNode);
+        });
+    });
+}
 
 /***/ })
 /******/ ]);
