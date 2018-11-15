@@ -16,7 +16,7 @@ class RegionController extends Controller
     {
         $regions = Region::get()->toTree();
 
-        return view('regions.index', compact('regions'));
+        return view('region.index', compact('regions'));
     }
 
     public function store(Region $region): RedirectResponse

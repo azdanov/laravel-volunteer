@@ -22,8 +22,9 @@ use App\Models\Listing;
                 @if ($listings->count())
                     @each('partials.listings.favorite', $listings, 'listing'))
                 @else
-                    <p class="text-green-darker pb-4">Currently no listings are favorited.
-                        Add some to this list!</p>
+                    <p class="text-green-darker pb-4">
+                        Currently no listings are favorited. Add some to this list!
+                    </p>
                 @endif
             </div>
         </div>

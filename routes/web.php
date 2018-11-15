@@ -15,19 +15,24 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
-Route::get('/region', [RegionController::class, 'index'])->name('region.index');
-Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+Route::get('/category', [CategoryController::class, 'index'])
+    ->name('category.index');
 
 Route::group(['prefix' => 'listing'], static function (): void {
-    Route::get('favorite', [ListingController::class, 'index'])->name('listing.index');
+    Route::get('favorite', [ListingController::class, 'index'])
+        ->name('listing.index');
 
-    Route::get('{category}', [ListingController::class, 'show'])->name('listing.show');
+    Route::get('{category}', [ListingController::class, 'show'])
+        ->name('listing.show');
 });
 
-Route::group(['prefix' => '{region}'], static function (): void {
-    Route::get('/', [RegionController::class, 'store'])->name('region.store');
+Route::group(['prefix' => 'region'], static function (): void {
+    Route::get('/', [RegionController::class, 'index'])
+        ->name('region.index');
+    Route::get('/{region}', [RegionController::class, 'store'])
+        ->name('region.store');
 
-    Route::group(['prefix' => 'category'], static function (): void {
+    Route::group(['prefix' => '{region}/category'], static function (): void {
         Route::get('/', [RegionCategoryController::class, 'show'])
             ->name('region_category.show');
 

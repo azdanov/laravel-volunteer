@@ -16,8 +16,15 @@ use App\Models\Region;
                href="{{ route('region_category_listing.show', ['region' => $listing->region, 'category' => $listing->category, 'listing' => $listing]) }}">
                 {{ $listing->title }}
             </a>
-            @if($region->children->count() || Route::is('listing.show'))
+            @unless(preg_match('/(' . $listing->category->name . ')/i', url()->current()) === 1)
                 in
+                <a class="font-semibold text-green-darker no-underline"
+                   href="{{ route('region_category_listing.index', [$listing->region, $listing->category]) }}">
+                    {{ $listing->category->name }}
+                </a>
+            @endunless
+            @if(Route::is('listing.show') || ($region->children->count() && !$region->is($listing->region)))
+                for
                 <a class="font-semibold text-green-darker no-underline"
                    href="{{ route('region.store', $listing->region) }}">
                     {{ $listing->region->name }}
