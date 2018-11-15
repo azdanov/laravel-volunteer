@@ -17,7 +17,7 @@ use App\Models\Category;
             @foreach ($categories as $category)
                 <div class="flex-1 sm:mt-2 lg:mt-0 inline-flex items-center">
                     <a class="font-semibold text-left text-green-darker no-underline"
-                       href="#">
+                       href="{{ route('listing.show', compact('category')) }}">
                         {{ $category->name }}
                     </a>
                 </div>
