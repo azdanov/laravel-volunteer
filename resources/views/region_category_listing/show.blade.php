@@ -94,7 +94,7 @@ use App\Models\Region;
                            class="bg-transparent text-center hover:bg-green text-green-dark font-semibold hover:text-white md:my-2 py-2 px-4 border border-green hover:border-transparent rounded no-underline">
                             Email to a friend
                         </a>
-                        @unless ($listing->favoritedBy(Auth::user()))
+                        @unless ($listing->favoritedBy(auth()->user()))
                             <form method="post" id="favorite-listing-form"
                                   action="{{ route('region_listing.store', compact('region', 'listing')) }}">
                                 @csrf

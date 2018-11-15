@@ -85,6 +85,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 2 */
 /***/ (function(module, exports) {
 
+/**
+|--------------------------------------------------
+| Favorite Listing
+|--------------------------------------------------
+*/
 var favoriteListingForm = document.querySelector("#favorite-listing-form");
 
 if (favoriteListingForm) {
@@ -98,7 +103,34 @@ if (favoriteListingForm) {
         }).then(function () {
             var button = favoriteListingForm.querySelector("button");
             button.innerText = "Favorited!";
+            button.disabled = true;
             button.blur();
+        });
+    });
+}
+
+/**
+|--------------------------------------------------
+| Delete Favorite Listing
+|--------------------------------------------------
+*/
+var deleteFavoriteListingForms = document.querySelectorAll("#delete-favorite-listing-form");
+
+if (deleteFavoriteListingForms.length) {
+    deleteFavoriteListingForms.forEach(function (form) {
+        form.addEventListener("submit", function submitDeleteForm(event) {
+            event.preventDefault();
+
+            fetch(this.getAttribute("action"), {
+                method: "post",
+                credentials: "same-origin",
+                body: new FormData(form)
+            }).then(function () {
+                var button = form.querySelector("button");
+                button.innerText = "Deleted!";
+                button.disabled = true;
+                button.blur();
+            });
         });
     });
 }

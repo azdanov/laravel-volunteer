@@ -14,10 +14,10 @@ use App\Models\Listing;
             <li class="mr-2">Favorited {{ $listing->favoritedTime() }}</li>
             <li>
                 <form method="post" id="delete-favorite-listing-form"
-                      action="#">
+                      action="{{ route('region_listing.destroy', compact('region', 'listing')) }}">
+                    @method('delete')
                     @csrf
-                    <button type="submit"
-                            class="text-green-dark hover:underline">
+                    <button type="submit" class="text-red-dark hover:underline">
                         Delete
                     </button>
                 </form>

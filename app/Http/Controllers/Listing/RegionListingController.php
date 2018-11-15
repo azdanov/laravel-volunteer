@@ -18,12 +18,22 @@ class RegionListingController extends Controller
         $this->middleware(['auth']);
     }
 
-    public function store(Request $request, Region $region, Listing $listing): RedirectResponse
+    public function store(Region $region, Listing $listing): RedirectResponse
     {
         /** @var User $user */
-        $user = $request->user();
+        $user = auth()->user();
 
         $user->favoriteListings()->syncWithoutDetaching([$listing->id]);
+
+        return back();
+    }
+
+    public function destroy(Region $region, Listing $listing): RedirectResponse
+    {
+        /** @var User $user */
+        $user = auth()->user();
+
+        $user->favoriteListings()->detach($listing);
 
         return back();
     }

@@ -43,8 +43,11 @@ Route::group(['prefix' => '{region}'], static function (): void {
         );
     });
 
-    Route::group(['prefix' => 'listing'], static function (): void {
-        Route::post('{listing}/favorite', [RegionListingController::class, 'store'])
+    Route::group(['prefix' => 'listing/favorite'], static function (): void {
+        Route::post('{listing}', [RegionListingController::class, 'store'])
             ->name('region_listing.store');
+
+        Route::delete('{listing}', [RegionListingController::class, 'destroy'])
+            ->name('region_listing.destroy');
     });
 });
