@@ -11,7 +11,7 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
-class FavoriteListingController extends Controller
+class RegionListingController extends Controller
 {
     public function __construct()
     {

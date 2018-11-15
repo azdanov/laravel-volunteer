@@ -2,40 +2,49 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Category\CategoryController;
+use App\Http\Controllers\Category\RegionCategoryController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Listing\ListingController;
+use App\Http\Controllers\Listing\RegionCategoryListingController;
+use App\Http\Controllers\Listing\RegionListingController;
+use App\Http\Controllers\Region\RegionController;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
-Route::get('/region', 'Region\RegionController@index')->name('region.index');
-Route::get('/category', 'Category\CategoryController@index')->name('category.index');
+Route::get('/region', [RegionController::class, 'index'])->name('region.index');
+Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
 
-Route::group(['prefix' => 'listing', 'namespace' => 'Listing'], static function (): void {
-    Route::get('{category}', 'ListingController@show')->name('listing.show');
+Route::group(['prefix' => 'listing'], static function (): void {
+    Route::get('favorite', [ListingController::class, 'index'])->name('listing.index');
+
+    Route::get('{category}', [ListingController::class, 'show'])->name('listing.show');
 });
 
 Route::group(['prefix' => '{region}'], static function (): void {
-    Route::get('/', 'Region\RegionController@store')->name('region.store');
+    Route::get('/', [RegionController::class, 'store'])->name('region.store');
 
     Route::group(['prefix' => 'category'], static function (): void {
-        Route::get('/', 'Category\RegionCategoryController@show')
+        Route::get('/', [RegionCategoryController::class, 'show'])
             ->name('region_category.show');
 
         Route::group(
-            ['prefix' => '{category}/listing', 'namespace' => 'Listing'],
+            ['prefix' => '{category}/listing'],
             static function (): void {
-                Route::get('/', 'RegionCategoryListingController@index')
+                Route::get('/', [RegionCategoryListingController::class, 'index'])
                     ->name('region_category_listing.index');
 
-                Route::get('{listing}', 'RegionCategoryListingController@show')
+                Route::get('{listing}', [RegionCategoryListingController::class, 'show'])
                     ->name('region_category_listing.show');
             }
         );
     });
 
-    Route::group(['prefix' => 'listing', 'namespace' => 'Listing'], static function (): void {
-        Route::post('{listing}/favorite', 'FavoriteListingController@store')
-            ->name('listing_favorite.store');
+    Route::group(['prefix' => 'listing'], static function (): void {
+        Route::post('{listing}/favorite', [RegionListingController::class, 'store'])
+            ->name('region_listing.store');
     });
 });

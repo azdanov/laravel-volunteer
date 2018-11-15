@@ -7,11 +7,11 @@ use App\Models\Listing;
 /** @var Listing $listing */
 ?>
 
-<div class="w-1/2 md:w-1/3 lg:mb-0">
-    <div class="text-green-darker flex flex-col mb-4">
-        <h5 class="font-normal">
+<div class="mb-4 w-auto md:w-1/2">
+    <div class="text-green-darker flex flex-col mb-2">
+        <h5 class="font-normal mb-1">
             <a class="font-semibold text-left text-xl text-green-darker no-underline"
-               href="{{ route('region_category_listing.show', compact('region', 'category', 'listing')) }}">
+               href="{{ route('region_category_listing.show', ['region' => $listing->region, 'category' => $listing->category, 'listing' => $listing]) }}">
                 {{ $listing->title }}
             </a>
             @if($region->children->count())
@@ -22,11 +22,13 @@ use App\Models\Listing;
                 </a>
             @endif
         </h5>
-        <p class="mt-2 text-xs">Created
+        <p class="mt-2 text-xs">
+            Created
             <time>{{ $listing->created_at->diffForHumans() }}</time>
-            by {{ $listing->user->name }} </p>
+            by {{ $listing->user->name }}
+        </p>
     </div>
+    {{ $links }}
 </div>
 
-@yield('links')
 

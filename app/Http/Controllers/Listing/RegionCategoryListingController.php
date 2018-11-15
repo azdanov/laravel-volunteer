@@ -11,6 +11,7 @@ use App\Models\Category;
 use App\Models\Listing;
 use App\Models\Region;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\View\View;
 use function compact;
 
@@ -34,7 +35,7 @@ class RegionCategoryListingController extends Controller
         Category $category,
         Listing $listing
     ): View {
-        abort_if(!$listing->live, 404);
+        abort_if(!$listing->live, Response::HTTP_NOT_FOUND);
 
         return view('region_category_listing.show', compact('listing', 'category', 'region'));
     }

@@ -96,7 +96,7 @@ use App\Models\Region;
                         </a>
                         @unless ($listing->favoritedBy(Auth::user()))
                             <form method="post" id="favorite-listing-form"
-                                  action="{{ route('listing_favorite.store', compact('region', 'listing')) }}">
+                                  action="{{ route('region_listing.store', compact('region', 'listing')) }}">
                                 @csrf
                                 <button type="submit"
                                         class="w-full bg-transparent hover:bg-green text-green-dark font-semibold hover:text-white md:my-2 py-2 px-4 border border-green hover:border-transparent rounded">
@@ -113,6 +113,6 @@ use App\Models\Region;
                 @include('partials.ad')
             </div>
         </div>
-    </div>w
+    </div>
 
 @endsection

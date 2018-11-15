@@ -123,4 +123,9 @@ class Listing extends Model
     {
         return $this->favorites->contains($user);
     }
+
+    public function favoritedTime(): string
+    {
+        return $this->pivot->created_at->diffForHumans();
+    }
 }

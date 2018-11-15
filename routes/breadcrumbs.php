@@ -75,3 +75,9 @@ Breadcrumbs::for(
         $crumbs->push($listing->title);
     }
 );
+
+// Home > Favorite
+Breadcrumbs::for('favorite', static function (Crumbs $crumbs): void {
+    $crumbs->parent('home');
+    $crumbs->push('Favorite', route('listing.index'));
+});
