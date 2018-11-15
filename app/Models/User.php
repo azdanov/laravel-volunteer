@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Traits\PivotOrderable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
@@ -53,6 +54,7 @@ class User extends Authenticatable
     {
         return $this
             ->morphedByMany(Listing::class, 'favorite')
-            ->withPivot(['created_at']);
+            ->withPivot(['created_at'])
+            ->orderByPivot('created_at', 'desc');
     }
 }

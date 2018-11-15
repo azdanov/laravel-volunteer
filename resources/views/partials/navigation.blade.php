@@ -40,7 +40,7 @@
         </form>
 
         <div class="w-full flex-grow flex sm:items-center sm:w-auto">
-            <div class="text-md sm:mt-2 md:mt-0 sm:flex-grow sm:flex md:justify-end">
+            <div class="text-md sm:mt-2 md:mt-0 sm:flex-grow sm:flex md:justify-center lg:justify-end">
                 @guest
                     <a class="block mt-4 sm:inline-block sm:mt-0 text-white no-underline hover:underline mr-4"
                        href="{{ route('login') }}">Login</a>

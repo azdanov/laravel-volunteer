@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Traits\Orderable;
+use App\Traits\PivotOrderable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -57,11 +58,13 @@ use function array_merge;
  * @method static bool|null restore()
  * @method static Builder|Listing withTrashed()
  * @method static Builder|Listing withoutTrashed()
+ * @method static Builder|Listing orderByPivot($column = 'created_at', $order = 'desc')
  */
 class Listing extends Model
 {
     use SoftDeletes;
     use Orderable;
+    use PivotOrderable;
 
     public function scopeIsLive(Builder $query): Builder
     {

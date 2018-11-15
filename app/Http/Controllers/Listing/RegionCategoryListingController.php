@@ -19,7 +19,7 @@ class RegionCategoryListingController extends Controller
 {
     public function index(Region $region, Category $category): View
     {
-        $listings = Listing::with(['user', 'region'])
+        $listings = Listing::with(['user', 'region', 'category'])
             ->isLive()
             ->inRegion($region)
             ->fromCategory($category)
@@ -29,12 +29,8 @@ class RegionCategoryListingController extends Controller
         return view('region_category_listing.index', compact('listings', 'category', 'region'));
     }
 
-    public function show(
-        Request $request,
-        Region $region,
-        Category $category,
-        Listing $listing
-    ): View {
+    public function show(Region $region, Category $category, Listing $listing): View
+    {
         abort_if(!$listing->live, Response::HTTP_NOT_FOUND);
 
         return view('region_category_listing.show', compact('listing', 'category', 'region'));

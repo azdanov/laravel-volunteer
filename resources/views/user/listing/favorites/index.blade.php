@@ -18,7 +18,7 @@ use App\Models\Listing;
             <div class="bg-grey-light border border-r-0 border-l-0 px-4 py-2 sm:rounded-t">
                 <h2 class="font-bold mr-6 text-2xl text-green-darker">Favorite</h2>
             </div>
-            <div class="flex flex-wrap justify-between lg:flex-no-wrap px-4 py-4">
+            <div class="flex flex-wrap justify-between lg:flex-no-wrap px-4 pt-4">
                 @if ($listings->count())
                     @each('partials.listings.favorite', $listings, 'listing'))
                 @else

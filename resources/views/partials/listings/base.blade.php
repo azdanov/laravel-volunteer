@@ -30,7 +30,7 @@ use App\Models\Region;
             by {{ $listing->user->name }}
         </p>
     </div>
-    {{ $links }}
+    {{ $links ?? null }}
 </div>
 
 

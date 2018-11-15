@@ -23,7 +23,7 @@ class ListingController extends Controller
         $user = auth()->user();
         abort_if(!$user, Response::HTTP_NOT_FOUND);
 
-        $listings = $user->favoriteListings()->with(['user'])->paginate(
+        $listings = $user->favoriteListings()->with(['user', 'region', 'category'])->paginate(
             config('volunteer.default.listing_pagination')
         );
 

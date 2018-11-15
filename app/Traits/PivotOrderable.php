@@ -6,13 +6,13 @@ namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 
-trait Orderable
+trait PivotOrderable
 {
-    public function scopeLatestFirst(
+    public function scopeOrderByPivot(
         Builder $query,
         string $column = 'created_at',
         string $order = 'desc'
     ): Builder {
-        return $query->orderBy($column, $order);
+        return $query->orderBy('pivot_' . $column, $order);
     }
 }
