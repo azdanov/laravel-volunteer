@@ -3,3 +3,10 @@
 html {
     font-size: 20px;
 }
+
+@media (max-width: 577px) {
+    #menu-toggle:checked ~ #menu,
+    #menu-toggle:checked ~ #search {
+        display: none;
+    }
+}

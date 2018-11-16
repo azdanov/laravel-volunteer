@@ -1,6 +1,8 @@
 <div class="bg-green shadow">
-    <nav class="flex items-center justify-between flex-wrap container mx-auto py-2 px-2 sm:px-0">
-        <div class="flex items-center flex-no-shrink text-white -mt-1 ml-4 mr-6 mb-2 md:mb-0">
+    <nav
+        class="flex items-center justify-between flex-wrap container mx-auto py-3 lg:py-2 px-2 lg:px-0">
+        <div
+            class="flex items-center flex-no-shrink text-white -mt-1 ml-2 lg:ml-4 mr-6 mb-2 md:mb-0">
             @include('partials.logo')
             <div class="ml-1 w-24 flex flex-wrap">
                 <a href="{{ route('home') }}"
@@ -14,17 +16,17 @@
             </div>
         </div>
 
-        <div class="block sm:hidden">
-            <button
-                class="flex items-center px-3 py-2 border rounded text-green-lighter border-green-light hover:text-white hover:border-white">
-                <svg class="fill-current h-3 w-3" viewBox="0 0 20 20"
-                     xmlns="http://www.w3.org/2000/svg"><title>Menu</title>
-                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-                </svg>
-            </button>
-        </div>
+        <label
+            class="block sm:hidden flex items-center px-3 py-2 border rounded cursor-pointer text-green-lighter border-green-lighter hover:text-white hover:border-white"
+            type="button" for="menu-toggle">
+            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20"
+                 xmlns="http://www.w3.org/2000/svg"><title>Toggle Menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+            </svg>
+        </label>
+        <input type="checkbox" id="menu-toggle" class="hidden">
 
-        <form class="lg:ml-10 shadow rounded">
+        <form class="mx-auto shadow rounded" id="search">
             @csrf
             <div class="flex items-center">
                 <input
@@ -40,31 +42,38 @@
             </div>
         </form>
 
-        <div class="w-full flex-grow flex sm:items-center sm:w-auto">
-            <div class="text-md sm:mt-2 md:mt-0 sm:flex-grow sm:flex md:justify-center lg:justify-end">
+        <div class="w-full lg:w-auto sm:block" id="menu">
+            <div
+                class="text-md sm:mt-2 lg:mt-0 flex flex-wrap items-center justify-between md:justify-center lg:justify-end">
                 @guest
-                    <a class="block mt-4 sm:inline-block sm:mt-0 text-white no-underline hover:underline mr-4"
+                    <a class="block mt-4 sm:mt-0 text-white no-underline hover:underline mr-4"
                        href="{{ route('login') }}">Login</a>
                     @if (Route::has('register'))
-                        <a class="block mt-4 sm:inline-block sm:mt-0 text-white no-underline hover:underline mr-4"
+                        <a class="block mt-4 sm:mt-0 text-white no-underline hover:underline mr-4"
                            href="{{ route('register') }}">Register</a>
                     @endif
                 @else
-                    <a class="block mt-4 sm:inline-block sm:mt-0 text-white no-underline hover:underline mr-4"
+                    <a class="inline-block mt-4 sm:mt-0 text-white no-underline hover:underline mr-4"
                        href="{{ route('listing.index') }}">
                         Favorite
                     </a>
 
-                    <a class="block mt-4 sm:inline-block sm:mt-0 text-white no-underline hover:underline mr-4"
+                    <a class="inline-block mt-4 sm:mt-0 text-white no-underline hover:underline mr-4"
+                       href="{{ route('viewed_listing.index') }}">
+                        Viewed
+                    </a>
+
+                    <a class="inline-block mt-4 sm:mt-0 text-white no-underline hover:underline mr-4"
                        href="/cabinet">
                         {{ auth()->user()->name }}
                     </a>
 
-                    <form action="{{ route('logout') }}" method="POST">
+                    <form action="{{ route('logout') }}" method="POST"
+                          class="inline-flex items-center">
                         @csrf
                         <button
                             type="submit"
-                            class="block mt-4 sm:inline-block sm:mt-0 text-white no-underline hover:underline mr-4">
+                            class="mt-4 sm:mt-0 text-white no-underline hover:underline mr-4">
                             Logout
                         </button>
                     </form>

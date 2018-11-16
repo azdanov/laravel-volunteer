@@ -5,10 +5,12 @@ declare(strict_types=1);
 use App\Models\Category;
 use App\Models\Listing;
 use App\Models\Region;
+use App\Models\User;
 
 /** @var Listing $listing */
 /** @var Category $category */
 /** @var Region $region */
+/** @var User $user */
 ?>
 
 @extends('layouts.app')
@@ -31,7 +33,7 @@ use App\Models\Region;
                         <p class="leading-normal">
                             {!! nl2br(e($listing->body)) !!}
                         </p>
-                        <p class="w-full mt-4 pt-3 border-t">Viewed x times</p>
+                        <small class="w-full mt-4 pt-3 border-t">Viewed {{ $listing->views() }} times</small>
                     </div>
                 </div>
             </div>
@@ -44,7 +46,7 @@ use App\Models\Region;
                             Contact {{ $listing->user->name }}
                         </h3>
                     </div>
-                    @if (Auth::guest())
+                    @unless ($user)
                         <p class="m-4">
                             <a href="{{ route('register') }}" class="text-green-darker">Register</a>
                             or
@@ -74,27 +76,25 @@ use App\Models\Region;
                                     type="submit">
                                     Contact
                                 </button>
-                                <small class="ml-4 text-green-dark text-xs italic leading-tight">
+                                <small class="ml-4 text-grey-darker text-xs italic leading-tight">
                                     The message is sent to {{ $listing->user->name }} and they'll be
-                                    able to
-                                    reply
-                                    directly to your email.
+                                    able to reply directly to your email.
                                 </small>
                             </div>
                         </form>
-                    @endif
+                    @endunless
                 </div>
             </div>
         </div>
         <div class="w-full lg:w-1/4 lg:ml-4">
-            @if (Auth::check())
+            @if ($user)
                 <div class="w-full mb-4 lg:my-0 text-green-darker leading-none md:rounded">
                     <div class="flex justify-around lg:flex-col lg:justify-start mt-1">
                         <a href="#"
                            class="bg-transparent text-center hover:bg-green text-green-dark font-semibold hover:text-white md:my-2 py-2 px-4 border border-green hover:border-transparent rounded no-underline">
                             Email to a friend
                         </a>
-                        @unless ($listing->favoritedBy(auth()->user()))
+                        @unless ($listing->favoritedBy($user))
                             <form method="post" id="favorite-listing-form"
                                   action="{{ route('region_listing.store', compact('region', 'listing')) }}">
                                 @csrf

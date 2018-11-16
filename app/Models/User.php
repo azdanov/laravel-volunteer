@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Traits\PivotOrderable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\DatabaseNotification;
@@ -39,6 +39,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|User wherePassword($value)
  * @method static Builder|User whereRememberToken($value)
  * @method static Builder|User whereUpdatedAt($value)
+ * @property-read Collection|Listing[] $viewedListings
  */
 class User extends Authenticatable
 {
@@ -56,5 +57,13 @@ class User extends Authenticatable
             ->morphedByMany(Listing::class, 'favorite')
             ->withPivot(['created_at'])
             ->orderByPivot('created_at', 'desc');
+    }
+
+    public function viewedListings(): BelongsToMany
+    {
+        return $this
+            ->belongsToMany(Listing::class, 'user_listing_views')
+            ->withTimestamps()
+            ->withPivot(['count', 'id']);
     }
 }

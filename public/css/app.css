@@ -6277,6 +6277,13 @@ html {
   font-size: 20px;
 }
 
+@media (max-width: 577px) {
+  #menu-toggle:checked ~ #menu,
+  #menu-toggle:checked ~ #search {
+    display: none;
+  }
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;

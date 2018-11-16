@@ -27,7 +27,7 @@ class ListingController extends Controller
             config('volunteer.default.listing_pagination')
         );
 
-        return view('user.listing.favorites.index', compact('listings'));
+        return view('user.listing.favorite.index', compact('listings'));
     }
 
     public function show(Category $category): View

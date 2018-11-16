@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
@@ -59,6 +60,7 @@ use function array_merge;
  * @method static Builder|Listing withTrashed()
  * @method static Builder|Listing withoutTrashed()
  * @method static Builder|Listing orderByPivot($column = 'created_at', $order = 'desc')
+ * @property-read Collection|User[] $viewedUsers
  */
 class Listing extends Model
 {
@@ -130,5 +132,18 @@ class Listing extends Model
     public function favoritedTime(): string
     {
         return $this->pivot->created_at->diffForHumans();
+    }
+
+    public function viewedUsers(): BelongsToMany
+    {
+        return $this
+            ->belongsToMany(User::class, 'user_listing_views')
+            ->withTimestamps()
+            ->withPivot(['count']);
+    }
+
+    public function views(): int
+    {
+        return $this->viewedUsers->sum('pivot.count');
     }
 }

@@ -7,9 +7,11 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Listing;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\UserViewedListing;
 use App\Models\Category;
 use App\Models\Listing;
 use App\Models\Region;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
@@ -29,10 +31,19 @@ class RegionCategoryListingController extends Controller
         return view('region_category_listing.index', compact('listings', 'category', 'region'));
     }
 
-    public function show(Region $region, Category $category, Listing $listing): View
+    public function show(Request $request, Region $region, Category $category, Listing $listing): View
     {
-        abort_if(!$listing->live, Response::HTTP_NOT_FOUND);
+        abort_unless($listing->live, Response::HTTP_NOT_FOUND);
 
-        return view('region_category_listing.show', compact('listing', 'category', 'region'));
+        /** @var User $user */
+        $user = $request->user();
+        if ($user) {
+            $this->dispatch(new UserViewedListing($user, $listing));
+        }
+
+        return view(
+            'region_category_listing.show',
+            compact('listing', 'category', 'region', 'user')
+        );
     }
 }

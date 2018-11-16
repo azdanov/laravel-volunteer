@@ -39,5 +39,3 @@ use App\Models\Region;
     </div>
     {{ $links ?? null }}
 </div>
-
-
