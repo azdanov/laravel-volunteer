@@ -7,23 +7,23 @@ use App\Models\Category;
 /** @var Category[] $categories */
 
 ?>
-<div class="bg-transparent text-left sm:pt-2 lg:px-5">
-    <div class="bg-grey-lighter shadow border border-t-0 text-white leading-none sm:rounded">
+<div class="bg-transparent text-left my-3 lg:px-5">
+    <div class="bg-grey-lighter shadow border border-t-0 text-white leading-none sm:rounded text-center md:text-left">
         <div class="bg-grey-light border border-r-0 border-l-0 px-4 py-2 sm:rounded-t">
-            <a class="font-bold mr-6 text-green-darker no-underline"
+            <a class="font-bold mr-0 md:mr-6 text-green-darker no-underline"
                href="{{ route('category.index') }}">Categories</a>
         </div>
-        <div class="flex justify-between flex-wrap lg:flex-no-wrap px-4 py-4">
+        <div class="flex justify-between flex-wrap px-4 py-3">
             @foreach ($categories as $category)
-                <div class="flex-1 sm:mt-2 lg:mt-0 inline-flex items-center">
+                <div class="w-1/2 my-2 md:w-1/5">
                     <a class="font-semibold text-left text-green-darker no-underline"
                        href="{{ route('listing.show', compact('category')) }}">
                         {{ $category->name }}
                     </a>
                 </div>
             @endforeach
-            <div class="flex-1 mt-2 lg:mt-0 border-l pl-2 -mr-2 inline-flex items-center">
-                <svg class="opacity-75 h-4 w-4 mr-1"
+            <div class="flex-1 mt-3 pt-2 flex items-center justify-center border-t whitespace-no-wrap">
+                <svg class="opacity-75 h-4 w-4 mr-1 hidden lg:block"
                      xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 24 24">
                     <path

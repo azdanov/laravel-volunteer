@@ -24,15 +24,16 @@
             </button>
         </div>
 
-        <form class="w-full max-w-xs lg:ml-10 shadow rounded">
+        <form class="lg:ml-10 shadow rounded">
             @csrf
             <div class="flex items-center">
                 <input
-                    class="appearance-none bg-green-lightest w-full text-grey-darkest px-2 py-1 leading-tight focus:outline-none rounded-l"
+                    class="appearance-none min-w-0 w-100 bg-green-lightest text-grey-darkest px-2 py-1 leading-tight focus:outline-none rounded-l"
                     type="text" placeholder="Find Volunteer Positions.."
+                    style="min-width:0; width:100%"
                     aria-label="Find Volunteer Positions">
                 <button
-                    class="flex-no-shrink bg-green-light hover:bg-green-dark text-lg text-white px-2 py-1 rounded-r"
+                    class="bg-green-light hover:bg-green-dark text-lg text-white px-2 py-1 rounded-r"
                     type="submit">
                     Search
                 </button>

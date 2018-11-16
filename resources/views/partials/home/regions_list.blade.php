@@ -7,13 +7,13 @@ use App\Models\Region;
 /** @var Region[] $regions */
 ?>
 
-<div class="bg-transparent text-left sm:mb-1 sm:pt-2 lg:px-5">
+<div class="bg-transparent text-left my-3 lg:px-5">
     <div class="bg-grey-lighter shadow border border-t-0 text-white text-center md:text-left leading-none sm:rounded">
         <div class="bg-grey-light border border-r-0 border-l-0 px-4 py-2 sm:rounded-t">
             <a class="font-bold md:mr-6 text-green-darker no-underline"
                href="{{ route('region.index') }}">Regions</a>
         </div>
-        <div class="flex flex-wrap px-4 py-4">
+        <div class="flex flex-wrap px-4 py-3">
             <div class="w-full md:w-4/5">
                 @foreach($regions as $country)
                     <a class="block font-semibold text-green-darker no-underline"
@@ -53,7 +53,7 @@ use App\Models\Region;
                 @endforeach;
             </div>
             <div
-                class="w-full md:w-1/5 -mt-2 flex items-center justify-center md:border-l sm:pl-4">
+                class="w-full md:w-1/5 -mt-2 pt-2 flex items-center justify-center border-t md:border-t-0 md:border-l md:pl-4">
                 <svg class="opacity-75 h-4 w-4 mr-1 invisible md:visible"
                      xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 24 24">

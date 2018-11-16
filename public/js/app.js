@@ -68,7 +68,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-module.exports = __webpack_require__(3);
+module.exports = __webpack_require__(4);
 
 
 /***/ }),
@@ -79,7 +79,7 @@ module.exports = __webpack_require__(3);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__forms__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__forms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__forms__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__flash__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__flash__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__flash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__flash__);
 
 
@@ -142,16 +142,6 @@ if (deleteFavoriteListingForms.length && false) {
 /* 3 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */
-/***/ (function(module, exports) {
-
 /**
 |--------------------------------------------------
 | Close Flash (Disabled for demo)
@@ -166,6 +156,12 @@ if (flashCloseButtons.length && false) {
         });
     });
 }
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
