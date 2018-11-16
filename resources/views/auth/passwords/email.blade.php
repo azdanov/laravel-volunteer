@@ -11,7 +11,7 @@
                     Email
                 </label>
                 <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline{{$errors->has('email'? 'border-red mb-2':'')}}"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline{{$errors->has('email') ? ' border-red mb-2' : ''}}"
                     id="email" type="email" name="email" placeholder="Email"
                     value="{{ old('email') }}" required>
                 @if ($errors->has('email'))

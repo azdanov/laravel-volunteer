@@ -18,7 +18,7 @@
 
         <label
             class="block sm:hidden flex items-center px-3 py-2 border rounded cursor-pointer text-green-lighter border-green-lighter hover:text-white hover:border-white"
-            type="button" for="menu-toggle">
+            for="menu-toggle">
             <svg class="fill-current h-3 w-3" viewBox="0 0 20 20"
                  xmlns="http://www.w3.org/2000/svg"><title>Toggle Menu</title>
                 <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
@@ -42,9 +42,9 @@
             </div>
         </form>
 
-        <div class="w-full lg:w-auto sm:block" id="menu">
+        <div class="w-full md:w-auto sm:block" id="menu">
             <div
-                class="text-md sm:mt-2 lg:mt-0 flex flex-wrap items-center justify-between md:justify-center lg:justify-end">
+                class="text-md sm:mt-2 lg:mt-0 flex flex-wrap items-center justify-center lg:justify-end">
                 @guest
                     <a class="block mt-4 sm:mt-0 text-white no-underline hover:underline mr-4"
                        href="{{ route('login') }}">Login</a>
@@ -53,30 +53,57 @@
                            href="{{ route('register') }}">Register</a>
                     @endif
                 @else
-                    <a class="inline-block mt-4 sm:mt-0 text-white no-underline hover:underline mr-4"
-                       href="{{ route('listing.index') }}">
-                        Favorite
-                    </a>
-
-                    <a class="inline-block mt-4 sm:mt-0 text-white no-underline hover:underline mr-4"
-                       href="{{ route('viewed_listing.index') }}">
-                        Viewed
-                    </a>
-
-                    <a class="inline-block mt-4 sm:mt-0 text-white no-underline hover:underline mr-4"
-                       href="/cabinet">
-                        {{ auth()->user()->name }}
-                    </a>
-
-                    <form action="{{ route('logout') }}" method="POST"
-                          class="inline-flex items-center">
-                        @csrf
-                        <button
-                            type="submit"
-                            class="mt-4 sm:mt-0 text-white no-underline hover:underline mr-4">
-                            Logout
-                        </button>
-                    </form>
+                    <div class="relative px-4 mt-2 md:mt-0">
+                        <label
+                            class="bg-transparent flex items-center rounded text-white cursor-pointer select-none"
+                            for="user-toggle">
+                            {{ auth()->user()->name }}
+                            <svg class="h-4 fill-current ml-2" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 129 129">
+                                <path
+                                    d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z"></path>
+                            </svg>
+                        </label>
+                        <input type="checkbox" id="user-toggle" checked class="hidden">
+                        <div id="user-menu"
+                             class="rounded bg-white px-3 pb-3 whitespace-no-wrap shadow-md absolute mt-8 pin-t pin-l min-w-full">
+                            <ul class="list-reset">
+                                <li>
+                                    <a class="inline-block mt-1 text-green-darker no-underline hover:underline"
+                                       href="{{ route('listing.create') }}">
+                                        Create Listing
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="inline-block mt-1 text-green-darker no-underline hover:underline"
+                                       href="{{ route('viewed_listing.index') }}">
+                                        Viewed Listings
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="inline-block mt-1 text-green-darker no-underline hover:underline"
+                                       href="{{ route('listing.index') }}">
+                                        Favorite Listings
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="border-t border-grey-light">
+                                </li>
+                                <li>
+                                    <form action="{{ route('logout') }}" method="POST"
+                                          class="inline-flex items-center">
+                                        @csrf
+                                        <button
+                                            type="submit"
+                                            class="text-green-darker no-underline hover:underline">
+                                            Logout
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 @endguest
             </div>
         </div>

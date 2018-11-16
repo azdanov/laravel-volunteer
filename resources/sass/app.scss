@@ -10,3 +10,7 @@ html {
         display: none;
     }
 }
+
+#user-toggle:checked + #user-menu {
+    display: none;
+}

@@ -81,3 +81,15 @@ Breadcrumbs::for('favorite', static function (Crumbs $crumbs): void {
     $crumbs->parent('home');
     $crumbs->push('Favorite', route('listing.index'));
 });
+
+// Home > Listing Create
+Breadcrumbs::for('listing_create', static function (Crumbs $crumbs): void {
+    $crumbs->parent('home');
+    $crumbs->push('Create Listing', route('listing.create'));
+});
+
+// Home > {Listing} Edit
+Breadcrumbs::for('listing_edit', static function (Crumbs $crumbs, Listing $listing): void {
+    $crumbs->parent('home');
+    $crumbs->push('Editing (' . $listing->title . ')', route('listing.edit', $listing));
+});

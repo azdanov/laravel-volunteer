@@ -12,7 +12,7 @@
                     Name
                 </label>
                 <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline{{$errors->has('name'? 'border-red mb-2':'')}}"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline{{$errors->has('name') ? ' border-red mb-2' : ''}}"
                     id="name" type="text" name="name" placeholder="Name"
                     value="{{ old('name') }}" required>
                 @if ($errors->has('name'))
@@ -24,7 +24,7 @@
                     Email
                 </label>
                 <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline{{$errors->has('email'? 'border-red mb-2':'')}}"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline{{$errors->has('email') ? ' border-red mb-2' : ''}}"
                     id="email" type="email" name="email" placeholder="Email"
                     value="{{ old('email') }}" required>
                 @if ($errors->has('email'))
@@ -37,7 +37,7 @@
                     Password
                 </label>
                 <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline{{$errors->has('password'? 'border-red mb-2':'')}}"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline{{$errors->has('password') ? ' border-red mb-2' : ''}}"
                     id="password" type="password" name="password" required
                     placeholder="******************">
                 @if ($errors->has('password'))
@@ -50,7 +50,7 @@
                     Confirm Password
                 </label>
                 <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline{{$errors->has('password'? 'border-red mb-2':'')}}"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline{{$errors->has('password') ? ' border-red mb-2' : ''}}"
                     id="password_confirmation" type="password" name="password_confirmation"
                     required
                     placeholder="******************">

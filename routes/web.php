@@ -21,6 +21,17 @@ Route::get('/category', [CategoryController::class, 'index'])
     ->name('category.index');
 
 Route::group(['prefix' => 'listing'], static function (): void {
+    Route::group(['middleware' => 'auth'], static function (): void {
+        Route::get('create', [ListingController::class, 'create'])
+            ->name('listing.create');
+        Route::post('create', [ListingController::class, 'store'])
+            ->name('listing.store');
+        Route::get('{listing}/edit', [ListingController::class, 'edit'])
+            ->name('listing.edit');
+        Route::put('{listing}', [ListingController::class, 'update'])
+            ->name('listing.update');
+    });
+
     Route::get('favorite', [ListingController::class, 'index'])
         ->name('listing.index');
 

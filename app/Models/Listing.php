@@ -146,4 +146,9 @@ class Listing extends Model
     {
         return $this->viewedUsers->sum('pivot.count');
     }
+
+    public function ownedByUser(User $user): bool
+    {
+        return $this->user->id === $user->id;
+    }
 }

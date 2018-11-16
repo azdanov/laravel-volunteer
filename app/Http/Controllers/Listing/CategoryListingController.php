@@ -22,6 +22,6 @@ class CategoryListingController extends Controller
             ->latestFirst()
             ->paginate(config('volunteer.default.listing_pagination'));
 
-        return view('listings.show', compact('listings', 'category'));
+        return view('listing.show', compact('listings', 'category'));
     }
 }
