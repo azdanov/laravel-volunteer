@@ -54,7 +54,7 @@ use App\Models\User;
                             to contact the listing owner.
                         </p>
                     @else
-                        <form class="m-4" method="POST" action="">
+                        <form class="m-4" method="post" action="{{ route('contact_listing.store', [$region, $category, $listing]) }}">
                             @csrf
                             <div class="mb-2">
                                 <label class="block text-grey-darker text-sm font-bold mb-2"
@@ -62,7 +62,7 @@ use App\Models\User;
                                     Message
                                 </label>
                                 <textarea
-                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline{{$errors->has('message'? 'border-red mb-2':'')}}"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline{{$errors->has('message') ? ' border-red mb-2':''}}"
                                     id="message" type="text" name="message" placeholder=""
                                     required>{{ old('message') }}</textarea>
                                 @if ($errors->has('message'))

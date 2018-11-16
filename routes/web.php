@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\Category\RegionCategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Listing\ContactListingController;
 use App\Http\Controllers\Listing\ListingController;
 use App\Http\Controllers\Listing\RegionCategoryListingController;
 use App\Http\Controllers\Listing\RegionListingController;
@@ -48,6 +49,9 @@ Route::group(['prefix' => 'region'], static function (): void {
 
                 Route::get('{listing}', [RegionCategoryListingController::class, 'show'])
                     ->name('region_category_listing.show');
+
+                Route::post('{listing}/contact', [ContactListingController::class, 'store'])
+                    ->name('contact_listing.store');
             }
         );
     });
