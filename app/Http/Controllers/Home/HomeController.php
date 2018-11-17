@@ -16,7 +16,11 @@ class HomeController extends Controller
     {
         $regions = Region::get()->toTree();
         $categories = Category::get()->toTree();
-        $listings = Listing::with(['region', 'category'])->latest('updated_at')->limit(4)->get();
+        $listings = Listing::with(['region', 'category'])
+            ->isLive()
+            ->latestFirst()
+            ->limit(4)
+            ->get();
 
         return view('home.index', compact('regions', 'categories', 'listings'));
     }

@@ -27,7 +27,7 @@ class ViewedListingController extends Controller
         $listings = $user
             ->viewedListings()
             ->with(['region', 'user', 'category'])
-            ->orderByPivot('updated_at', 'desc')
+            ->orderByPivot('created_at', 'desc')
             ->isLive()
             ->take(self::LIMIT)
             ->get();

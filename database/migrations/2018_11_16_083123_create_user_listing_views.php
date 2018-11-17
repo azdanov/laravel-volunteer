@@ -18,7 +18,7 @@ class CreateUserListingViews extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('listing_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('listing_id')->references('id')->on('listings')->onDelete('cascade');
         });
     }
 

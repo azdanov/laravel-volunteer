@@ -15,5 +15,8 @@
         "laravel-mix-tailwind": "^0.1.0",
         "tailwindcss": "^0.7.2",
         "tailwindcss-aspect-ratio": "^1.0.1"
+    },
+    "dependencies": {
+        "braintree-web-drop-in": "^1.14.1"
     }
 }

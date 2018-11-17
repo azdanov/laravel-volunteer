@@ -2,11 +2,13 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\BraintreeController;
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\Category\RegionCategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Listing\ContactListingController;
 use App\Http\Controllers\Listing\ListingController;
+use App\Http\Controllers\Listing\PaymentListingController;
 use App\Http\Controllers\Listing\RegionCategoryListingController;
 use App\Http\Controllers\Listing\RegionListingController;
 use App\Http\Controllers\Listing\ViewedListingController;
@@ -20,14 +22,26 @@ Auth::routes();
 Route::get('/category', [CategoryController::class, 'index'])
     ->name('category.index');
 
+Route::post('payment/token', [BraintreeController::class, 'token'])
+    ->name('payment_listing.token')->middleware(['auth']);
+
 Route::group(['prefix' => 'listing'], static function (): void {
     Route::group(['middleware' => 'auth'], static function (): void {
         Route::get('create', [ListingController::class, 'create'])
             ->name('listing.create');
         Route::post('create', [ListingController::class, 'store'])
             ->name('listing.store');
+
         Route::get('{listing}/edit', [ListingController::class, 'edit'])
             ->name('listing.edit');
+
+        Route::get('{listing}/payment', [PaymentListingController::class, 'show'])
+            ->name('payment_listing.show');
+        Route::post('{listing}', [PaymentListingController::class, 'store'])
+            ->name('payment_listing.store');
+        Route::patch('{listing}', [PaymentListingController::class, 'update'])
+            ->name('payment_listing.update');
+
         Route::put('{listing}', [ListingController::class, 'update'])
             ->name('listing.update');
     });
@@ -45,6 +59,7 @@ Route::group(['prefix' => 'listing'], static function (): void {
 Route::group(['prefix' => 'region'], static function (): void {
     Route::get('/', [RegionController::class, 'index'])
         ->name('region.index');
+
     Route::get('/{region}', [RegionController::class, 'store'])
         ->name('region.store');
 

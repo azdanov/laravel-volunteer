@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    {{ Breadcrumbs::render('form', 'Register') }}
+
     <div class="w-full flex justify-center mt-6 mb-3">
         <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex-grow max-w-xs"
               method="POST"

@@ -14,15 +14,20 @@ class ListingPolicy
 
     public function edit(User $user, Listing $listing): bool
     {
-        return $listing->ownedByUser($user);
+        return $this->access($user, $listing);
     }
 
     public function update(User $user, Listing $listing): bool
     {
-        return $listing->ownedByUser($user);
+        return $this->access($user, $listing);
     }
 
     public function destroy(User $user, Listing $listing): bool
+    {
+        return $this->access($user, $listing);
+    }
+
+    public function access(User $user, Listing $listing): bool
     {
         return $listing->ownedByUser($user);
     }

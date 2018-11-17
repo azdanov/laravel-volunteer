@@ -24,6 +24,7 @@ use Kalnoy\Nestedset\NodeTrait;
  * @property Carbon|null $updated_at
  * @property Collection|Region[] $children
  * @property Region|null $parent
+ * @property bool $usable
  * @method static Builder|Region d()
  * @method static Builder|Region query()
  * @method static Builder|Region newQuery()
@@ -36,6 +37,7 @@ use Kalnoy\Nestedset\NodeTrait;
  * @method static Builder|Region whereRgt($value)
  * @method static Builder|Region whereSlug($value)
  * @method static Builder|Region whereUpdatedAt($value)
+ * @method static Builder|Region whereUsable($value)
  */
 class Region extends Model
 {

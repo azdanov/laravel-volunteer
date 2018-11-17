@@ -9,9 +9,9 @@
                    class="font-semibold text-2xl tracking-tight text-white no-underline">
                     Volunteer
                 </a>
-                @if ($region)
+                @if ($global_region)
                     <a class="-mt-2 select-none ml-1 text-sm no-underline text-white hover:underline"
-                       href="{{ route('region_category.show', [$region]) }}">{{ $region->name }}</a>
+                       href="{{ route('region_category.show', [$global_region]) }}">{{ $global_region->name }}</a>
                 @endif
             </div>
         </div>

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    {{ Breadcrumbs::render('form', 'Verify Email') }}
+
     <h2>Verify Your Email Address</h2>
 
     <div>

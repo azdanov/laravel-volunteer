@@ -16,7 +16,7 @@ use App\Models\Listing;
                 <div class="w-1/3 md:w-3/5">
                     <p class="font-bold no-underline">Job Title</p>
                 </div>
-                <div class="w-2/3 md:w-2/5 flex justify-between">
+                <div class="w-2/3 md:w-2/5 pl-4 lg:pl-6 flex justify-between">
                     <p class="font-bold no-underline">Category</p>
                     <p class="font-bold no-underline">Location</p>
                 </div>
@@ -33,7 +33,7 @@ use App\Models\Listing;
                         <small
                             class="md:my-2 hidden md:block lg:inline-block">{{ str_limit($listing->body, 40) }}</small>
                     </div>
-                    <div class="w-2/3 md:w-2/5 flex justify-between items-center">
+                    <div class="w-2/3 md:w-2/5 pl-4 lg:pl-6 flex justify-between items-center">
                         <a class="text-sm text-green-darker"
                            href="{{ route('region_category_listing.index', ['region' => $listing->region, 'category' => $listing->category]) }}">{{ $listing->category->name }}</a>
                         <a class="text-sm text-green-darker"

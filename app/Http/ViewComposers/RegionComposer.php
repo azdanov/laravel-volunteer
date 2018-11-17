@@ -21,6 +21,6 @@ class RegionComposer
             )->first();
         }
 
-        return $view->with('region', $this->region);
+        return $view->with('global_region', $this->region);
     }
 }

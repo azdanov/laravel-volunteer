@@ -30,6 +30,11 @@ use function array_merge;
  * @property string|null $deleted_at
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ * @property Category $category
+ * @property Region $region
+ * @property User $user
+ * @property Collection|User[] $favorites
+ * @property-read Collection|User[] $viewedUsers
  * @method static Builder|Listing newModelQuery()
  * @method static Builder|Listing newQuery()
  * @method static Builder|Listing query()
@@ -44,11 +49,6 @@ use function array_merge;
  * @method static Builder|Listing whereTitle($value)
  * @method static Builder|Listing whereUpdatedAt($value)
  * @method static Builder|Listing whereUserId($value)
- * @mixin \Eloquent
- * @property Category $category
- * @property Region $region
- * @property User $user
- * @property Collection|User[] $favorites
  * @method static bool|null forceDelete()
  * @method static Builder|Listing fromCategory(Category $category)
  * @method static Builder|Listing inRegion(Region $region)
@@ -60,7 +60,7 @@ use function array_merge;
  * @method static Builder|Listing withTrashed()
  * @method static Builder|Listing withoutTrashed()
  * @method static Builder|Listing orderByPivot($column = 'created_at', $order = 'desc')
- * @property-read Collection|User[] $viewedUsers
+ * @mixin \Eloquent
  */
 class Listing extends Model
 {

@@ -28,6 +28,7 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $updated_at
  * @property DatabaseNotificationCollection|DatabaseNotification[] $notifications
  * @property Collection|Listing[] $favoriteListings
+ * @property-read Collection|Listing[] $viewedListings
  * @method static Builder|User query()
  * @method static Builder|User newQuery()
  * @method static Builder|User newModelQuery()
@@ -39,7 +40,6 @@ use Illuminate\Support\Carbon;
  * @method static Builder|User wherePassword($value)
  * @method static Builder|User whereRememberToken($value)
  * @method static Builder|User whereUpdatedAt($value)
- * @property-read Collection|Listing[] $viewedListings
  */
 class User extends Authenticatable
 {

@@ -90,6 +90,10 @@ class ListingController extends Controller
 
         $listing->save();
 
+        if ($request->has('payment')) {
+            return redirect()->route('payment_listing.show', $listing);
+        }
+
         return back()->with('success', 'Listing has been updated!');
     }
 }

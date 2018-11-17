@@ -24,6 +24,9 @@ use Kalnoy\Nestedset\NodeTrait;
  * @property int|null $parent_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ * @property NestedCollection|Category[] $children
+ * @property Category|null $parent
+ * @property Collection|Listing[] $listings
  * @method static Builder|Category d()
  * @method static Builder|Category newModelQuery()
  * @method static Builder|Category newQuery()
@@ -39,9 +42,6 @@ use Kalnoy\Nestedset\NodeTrait;
  * @method static Builder|Category whereUpdatedAt($value)
  * @method static Builder|Category withListingsInRegion(Region $region)
  * @method static Builder|Category withListings()
- * @property NestedCollection|Category[] $children
- * @property Category|null $parent
- * @property Collection|Listing[] $listings
  * @mixin \Eloquent
  */
 class Category extends Model
