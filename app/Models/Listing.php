@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use Laravel\Scout\Searchable;
 use function array_merge;
 
 /**
@@ -34,6 +35,7 @@ use function array_merge;
  * @property Region $region
  * @property User $user
  * @property Collection|User[] $favorites
+ * @property bool $paid
  * @property-read Collection|User[] $viewedUsers
  * @method static Builder|Listing newModelQuery()
  * @method static Builder|Listing newQuery()
@@ -60,6 +62,8 @@ use function array_merge;
  * @method static Builder|Listing withTrashed()
  * @method static Builder|Listing withoutTrashed()
  * @method static Builder|Listing orderByPivot($column = 'created_at', $order = 'desc')
+ * @method static Builder|Listing isFeatured()
+ * @method static Builder|Listing wherePaid($value)
  * @mixin \Eloquent
  */
 class Listing extends Model
@@ -67,6 +71,7 @@ class Listing extends Model
     use SoftDeletes;
     use Orderable;
     use PivotOrderable;
+    use Searchable;
 
     public function scopeIsLive(Builder $query): Builder
     {
@@ -155,5 +160,20 @@ class Listing extends Model
     public function ownedByUser(User $user): bool
     {
         return $this->user->id === $user->id;
+    }
+
+    /**
+     * @return mixed[]
+     */
+    public function toSearchableArray(): array
+    {
+        $array = $this->toArray();
+
+        $array['created_at_human'] = $this->created_at->diffForHumans();
+        $array['user'] = $this->user;
+        $array['category'] = $this->category;
+        $array['region'] = $this->region;
+
+        return $array;
     }
 }

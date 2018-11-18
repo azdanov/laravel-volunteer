@@ -1,8 +1,8 @@
 <div class="border-b-4 border-green shadow">
     <nav
-        class="flex items-center justify-between flex-wrap container mx-auto py-3 lg:py-2 px-2 lg:px-0">
+        class="flex items-center justify-center md:justify-end lg:justify-between flex-wrap container mx-auto py-3 lg:py-2 px-2 lg:px-0">
         <div
-            class="flex items-center flex-no-shrink text-green-dark -mt-1 ml-2 lg:ml-4 mr-6 mb-2 md:mb-0">
+            class="flex items-center flex-no-shrink text-green-dark -mt-1 ml-2 lg:ml-4 mb-2 md:mb-0">
             @include('partials.logo')
             <div class="ml-1 w-32 flex flex-wrap">
                 <a href="{{ route('home') }}"
@@ -16,33 +16,20 @@
             </div>
         </div>
 
-        <label
-            class="block sm:hidden flex items-center px-3 py-2 border rounded cursor-pointer text-green-lighter border-green-lighter hover:text-green-dark hover:border-white"
-            for="menu-toggle">
-            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20"
-                 xmlns="http://www.w3.org/2000/svg"><title>Toggle Menu</title>
-                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-            </svg>
-        </label>
-        <input type="checkbox" id="menu-toggle" class="hidden">
+        {{--Burger Menu--}}
+        {{--<label--}}
+            {{--class="block sm:hidden flex items-center px-3 py-2 border rounded cursor-pointer text-green border-green hover:text-green-light hover:border-green-light"--}}
+            {{--for="menu-toggle">--}}
+            {{--<svg class="fill-current h-3 w-3" viewBox="0 0 20 20"--}}
+                 {{--xmlns="http://www.w3.org/2000/svg"><title>Toggle Menu</title>--}}
+                {{--<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>--}}
+            {{--</svg>--}}
+        {{--</label>--}}
+        {{--<input type="checkbox" id="menu-toggle" class="hidden">--}}
 
-        <form class="mx-auto shadow rounded" id="search">
-            @csrf
-            <div class="flex items-center">
-                <input
-                    class="appearance-none min-w-0 w-100 bg-white text-green-darkest px-2 py-1 leading-tight focus:outline-none rounded-l shadow"
-                    type="text" placeholder="Find Volunteer Positions.."
-                    style="min-width:0; width:100%"
-                    aria-label="Find Volunteer Positions">
-                <button
-                    class="bg-green hover:bg-green-light hover:shadow-inner text-lg hover:text-white text-grey-lightest px-2 py-1 rounded-r shadow"
-                    type="submit">
-                    Search
-                </button>
-            </div>
-        </form>
+        @include('partials.search')
 
-        <div class="w-full md:w-auto sm:block" id="menu">
+        <div class="w-full md:w-auto sm:block mr-0 md:mr-16 lg:mr-0" id="menu">
             <div
                 class="text-md sm:mt-2 lg:mt-0 flex flex-wrap items-center justify-center lg:justify-end">
                 @guest
@@ -67,7 +54,7 @@
                         </label>
                         <input type="checkbox" id="user-toggle" checked class="hidden">
                         <div id="user-menu"
-                             class="rounded bg-white px-3 pb-3 whitespace-no-wrap shadow-md absolute mt-8 pin-t pin-l min-w-full">
+                             class="rounded border border-grey-light bg-white px-3 pb-3 whitespace-no-wrap shadow-md absolute mt-8 pin-t pin-l min-w-full">
                             <ul class="list-reset">
                                 <li class="border-b">
                                     <h3 class="mt-1">Listings</h3>

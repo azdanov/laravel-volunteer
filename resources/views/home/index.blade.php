@@ -10,7 +10,7 @@
             @include('partials.home.category_list', $categories)
             @include('partials.home.latest_list', $listings)
         </div>
-        <div class="flex flex-wrap self-start justify-around w-full lg:w-1/4 mt-3 md:mt-0 mb-4 rounded shadow bg-grey-lightest">
+        <div class="flex flex-wrap self-start justify-around w-full lg:w-1/4 mt-3 md:mt-0 mb-4 rounded shadow border border-grey-light bg-grey-lightest">
             @include('partials.ad')
             @include('partials.ad')
         </div>

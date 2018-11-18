@@ -17,6 +17,8 @@
         "tailwindcss-aspect-ratio": "^1.0.1"
     },
     "dependencies": {
-        "braintree-web-drop-in": "^1.14.1"
+        "algoliasearch": "^3.30.0",
+        "braintree-web-drop-in": "^1.14.1",
+        "instantsearch.js": "^2.10.4"
     }
 }

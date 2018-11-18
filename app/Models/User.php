@@ -30,6 +30,7 @@ use Illuminate\Support\Carbon;
  * @property DatabaseNotificationCollection|DatabaseNotification[] $notifications
  * @property Collection|Listing[] $favoriteListings
  * @property-read Collection|Listing[] $viewedListings
+ * @property-read Collection|Listing[] $listings
  * @method static Builder|User query()
  * @method static Builder|User newQuery()
  * @method static Builder|User newModelQuery()

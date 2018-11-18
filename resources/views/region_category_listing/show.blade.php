@@ -108,7 +108,7 @@ use App\Models\User;
                 </div>
             @endif
             <div
-                class="flex flex-wrap self-start my-3 justify-around lg:justify-center rounded shadow bg-grey-lightest">
+                class="flex flex-wrap self-start my-3 justify-around lg:justify-center rounded shadow border border-grey-light bg-grey-lightest">
                 @include('partials.ad')
                 @include('partials.ad')
             </div>

@@ -79,7 +79,7 @@ use App\Models\Listing;
                     type="submit">
                     Save Edit
                 </button>
-                @if((!$listing->paid || ($listing->live && !$listing->featured)))
+                @if((!$listing->paid || !($listing->live && $listing->featured)))
                     <button type="submit" name="payment" value="true"
                             class="bg-transparent hover:bg-green text-green-dark font-semibold hover:text-white md:my-2 py-2 px-4 border border-green hover:border-transparent rounded">
                         Continue to {{ $listing->featured ? 'Payment' : 'Save' }}

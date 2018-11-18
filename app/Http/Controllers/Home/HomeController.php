@@ -26,7 +26,7 @@ class HomeController extends Controller
         $featured = Listing::with(['region', 'category'])
             ->isFeatured()
             ->isLive()
-            ->limit(4)
+            ->limit(5)
             ->get()
             ->shuffle();
 

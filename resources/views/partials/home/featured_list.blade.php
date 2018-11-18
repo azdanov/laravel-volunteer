@@ -4,7 +4,7 @@
             <a class="font-bold mr-6 text-green-darker no-underline"
                href="#">Featured</a>
         </div>
-        <div class="flex justify-between flex-wrap px-4 py-3">
+        <div class="flex items-stretch flex-wrap px-4 py-3">
             @foreach ($featured as $listing)
                 <div class="w-1/2 my-2 md:w-1/5 inline-flex flex-col">
                     <a class="font-semibold text-left text-green-darker no-underline"
