@@ -1,16 +1,15 @@
-const disableButton = false;
-
 /**
  |--------------------------------------------------
- | Close Flash (Disabled for demo)
+ | Close Flash
  |--------------------------------------------------
  */
-const flashCloseButtons = document.querySelectorAll("#flash-close");
+const flashClose = document.querySelectorAll("#flash-close");
 
-if (flashCloseButtons.length && disableButton) {
-    flashCloseButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            button.parentNode.parentNode.removeChild(button.parentNode);
+if (flashClose.length) {
+    flashClose.forEach(close => {
+        close.addEventListener("click", event => {
+            event.preventDefault();
+            close.parentNode.parentNode.removeChild(close.parentNode);
         });
     });
 }

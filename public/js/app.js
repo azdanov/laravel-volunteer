@@ -87,19 +87,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 2 */
 /***/ (function(module, exports) {
 
-var disableButton = false;
-
 /**
  |--------------------------------------------------
- | Close Flash (Disabled for demo)
+ | Close Flash
  |--------------------------------------------------
  */
-var flashCloseButtons = document.querySelectorAll("#flash-close");
+var flashClose = document.querySelectorAll("#flash-close");
 
-if (flashCloseButtons.length && disableButton) {
-    flashCloseButtons.forEach(function (button) {
-        button.addEventListener("click", function () {
-            button.parentNode.parentNode.removeChild(button.parentNode);
+if (flashClose.length) {
+    flashClose.forEach(function (close) {
+        close.addEventListener("click", function (event) {
+            event.preventDefault();
+            close.parentNode.parentNode.removeChild(close.parentNode);
         });
     });
 }
