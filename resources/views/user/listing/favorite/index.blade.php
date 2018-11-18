@@ -19,7 +19,7 @@ use App\Models\Listing;
                 <h2 class="font-bold mr-6 text-2xl text-green-darker">Favorite</h2>
             </div>
             <div class="flex flex-wrap justify-between lg:flex-no-wrap px-4 pt-4">
-                @if ($listings->count())
+                @if ($listings->isNotEmpty())
                     @each('partials.listings.favorite', $listings, 'listing'))
                 @else
                     <p class="text-green-darker pb-4">
@@ -28,7 +28,7 @@ use App\Models\Listing;
                 @endif
             </div>
         </div>
-        @if ($listings->count())
+        @if ($listings->isNotEmpty())
             <div class="mt-4">
                 {{ $listings->links() }}
             </div>

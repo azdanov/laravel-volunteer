@@ -24,7 +24,7 @@ use App\Models\Region;
                         {{ $listing->category->name }}
                     </a>
                 @endunless
-                @if(Route::is('listing.show') || ($global_region->children->count() && !$global_region->is($listing->region)))
+                @if(Route::is('listing.show') || ($global_region->children->isNotEmpty() && !$global_region->is($listing->region)))
                     for
                     <a class="font-semibold text-green-darker no-underline"
                        href="{{ route('region.store', $listing->region) }}">

@@ -18,10 +18,18 @@ class HomeController extends Controller
         $categories = Category::get()->toTree();
         $listings = Listing::with(['region', 'category'])
             ->isLive()
+            ->isLive()
             ->latestFirst()
             ->limit(4)
             ->get();
 
-        return view('home.index', compact('regions', 'categories', 'listings'));
+        $featured = Listing::with(['region', 'category'])
+            ->isFeatured()
+            ->isLive()
+            ->limit(4)
+            ->get()
+            ->shuffle();
+
+        return view('home.index', compact('regions', 'categories', 'listings', 'featured'));
     }
 }

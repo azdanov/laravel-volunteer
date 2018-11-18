@@ -7,7 +7,7 @@ use App\Models\Listing;
 /** @var Listing[] $listings */
 
 ?>
-<div class="bg-transparent text-left my-3 lg:px-5">
+<div class="bg-transparent text-left mb-3 lg:px-5">
     <p class="ml-2 mb-1 text-grey-dark text-sm">Latest</p>
     <div class="bg-grey-lighter shadow border border-t-0 leading-none sm:rounded">
         <div

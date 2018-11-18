@@ -73,6 +73,11 @@ class Listing extends Model
         return $query->where('live', true);
     }
 
+    public function scopeIsFeatured(Builder $query): Builder
+    {
+        return $query->where('featured', true);
+    }
+
     public function scopeIsDraft(Builder $query): Builder
     {
         return $query->where('live', false);

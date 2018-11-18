@@ -20,7 +20,7 @@ use App\Models\Listing;
                 <small class="mt-1 text-grey-darker">Showing {{ $limit }} latest</small>
             </div>
             <div class="flex flex-wrap justify-between lg:flex-no-wrap px-4 pt-4">
-                @if ($listings->count())
+                @if ($listings->isNotEmpty())
                     @each('partials.listings.listing', $listings, 'listing')
                 @else
                     <p class="text-green-darker pb-4">

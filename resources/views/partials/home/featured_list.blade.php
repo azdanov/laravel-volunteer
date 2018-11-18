@@ -4,40 +4,21 @@
             <a class="font-bold mr-6 text-green-darker no-underline"
                href="#">Featured</a>
         </div>
-        <div class="flex justify-between flex-wrap lg:flex-no-wrap px-4 py-4">
-            <div class="w-full sm:mt-2 lg:mt-0 inline-flex items-center">
-                <a class="font-semibold text-left text-green-darker no-underline"
-                   href="#">
-                    Christmas Decorator &nbsp;
-                    <small class="text-xs text-green-darker">(Tallinn,&nbsp;Estonia)</small>
-                </a>
-            </div>
-            <div class="sm:w-full mt-2 lg:mt-0 inline-flex items-center">
-                <a class="font-semibold text-left text-green-darker no-underline"
-                   href="#">
-                    Social Worker &nbsp;
-                    <small class="text-xs text-green-darker">(Helsinki,&nbsp;Finland)</small>
-                </a>
-            </div>
-            <div class="sm:w-full mt-2 lg:mt-0 inline-flex items-center">
-                <a class="font-semibold text-left text-green-darker no-underline"
-                   href="#">
-                    Garden Assistant &nbsp;
-                    <small class="text-xs text-green-darker">(Tartu,&nbsp;Estonia)</small>
-                </a>
-            </div>
-            <div class="w-full mt-2 lg:mt-0 inline-flex items-center">
-                <svg class="opacity-75 h-4 w-4 mr-2"
-                     xmlns="http://www.w3.org/2000/svg"
-                     viewBox="0 0 24 24">
-                    <path
-                        d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
-                </svg>
-                <a class="font-semibold text-left text-green-darker no-underline"
-                   href="#">
-                    More Featured
-                </a>
-            </div>
+        <div class="flex justify-between flex-wrap px-4 py-3">
+            @foreach ($featured as $listing)
+                <div class="w-1/2 my-2 md:w-1/5 inline-flex flex-col">
+                    <a class="font-semibold text-left text-green-darker no-underline"
+                       href="{{ route('region_category_listing.show', ['region' => $listing->region, 'category' => $listing->category, 'listing' => $listing]) }}">
+                        {{ $listing->title }}
+                    </a>
+                    <div>
+                        <small class="text-xs text-green-darker mt-1">
+                            in {{ $listing->category->name }},</small>
+                        <small class="text-xs text-green-darker mt-1">
+                             {{ $listing->region->name }}</small>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 </div>

@@ -7,7 +7,7 @@ use App\Models\Category;
 /** @var Category[] $categories */
 
 ?>
-<div class="bg-transparent text-left my-3 lg:px-5">
+<div class="bg-transparent text-left mb-3 lg:px-5">
     <div
         class="bg-grey-lighter shadow border border-t-0 text-white leading-none sm:rounded text-center md:text-left">
         <div class="bg-grey-light border border-r-0 border-l-0 px-4 py-2 sm:rounded-t">

@@ -19,7 +19,7 @@ use App\Models\Listing;
                 <h2 class="font-bold mr-6 text-2xl text-green-darker">{{ $category->name }}</h2>
             </div>
             <div class="flex flex-wrap lg:flex-no-wrap px-4 pt-4">
-                @if ($listings->count())
+                @if ($listings->isNotEmpty())
                     @foreach($listings as $listing)
                         @include('partials.listings.listing', compact('listing'))
                     @endforeach
@@ -29,7 +29,7 @@ use App\Models\Listing;
                 @endif
             </div>
         </div>
-        @if ($listings->count())
+        @if ($listings->isNotEmpty())
             <div class="mt-4">
                 {{ $listings->links() }}
             </div>
