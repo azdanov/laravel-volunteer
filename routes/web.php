@@ -2,15 +2,17 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\BraintreeController;
+use App\Http\Controllers\BraintreeGatewayController;
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\Category\RegionCategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Listing\ContactListingController;
 use App\Http\Controllers\Listing\ListingController;
 use App\Http\Controllers\Listing\PaymentListingController;
+use App\Http\Controllers\Listing\PublishedListingController;
 use App\Http\Controllers\Listing\RegionCategoryListingController;
 use App\Http\Controllers\Listing\RegionListingController;
+use App\Http\Controllers\Listing\UnpublishedListingController;
 use App\Http\Controllers\Listing\ViewedListingController;
 use App\Http\Controllers\Region\RegionController;
 use Illuminate\Support\Facades\Auth;
@@ -22,11 +24,16 @@ Auth::routes();
 Route::get('/category', [CategoryController::class, 'index'])
     ->name('category.index');
 
-Route::post('payment/token', [BraintreeController::class, 'token'])
+Route::post('payment/token', [BraintreeGatewayController::class, 'token'])
     ->name('payment_listing.token')->middleware(['auth']);
 
 Route::group(['prefix' => 'listing'], static function (): void {
     Route::group(['middleware' => 'auth'], static function (): void {
+        Route::get('unpublished', [UnpublishedListingController::class, 'index'])
+            ->name('unpublished_listing.index');
+        Route::get('published', [PublishedListingController::class, 'index'])
+            ->name('published_listing.index');
+
         Route::get('create', [ListingController::class, 'create'])
             ->name('listing.create');
         Route::post('create', [ListingController::class, 'store'])
@@ -37,13 +44,16 @@ Route::group(['prefix' => 'listing'], static function (): void {
 
         Route::get('{listing}/payment', [PaymentListingController::class, 'show'])
             ->name('payment_listing.show');
-        Route::post('{listing}', [PaymentListingController::class, 'store'])
+        Route::post('{listing}/payment', [PaymentListingController::class, 'store'])
             ->name('payment_listing.store');
-        Route::patch('{listing}', [PaymentListingController::class, 'update'])
+        Route::patch('{listing}/payment', [PaymentListingController::class, 'update'])
             ->name('payment_listing.update');
 
         Route::put('{listing}', [ListingController::class, 'update'])
             ->name('listing.update');
+
+        Route::delete('{listing}', [ListingController::class, 'destroy'])
+            ->name('listing.destroy');
     });
 
     Route::get('favorite', [ListingController::class, 'index'])

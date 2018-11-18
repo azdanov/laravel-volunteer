@@ -61,12 +61,14 @@ use App\Models\Listing;
             </div>
             <div class="my-5">
                 <label
-                    class="border rounded shadow p-2 text-grey-darker font-bold inline-flex items-center select-none{{ !$listing->live() ? ' cursor-pointer' : ' opacity-75 cursor-default' }}">
+                    class="border rounded shadow p-2 text-grey-darker font-bold inline-flex items-center select-none cursor-pointer">
                     <input type="checkbox" name="featured" class="mr-2 leading-tight"
-                           {{ !$listing->live() ?: 'disabled' }}
                            id="featured" {{ old('featured', $listing->featured) ? 'checked' : '' }}>
                     <span class="text-sm">
-                        Featured (${{ number_format(config('volunteer.default.featured_price'), 2) }})
+                        Featured
+                        @if (!$listing->paid)
+                            (${{ number_format(config('volunteer.default.featured_price'), 2) }})
+                        @endif
                     </span>
                 </label>
             </div>
@@ -76,12 +78,12 @@ use App\Models\Listing;
                     type="submit">
                     Save Edit
                 </button>
-                @if(!$listing->live())
+                @if((!$listing->paid || ($listing->live && !$listing->featured)))
                     <button type="submit" name="payment" value="true"
                             class="bg-transparent hover:bg-green text-green-dark font-semibold hover:text-white md:my-2 py-2 px-4 border border-green hover:border-transparent rounded">
                         Continue to {{ $listing->featured ? 'Payment' : 'Save' }}
                     </button>
-                @endif
+                @endunless
             </div>
         </form>
     </div>

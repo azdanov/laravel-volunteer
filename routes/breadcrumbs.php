@@ -88,6 +88,18 @@ Breadcrumbs::for('favorite', static function (Crumbs $crumbs): void {
     $crumbs->push('Favorite', route('listing.index'));
 });
 
+// Home > Unpublished
+Breadcrumbs::for('unpublished', static function (Crumbs $crumbs): void {
+    $crumbs->parent('home');
+    $crumbs->push('Unpublished', route('listing.index'));
+});
+
+// Home > Published
+Breadcrumbs::for('published', static function (Crumbs $crumbs): void {
+    $crumbs->parent('home');
+    $crumbs->push('Published', route('listing.index'));
+});
+
 // Home > Listing Create
 Breadcrumbs::for('listing_create', static function (Crumbs $crumbs): void {
     $crumbs->parent('home');

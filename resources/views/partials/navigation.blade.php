@@ -69,22 +69,37 @@
                         <div id="user-menu"
                              class="rounded bg-white px-3 pb-3 whitespace-no-wrap shadow-md absolute mt-8 pin-t pin-l min-w-full">
                             <ul class="list-reset">
+                                <li class="border-b">
+                                    <h3 class="mt-1">Listings</h3>
+                                </li>
                                 <li>
                                     <a class="inline-block mt-1 text-green-darker no-underline hover:underline"
                                        href="{{ route('listing.create') }}">
-                                        Create Listing
+                                        Create
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="inline-block mt-1 text-green-darker no-underline hover:underline"
+                                       href="{{ route('unpublished_listing.index') }}">
+                                        Unpublished ({{ $unpublishedListingCount ?? 0 }})
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="inline-block mt-1 text-green-darker no-underline hover:underline"
+                                       href="{{ route('published_listing.index') }}">
+                                        Published ({{ $publishedListingCount ?? 0 }})
                                     </a>
                                 </li>
                                 <li>
                                     <a class="inline-block mt-1 text-green-darker no-underline hover:underline"
                                        href="{{ route('viewed_listing.index') }}">
-                                        Viewed Listings
+                                        Viewed
                                     </a>
                                 </li>
                                 <li>
                                     <a class="inline-block mt-1 text-green-darker no-underline hover:underline"
                                        href="{{ route('listing.index') }}">
-                                        Favorite Listings
+                                        Favorited
                                     </a>
                                 </li>
                                 <li>

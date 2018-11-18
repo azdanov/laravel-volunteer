@@ -18,7 +18,7 @@ class RegionListingController extends Controller
         $this->middleware(['auth']);
     }
 
-    public function store(Region $region, Listing $listing): RedirectResponse
+    public function store(Listing $listing): RedirectResponse
     {
         /** @var User $user */
         $user = auth()->user();
@@ -28,13 +28,13 @@ class RegionListingController extends Controller
         return back()->with('success', 'Listing added to favorites!');
     }
 
-    public function destroy(Region $region, Listing $listing): RedirectResponse
+    public function destroy(Listing $listing): RedirectResponse
     {
         /** @var User $user */
         $user = auth()->user();
 
         $user->favoriteListings()->detach($listing);
 
-        return back()->with('success', 'Listing removed from favorites!');
+        return back()->with('success', 'Listing removed has been removed!');
     }
 }

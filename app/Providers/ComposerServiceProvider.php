@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Http\ViewComposers\NavigationComposer;
 use App\Http\ViewComposers\RegionComposer;
 use App\Models\Category;
 use App\Models\Region;
@@ -17,6 +18,7 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot(): void
     {
         ViewFacade::composer('*', RegionComposer::class);
+        ViewFacade::composer('partials.navigation', NavigationComposer::class);
 
         ViewFacade::composer('partials.form.regions', static function (View $view) {
             $regions = Region::get()->toTree();

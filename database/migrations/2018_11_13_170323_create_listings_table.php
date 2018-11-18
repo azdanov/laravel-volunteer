@@ -19,6 +19,7 @@ class CreateListingsTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->boolean('live')->default(false);
             $table->boolean('featured')->default(false);
+            $table->boolean('paid')->default(false);
             $table->softDeletes();
             $table->timestamps();
 

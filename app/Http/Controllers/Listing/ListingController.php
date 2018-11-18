@@ -11,6 +11,7 @@ use App\Http\Requests\StoreListingFormRequest;
 use App\Models\Category;
 use App\Models\Listing;
 use App\Models\User;
+use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -58,6 +59,7 @@ class ListingController extends Controller
         $listing->category_id = $request->category_id;
         $listing->region_id = $request->region_id;
         $listing->featured = $request->featured === 'on';
+        $listing->paid = true;
         $listing->user()->associate($request->user());
 
         $listing->save();
@@ -88,6 +90,10 @@ class ListingController extends Controller
         $listing->region_id = $request->region_id;
         $listing->featured = $request->featured === 'on';
 
+        if ($listing->featured && $listing->live && !$listing->paid) {
+            $listing->live = false;
+        }
+
         $listing->save();
 
         if ($request->has('payment')) {
@@ -95,5 +101,18 @@ class ListingController extends Controller
         }
 
         return back()->with('success', 'Listing has been updated!');
+    }
+
+    /**
+     * @throws AuthorizationException
+     * @throws Exception
+     */
+    public function destroy(Listing $listing): RedirectResponse
+    {
+        $this->authorize('destroy', $listing);
+
+        $listing->delete();
+
+        return back()->with('success', 'Listing has been deleted!');
     }
 }

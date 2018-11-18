@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 use Braintree\Gateway;
 use Illuminate\Http\JsonResponse;
 
-class BraintreeController extends Controller
+class BraintreeGatewayController extends Controller
 {
     /** @var Gateway */
     private $gateway;

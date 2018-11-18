@@ -7,6 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\DatabaseNotification;
@@ -65,5 +66,10 @@ class User extends Authenticatable
             ->belongsToMany(Listing::class, 'user_listing_views')
             ->withTimestamps()
             ->withPivot(['count', 'id']);
+    }
+
+    public function listings(): HasMany
+    {
+        return $this->hasMany(Listing::class);
     }
 }
