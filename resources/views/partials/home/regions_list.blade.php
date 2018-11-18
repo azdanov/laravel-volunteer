@@ -8,8 +8,8 @@ use App\Models\Region;
 ?>
 
 <div class="bg-transparent text-left mb-3 lg:px-5">
-    <div class="bg-grey-lighter shadow border border-t-0 text-white text-center md:text-left leading-none sm:rounded">
-        <div class="bg-grey-light border border-r-0 border-l-0 px-4 py-2 sm:rounded-t">
+    <div class="bg-grey-lightest shadow border border-grey-light text-white text-center md:text-left leading-none sm:rounded">
+        <div class="bg-grey-lighter border-b border-grey-light px-4 py-2 sm:rounded-t">
             <a class="font-bold md:mr-6 text-green-darker no-underline"
                href="{{ route('region.index') }}">Regions</a>
         </div>

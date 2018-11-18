@@ -14,8 +14,8 @@ use App\Models\Listing;
     {{ Breadcrumbs::render('category', $category) }}
 
     <div class="bg-transparent text-left my-3 lg:px-5">
-        <div class="bg-grey-lighter shadow border border-t-0 text-white leading-none sm:rounded">
-            <div class="bg-grey-light border border-r-0 border-l-0 px-4 py-2 sm:rounded-t">
+        <div class="bg-grey-lightest shadow border border-grey-light text-white leading-none sm:rounded">
+            <div class="bg-grey-lighter border-b border-grey-light px-4 py-2 sm:rounded-t">
                 <h2 class="font-bold mr-6 text-2xl text-green-darker">{{ $category->name }}</h2>
             </div>
             <div class="flex flex-wrap px-4 pt-4">

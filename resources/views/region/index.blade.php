@@ -13,9 +13,9 @@ use App\Models\Region;
     {{ Breadcrumbs::render('regions') }}
 
     <div class="bg-transparent text-left sm:mb-1 sm:pt-3 lg:px-5">
-        <div class="bg-grey-lighter shadow border border-t-0 text-white leading-none sm:rounded">
+        <div class="bg-grey-lightest shadow border border-grey-light text-white leading-none sm:rounded">
             @foreach($regions as $country)
-                <div class="bg-grey-light border border-r-0 border-l-0 px-4 py-2 sm:rounded-t">
+                <div class="bg-grey-lighter border-b border-grey-light px-4 py-2 sm:rounded-t">
                     <a class="font-bold mr-6 text-2xl text-green-darker no-underline"
                        href="{{ route('region.store', $country) }}">{{ $country->name }}</a>
                 </div>

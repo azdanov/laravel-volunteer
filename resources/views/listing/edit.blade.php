@@ -21,7 +21,8 @@ use App\Models\Listing;
             <h2 class="mb-2 text-grey-darker">
                 Editing Listing
                 @if($listing->live())
-                    <a class="no-underline text-green-dark text-lg ml-3"
+                    <span class="select-none text-grey-dark">&middot;</span>
+                    <a class="no-underline text-green-dark text-lg"
                        href="{{ route('region_category_listing.show', ['region' => $listing->region, 'category' => $listing->category, 'listing' => $listing]) }}">
                         {{ $listing->title }}
                     </a>

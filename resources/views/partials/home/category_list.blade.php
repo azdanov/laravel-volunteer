@@ -9,8 +9,8 @@ use App\Models\Category;
 ?>
 <div class="bg-transparent text-left mb-3 lg:px-5">
     <div
-        class="bg-grey-lighter shadow border border-t-0 text-white leading-none sm:rounded text-center md:text-left">
-        <div class="bg-grey-light border border-r-0 border-l-0 px-4 py-2 sm:rounded-t">
+        class="bg-grey-lightest shadow border border-grey-light text-white leading-none sm:rounded text-center md:text-left">
+        <div class="bg-grey-lighter border-b border-grey-light px-4 py-2 sm:rounded-t">
             <a class="font-bold mr-0 md:mr-6 text-green-darker no-underline"
                href="{{ route('category.index') }}">Categories</a>
         </div>

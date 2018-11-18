@@ -9,9 +9,9 @@ use App\Models\Listing;
 ?>
 <div class="bg-transparent text-left mb-3 lg:px-5">
     <p class="ml-2 mb-1 text-grey-dark text-sm">Latest</p>
-    <div class="bg-grey-lighter shadow border border-t-0 leading-none sm:rounded">
+    <div class="bg-grey-lightest shadow border border-grey-light leading-none sm:rounded">
         <div
-            class="bg-grey-light border border-r-0 text-green-darker border-l-0 px-4 py-2 sm:rounded-t">
+            class="bg-grey-lighter border-b border-grey-light text-green-darker px-4 py-2 sm:rounded-t">
             <div class="flex">
                 <div class="w-1/3 md:w-3/5">
                     <p class="font-bold no-underline">Job Title</p>

@@ -14,8 +14,8 @@ use App\Models\Listing;
     {{ Breadcrumbs::render('favorite') }}
 
     <div class="bg-transparent text-left sm:mb-1 lg:px-5 mt-3">
-        <div class="bg-grey-lighter shadow border border-t-0 text-white leading-none sm:rounded">
-            <div class="bg-grey-light border border-r-0 border-l-0 px-4 py-2 sm:rounded-t text-green-darker">
+        <div class="bg-grey-lightest shadow border border-grey-light text-white leading-none sm:rounded">
+            <div class="bg-grey-lighter border-b border-grey-light px-4 py-2 sm:rounded-t text-green-darker">
                 <h2 class="font-bold text-2xl">Recently Viewed</h2>
                 <small class="mt-1 text-grey-darker">Showing {{ $limit }} latest</small>
             </div>

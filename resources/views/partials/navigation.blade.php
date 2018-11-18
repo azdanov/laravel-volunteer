@@ -1,23 +1,23 @@
-<div class="bg-green shadow">
+<div class="border-b-4 border-green shadow">
     <nav
         class="flex items-center justify-between flex-wrap container mx-auto py-3 lg:py-2 px-2 lg:px-0">
         <div
-            class="flex items-center flex-no-shrink text-white -mt-1 ml-2 lg:ml-4 mr-6 mb-2 md:mb-0">
+            class="flex items-center flex-no-shrink text-green-dark -mt-1 ml-2 lg:ml-4 mr-6 mb-2 md:mb-0">
             @include('partials.logo')
-            <div class="ml-1 w-24 flex flex-wrap">
+            <div class="ml-1 w-32 flex flex-wrap">
                 <a href="{{ route('home') }}"
-                   class="font-semibold text-2xl tracking-tight text-white no-underline">
+                   class="font-semibold text-2xl tracking-tight text-green-dark no-underline">
                     Volunteer
                 </a>
                 @if ($global_region)
-                    <a class="-mt-2 select-none ml-1 text-sm no-underline text-white hover:underline"
+                    <a class="-mt-2 select-none ml-1 text-sm no-underline text-green-dark hover:underline"
                        href="{{ route('region_category.show', [$global_region]) }}">{{ $global_region->name }}</a>
                 @endif
             </div>
         </div>
 
         <label
-            class="block sm:hidden flex items-center px-3 py-2 border rounded cursor-pointer text-green-lighter border-green-lighter hover:text-white hover:border-white"
+            class="block sm:hidden flex items-center px-3 py-2 border rounded cursor-pointer text-green-lighter border-green-lighter hover:text-green-dark hover:border-white"
             for="menu-toggle">
             <svg class="fill-current h-3 w-3" viewBox="0 0 20 20"
                  xmlns="http://www.w3.org/2000/svg"><title>Toggle Menu</title>
@@ -30,12 +30,12 @@
             @csrf
             <div class="flex items-center">
                 <input
-                    class="appearance-none min-w-0 w-100 bg-green-lightest text-grey-darkest px-2 py-1 leading-tight focus:outline-none rounded-l"
+                    class="appearance-none min-w-0 w-100 bg-white text-green-darkest px-2 py-1 leading-tight focus:outline-none rounded-l shadow"
                     type="text" placeholder="Find Volunteer Positions.."
                     style="min-width:0; width:100%"
                     aria-label="Find Volunteer Positions">
                 <button
-                    class="bg-green-light hover:bg-green-dark text-lg text-white px-2 py-1 rounded-r"
+                    class="bg-green hover:bg-green-light hover:shadow-inner text-lg hover:text-white text-grey-lightest px-2 py-1 rounded-r shadow"
                     type="submit">
                     Search
                 </button>
@@ -46,16 +46,16 @@
             <div
                 class="text-md sm:mt-2 lg:mt-0 flex flex-wrap items-center justify-center lg:justify-end">
                 @guest
-                    <a class="block mt-4 sm:mt-0 text-white no-underline hover:underline mr-4"
+                    <a class="block mt-4 sm:mt-0 text-green-dark no-underline hover:underline mr-4"
                        href="{{ route('login') }}">Login</a>
                     @if (Route::has('register'))
-                        <a class="block mt-4 sm:mt-0 text-white no-underline hover:underline mr-4"
+                        <a class="block mt-4 sm:mt-0 text-green-dark no-underline hover:underline mr-4"
                            href="{{ route('register') }}">Register</a>
                     @endif
                 @else
                     <div class="relative px-4 mt-2 md:mt-0">
                         <label
-                            class="bg-transparent flex items-center rounded text-white cursor-pointer select-none"
+                            class="bg-transparent flex items-center rounded text-green-dark cursor-pointer select-none"
                             for="user-toggle">
                             {{ auth()->user()->name }}
                             <svg class="h-4 fill-current ml-2" version="1.1"

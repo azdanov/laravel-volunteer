@@ -23,8 +23,8 @@ use App\Models\User;
             <div
                 class="text-green-darker md:mb-1 md:pt-3 mt-2 lg:mt-0 lg:px-5">
                 <div
-                    class="self-start bg-grey-lighter shadow border border-t-0 leading-none md:rounded">
-                    <div class="bg-grey-light border border-r-0 border-l-0 px-4 py-2 md:rounded-t">
+                    class="self-start bg-grey-lightest shadow border border-grey-light leading-none md:rounded">
+                    <div class="bg-grey-lighter border-b border-grey-light px-4 py-2 md:rounded-t">
                         <h2 class="font-bold mr-6 text-2xl">
                             {{ e($listing->title) }} in {{ $region->name }}
                         </h2>
@@ -40,17 +40,17 @@ use App\Models\User;
             <div
                 class="flex flex-wrap lg:flex-no-wrap bg-transparent text-green-darker my-4 lg:pt-3 lg:px-5">
                 <div
-                    class="w-full bg-grey-lighter shadow border border-t-0 leading-none md:rounded">
-                    <div class="bg-grey-light border border-r-0 border-l-0 px-4 py-2 md:rounded-t">
+                    class="w-full bg-grey-lightest shadow border border-grey-light leading-none md:rounded">
+                    <div class="bg-grey-lighter border-b border-grey-light px-4 py-2 md:rounded-t">
                         <h3 class="font-bold mr-6 text-xl">
                             Contact {{ $listing->user->name }}
                         </h3>
                     </div>
                     @unless ($user)
                         <p class="m-4">
-                            <a href="{{ route('register') }}" class="text-green-darker">Register</a>
+                            <a href="{{ route('register') }}" class="text-green-dark">Register</a>
                             or
-                            <a href="{{ route('login') }}" class="text-green-darker">Login</a>
+                            <a href="{{ route('login') }}" class="text-green-dark">Login</a>
                             to contact the listing owner.
                         </p>
                     @else
@@ -91,7 +91,7 @@ use App\Models\User;
                 <div class="w-full mb-4 lg:my-0 text-green-darker leading-none md:rounded">
                     <div class="flex justify-around lg:flex-col lg:justify-start mt-1">
                         <a href="#"
-                           class="bg-transparent text-center hover:bg-green text-green-dark font-semibold hover:text-white md:my-2 py-2 px-4 border border-green hover:border-transparent rounded no-underline">
+                           class="bg-transparent text-center hover:bg-green text-green-dark font-semibold hover:text-white md:my-2 py-2 px-4 border border-green hover:border-transparent rounded no-underline shadow hover:shadow-inner">
                             Email to a friend
                         </a>
                         @unless ($listing->favoritedBy($user))
@@ -99,7 +99,7 @@ use App\Models\User;
                                   action="{{ route('region_listing.store', compact('region', 'listing')) }}">
                                 @csrf
                                 <button type="submit"
-                                        class="w-full bg-transparent hover:bg-green text-green-dark font-semibold hover:text-white md:my-2 py-2 px-4 border border-green hover:border-transparent rounded">
+                                        class="w-full bg-transparent hover:bg-green text-green-dark font-semibold hover:text-white md:my-2 py-2 px-4 border border-green hover:border-transparent rounded shadow hover:shadow-inner">
                                     Add to favorites
                                 </button>
                             </form>
