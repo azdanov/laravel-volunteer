@@ -30,8 +30,14 @@ if (searchForm) {
     search.addWidget(
         searchBox({
             container: "#search-box",
-            placeholder: "Search for Listings",
-            reset: false
+            placeholder: "Search for Listings…",
+            reset: false,
+            autofocus: false,
+            poweredBy: {
+                cssClasses: {
+                    root: "absolute pin-r pin-b poweredBy mr-1 opacity-50"
+                }
+            }
         })
     );
 

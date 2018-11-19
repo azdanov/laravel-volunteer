@@ -29,7 +29,7 @@
 
         @include('partials.search')
 
-        <div class="w-full md:w-auto sm:block mr-0 md:mr-16 lg:mr-0" id="menu">
+        <div class="w-full md:w-auto sm:block" id="menu">
             <div
                 class="text-md sm:mt-2 lg:mt-0 flex flex-wrap items-center justify-center lg:justify-end">
                 @guest
