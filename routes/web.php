@@ -12,6 +12,7 @@ use App\Http\Controllers\Listing\PaymentListingController;
 use App\Http\Controllers\Listing\PublishedListingController;
 use App\Http\Controllers\Listing\RegionCategoryListingController;
 use App\Http\Controllers\Listing\RegionListingController;
+use App\Http\Controllers\Listing\ShareListingController;
 use App\Http\Controllers\Listing\UnpublishedListingController;
 use App\Http\Controllers\Listing\ViewedListingController;
 use App\Http\Controllers\Region\RegionController;
@@ -39,22 +40,27 @@ Route::group(['prefix' => 'listing'], static function (): void {
         Route::post('create', [ListingController::class, 'store'])
             ->name('listing.store');
 
-        Route::get('{listing}/edit', [ListingController::class, 'edit'])
-            ->name('listing.edit');
+            Route::get('{listing}/edit', [ListingController::class, 'edit'])
+                ->name('listing.edit');
 
-        Route::get('{listing}/payment', [PaymentListingController::class, 'show'])
-            ->name('payment_listing.show');
-        Route::post('{listing}/payment', [PaymentListingController::class, 'store'])
-            ->name('payment_listing.store');
-        Route::patch('{listing}/payment', [PaymentListingController::class, 'update'])
-            ->name('payment_listing.update');
+            Route::get('{listing}/share', [ShareListingController::class, 'index'])
+                ->name('share_listing.index');
+            Route::post('{listing}/share', [ShareListingController::class, 'store'])
+                ->name('share_listing.store');
 
-        Route::put('{listing}', [ListingController::class, 'update'])
-            ->name('listing.update');
+            Route::get('{listing}/payment', [PaymentListingController::class, 'show'])
+                ->name('payment_listing.show');
+            Route::post('{listing}/payment', [PaymentListingController::class, 'store'])
+                ->name('payment_listing.store');
+            Route::patch('{listing}/payment', [PaymentListingController::class, 'update'])
+                ->name('payment_listing.update');
 
-        Route::delete('{listing}', [ListingController::class, 'destroy'])
-            ->name('listing.destroy');
-    });
+            Route::put('{listing}', [ListingController::class, 'update'])
+                ->name('listing.update');
+
+            Route::delete('{listing}', [ListingController::class, 'destroy'])
+                ->name('listing.destroy');
+        });
 
     Route::get('favorite', [ListingController::class, 'index'])
         ->name('listing.index');

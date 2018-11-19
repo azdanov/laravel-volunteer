@@ -1,6 +1,6 @@
 @if (session('status'))
     <div
-        class="flex items-center justify-center bg-indigo-lighter text-grey-darkest text-sm font-bold px-4 py-2"
+        class="flex items-center justify-center bg-blue-lighter text-grey-darkest text-sm font-bold px-4 py-2"
         role="alert">
         <p>{{ session('status') }}</p>
         @include('partials.flash.close')

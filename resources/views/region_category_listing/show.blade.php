@@ -90,7 +90,7 @@ use App\Models\User;
             @if ($user)
                 <div class="w-full mb-4 lg:my-0 text-green-darker leading-none md:rounded">
                     <div class="flex justify-around lg:flex-col lg:justify-start mt-1">
-                        <a href="#"
+                        <a href="{{ route('share_listing.index', $listing) }}"
                            class="bg-transparent text-center hover:bg-green text-green-dark font-semibold hover:text-white md:my-2 py-2 px-4 border border-green hover:border-transparent rounded no-underline shadow hover:shadow-inner">
                             Email to a friend
                         </a>

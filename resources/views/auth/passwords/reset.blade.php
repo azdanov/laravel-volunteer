@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    {{ Breadcrumbs::render('listing_create', 'Reset Password') }}
+    {{ Breadcrumbs::render('form', 'Reset Password') }}
+
     <div class="w-full flex justify-center mt-6">
         <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex-grow max-w-xs"
               method="POST" action="{{ route('password.update') }}">

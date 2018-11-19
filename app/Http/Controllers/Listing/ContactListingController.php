@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Listing;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreListingContactFormRequest;
 use App\Mail\ListingContactCreated;
+use App\Mail\ListingShared;
 use App\Models\Category;
 use App\Models\Listing;
 use App\Models\Region;

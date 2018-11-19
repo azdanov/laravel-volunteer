@@ -72,7 +72,7 @@ Breadcrumbs::for(
             $category->name,
             route('region_category_listing.index', compact('region', 'category'))
         );
-        $crumbs->push($listing->title);
+        $crumbs->push($listing->title, route('region_category_listing.show', compact('region', 'category', 'listing')));
     }
 );
 
@@ -104,6 +104,12 @@ Breadcrumbs::for('published', static function (Crumbs $crumbs): void {
 Breadcrumbs::for('listing_create', static function (Crumbs $crumbs): void {
     $crumbs->parent('home');
     $crumbs->push('Create Listing', route('listing.create'));
+});
+
+// Home > Listing Share
+Breadcrumbs::for('share_listing', static function (Crumbs $crumbs, Listing $listing): void {
+    $crumbs->parent('region_category_listing', $listing->region, $listing->category, $listing);
+    $crumbs->push('Share', route('share_listing.index', $listing));
 });
 
 // Home > {Listing} Edit

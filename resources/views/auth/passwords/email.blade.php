@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    {{ Breadcrumbs::render('form', 'Send Password Reset') }}
+    {{ Breadcrumbs::render('form', 'Request Password Reset') }}
 
     <div class="w-full flex justify-center mt-6">
         <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex-grow max-w-xs"

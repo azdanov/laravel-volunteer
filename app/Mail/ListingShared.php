@@ -12,7 +12,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use function sprintf;
 
-class ListingContactCreated extends Mailable implements ShouldQueue
+class ListingShared extends Mailable implements ShouldQueue
 {
     use Queueable;
     use SerializesModels;
@@ -22,28 +22,38 @@ class ListingContactCreated extends Mailable implements ShouldQueue
     /** @var User */
     private $sender;
     /** @var string */
+    private $recipient;
+    /** @var string */
     private $body;
 
-    public function __construct(Listing $listing, User $sender, string $body)
+    /**
+     * Create a new message instance.
+     */
+    public function __construct(Listing $listing, User $sender, string $recipient, string $body)
     {
         $this->listing = $listing;
         $this->sender = $sender;
+        $this->recipient = $recipient;
         $this->body = $body;
     }
 
-    public function build(): self
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
     {
-        $subject = '%s sent a message about %s';
+        $subject = '%s shared %s with you';
 
         return $this
-            ->markdown(
-                'emails.listing.contact',
-                [
-                    'listing' => $this->listing,
-                    'sender' => $this->sender,
-                    'body' => $this->body,
-                ]
-            )
+            ->from(config('volunteer.default.email'))
+            ->markdown('emails.listing.share', [
+                'listing' => $this->listing,
+                'recipient' => $this->recipient,
+                'sender' => $this->sender,
+                'body' => $this->body,
+            ])
             ->subject(sprintf($subject, $this->sender->name, $this->listing->title))
             ->from(config('volunteer.default.email'))
             ->replyTo($this->sender->email);
