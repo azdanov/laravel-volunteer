@@ -33,8 +33,8 @@ class PaymentListingController extends Controller
     {
         $this->authorize('access', $listing);
 
-        if ($listing->live()) {
-            return back()->with('Listing has already been paid.');
+        if ($listing->paid) {
+            return back()->with('error', 'Listing has already been paid.');
         }
 
         return view('payment_listing.show', compact('listing'));
@@ -49,8 +49,8 @@ class PaymentListingController extends Controller
     {
         $this->authorize('access', $listing);
 
-        if ($listing->live()) {
-            return back()->with('Listing has already been paid.');
+        if ($listing->paid) {
+            return back()->with('error', 'Listing has already been paid.');
         }
 
         if ($listing->featured === false) {
@@ -74,6 +74,7 @@ class PaymentListingController extends Controller
         }
 
         $listing->live = true;
+        $listing->paid = true;
         $listing->created_at = now();
         $listing->save();
 

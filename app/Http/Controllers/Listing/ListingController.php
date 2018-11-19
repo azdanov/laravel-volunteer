@@ -89,10 +89,6 @@ class ListingController extends Controller
         $listing->region_id = $request->region_id;
         $listing->featured = $request->featured === 'on';
 
-        if ($listing->featured && $listing->live && !$listing->paid) {
-            $listing->live = false;
-        }
-
         $listing->save();
 
         if ($request->has('payment')) {

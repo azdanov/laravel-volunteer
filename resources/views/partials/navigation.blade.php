@@ -1,6 +1,6 @@
-<div class="border-b-4 border-green shadow">
+<div class="border-b-4 border-green shadow bg-white">
     <nav
-        class="flex items-center justify-center md:justify-end lg:justify-between flex-wrap container mx-auto py-3 lg:py-2 px-2 lg:px-0">
+        class="flex items-center justify-center md:justify-end lg:justify-between flex-wrap container mx-auto py-3 px-2 lg:px-0">
         <div
             class="flex items-center flex-no-shrink text-green-dark -mt-1 ml-2 lg:ml-4 mb-2 md:mb-0">
             @include('partials.logo')

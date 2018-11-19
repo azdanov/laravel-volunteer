@@ -1,24 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-    {{ Breadcrumbs::render('listing_create') }}
+    {{ Breadcrumbs::render('generic', 'Create') }}
 
-    <div class="w-full flex justify-center mt-6 mb-2">
+    <div class="form-outer">
         <form class="bg-white shadow-md rounded px-8 py-6 mb-4 flex-grow max-w-sm"
               method="post" action="{{ route('listing.store') }}">
             @csrf
-            <h2 class="mb-2 text-grey-darker">Create Listing</h2>
+            <h2 class="form-title">Create Listing</h2>
             <div class="mb-2">
-                <label class="block text-grey-darker text-sm font-bold mb-2" for="title">
+                <label class="form-label" for="title">
                     Title
                 </label>
-                <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline{{$errors->has('title') ? ' border-red mb-2' : ''}}"
-                    id="title" type="text" name="title" placeholder="Title"
-                    value="{{ old('title') }}" required>
+                <input class="form-input{{$errors->has('title') ? ' form-input--error' : ''}}"
+                       id="title" type="text" name="title" placeholder="Title"
+                       value="{{ old('title') }}" required>
                 @if ($errors->has('title'))
-                    <p role="alert"
-                       class="text-red text-xs italic">{{ $errors->first('title') }}</p>
+                    <p role="alert" class="form-error-text">{{ $errors->first('title') }}</p>
                 @endif
             </div>
             <div class="mb-2">
@@ -28,19 +26,17 @@
                 @include('partials.form.categories')
             </div>
             <div class="mb-2">
-                <label class="block text-grey-darker text-sm font-bold mb-2" for="body">
+                <label class="form-label" for="body">
                     Body
                 </label>
-                <textarea
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline{{$errors->has('body') ? ' border-red mb-2' : ''}}"
-                    id="body" type="body" name="body" required>{{ old('body') }}</textarea>
+                <textarea class="form-input{{$errors->has('body') ? ' form-input--error' : ''}}"
+                          id="body" type="body" name="body" required>{{ old('body') }}</textarea>
                 @if ($errors->has('body'))
-                    <p role="alert"
-                       class="text-red text-xs italic">{{ $errors->first('body') }}</p>
+                    <p role="alert" class="form-error-text">{{ $errors->first('body') }}</p>
                 @endif
             </div>
             <div class="my-5">
-                <label class="border rounded shadow p-2 text-grey-darker font-bold inline-flex items-center cursor-pointer select-none{{$errors->has('featured') ? ' border-red mb-2' : ''}}">
+                <label class="inline-flex items-center w-auto form-input{{$errors->has('featured') ? ' form-input--error' : ''}}">
                     <input type="checkbox" name="featured" class="mr-2 leading-tight"
                            id="featured" {{ old('featured') ? 'checked' : '' }}>
                     <span class="text-sm">
@@ -48,17 +44,14 @@
                     </span>
                 </label>
                 @if ($errors->has('featured'))
-                    <p role="alert"
-                       class="text-red text-xs italic">{{ $errors->first('featured') }}</p>
+                    <p role="alert" class="form-error-text">{{ $errors->first('featured') }}</p>
                 @endif
             </div>
-            <div class="flex items-center justify-between mt-4">
-                <button
-                    class="bg-green hover:bg-green-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    type="submit">
-                    Create
-                </button>
-            </div>
+            <button
+                class="form-button"
+                type="submit">
+                Create
+            </button>
         </form>
     </div>
 @endsection

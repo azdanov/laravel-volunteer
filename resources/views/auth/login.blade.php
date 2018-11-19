@@ -3,35 +3,34 @@
 @section('content')
     {{ Breadcrumbs::render('form', 'Login') }}
 
-    <div class="w-full flex justify-center mt-6">
-        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex-grow max-w-xs"
+    <div class="form-outer">
+        <form class="form-inner"
               method="POST"
               action="{{ route('login') }}">
             @csrf
-            <h2 class="mb-2 text-grey-darker">Login</h2>
+            <h2 class="form-title">Login</h2>
             <div class="mb-3">
-                <label class="block text-grey-darker text-sm font-bold mb-2" for="email">
+                <label class="form-label" for="email">
                     Email
                 </label>
                 <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline{{$errors->has('email') ? ' border-red mb-2' : ''}}"
+                    class="form-input{{$errors->has('email') ? ' form-input--error' : ''}}"
                     id="email" type="email" name="email" placeholder="Email"
                     value="{{ old('email') }}" required>
                 @if ($errors->has('email'))
-                    <p role="alert"
-                       class="text-red text-xs italic">{{ $errors->first('email') }}</p>
+                    <p role="alert" class="form-error-text">{{ $errors->first('email') }}</p>
                 @endif
             </div>
             <div class="mb-3">
-                <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
+                <label class="form-label" for="password">
                     Password
                 </label>
                 <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline{{$errors->has('password') ? ' border-red mb-2' : ''}}"
+                    class="form-input{{$errors->has('password') ? ' form-input--error' : ''}}"
                     id="password" type="password" name="password" required
                     placeholder="******************">
                 @if ($errors->has('password'))
-                    <p class="text-red text-xs italic">{{ $errors->first('password') }}</p>
+                    <p class="form-error-text">{{ $errors->first('password') }}</p>
                 @endif
             </div>
             <div class="mb-4">

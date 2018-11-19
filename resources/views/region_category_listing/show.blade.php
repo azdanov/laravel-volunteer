@@ -20,12 +20,11 @@ use App\Models\User;
 
     <div class="flex flex-wrap lg:flex-no-wrap">
         <div class="lg:w-3/4">
-            <div
-                class="text-green-darker md:mb-1 md:pt-3 mt-2 lg:mt-0 lg:px-5">
+            <div class="panel-outer">
                 <div
-                    class="self-start bg-grey-lightest shadow border border-grey-light leading-none md:rounded">
+                    class="self-start bg-white shadow border border-grey-light leading-none md:rounded">
                     <div class="bg-grey-lighter border-b border-grey-light px-4 py-2 md:rounded-t">
-                        <h2 class="font-bold mr-6 text-2xl">
+                        <h2 class="panel-heading-text">
                             {{ e($listing->title) }} in {{ $region->name }}
                         </h2>
                     </div>
@@ -33,16 +32,18 @@ use App\Models\User;
                         <p class="leading-normal">
                             {!! nl2br(e($listing->body)) !!}
                         </p>
-                        <small class="w-full mt-4 pt-3 border-t">Viewed {{ $listing->views() }} times</small>
+                        <small class="w-full mt-4 pt-3 border-t">Viewed {{ $listing->views() }}
+                            times
+                        </small>
                     </div>
                 </div>
             </div>
             <div
                 class="flex flex-wrap lg:flex-no-wrap bg-transparent text-green-darker my-4 lg:pt-3 lg:px-5">
                 <div
-                    class="w-full bg-grey-lightest shadow border border-grey-light leading-none md:rounded">
+                    class="w-full bg-white shadow border border-grey-light leading-none md:rounded">
                     <div class="bg-grey-lighter border-b border-grey-light px-4 py-2 md:rounded-t">
-                        <h3 class="font-bold mr-6 text-xl">
+                        <h3 class="panel-heading-text">
                             Contact {{ $listing->user->name }}
                         </h3>
                     </div>
@@ -54,44 +55,53 @@ use App\Models\User;
                             to contact the listing owner.
                         </p>
                     @else
-                        <form class="m-4" method="post" action="{{ route('contact_listing.store', [$region, $category, $listing]) }}">
-                            @csrf
-                            <div class="mb-2">
-                                <label class="block text-grey-darker text-sm font-bold mb-2"
-                                       for="message">
-                                    Message
-                                </label>
-                                <textarea
-                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline{{$errors->has('message') ? ' border-red mb-2' : ''}}"
-                                    id="message" type="text" name="message" placeholder=""
-                                    required>{{ old('message') }}</textarea>
-                                @if ($errors->has('message'))
-                                    <p role="alert"
-                                       class="text-red text-xs italic">{{ $errors->first('message') }}</p>
-                                @endif
-                            </div>
-                            <div class="flex items-center">
-                                <button
-                                    class="bg-green hover:bg-green-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                    type="submit">
-                                    Contact
-                                </button>
-                                <small class="ml-4 text-grey-darker text-xs italic leading-tight">
-                                    The message is sent to {{ $listing->user->name }} and they'll be
-                                    able to reply directly to your email.
-                                </small>
-                            </div>
-                        </form>
+                        @unless($listing->ownedByUser($user))
+                            <form class="m-4" method="post"
+                                  action="{{ route('contact_listing.store', [$region, $category, $listing]) }}">
+                                @csrf
+                                <div class="mb-2">
+                                    <label class="form-label"
+                                           for="message">
+                                        Message
+                                    </label>
+                                    <textarea
+                                        class="form-input{{$errors->has('message') ? ' form-input--error' : ''}}"
+                                        id="message" type="text" name="message" placeholder=""
+                                        required>{{ old('message') }}</textarea>
+                                    @if ($errors->has('message'))
+                                        <p role="alert"
+                                           class="form-error-text">{{ $errors->first('message') }}</p>
+                                    @endif
+                                </div>
+                                <div class="flex items-center">
+                                    <button
+                                        class="bg-green hover:bg-green-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                        type="submit">
+                                        Contact
+                                    </button>
+                                    <small
+                                        class="ml-4 text-grey-darker text-xs italic leading-tight">
+                                        The message is sent to {{ $listing->user->name }} and
+                                        they'll be
+                                        able to reply directly to your email.
+                                    </small>
+                                </div>
+                            </form>
+                        @else
+                            <p class="m-4">
+                                This listing belongs to you.
+                            </p>
+                        @endunless
                     @endunless
                 </div>
             </div>
         </div>
-        <div class="w-full lg:w-1/4 lg:ml-4">
+        <div class="w-full lg:w-1/4 lg:ml-4 lg:-mt-2">
             @if ($user)
-                <div class="w-full mb-4 lg:my-0 text-green-darker leading-none md:rounded">
-                    <div class="flex justify-around lg:flex-col lg:justify-start mt-1">
+                <div class="w-full mb-4 lg:mb-0 text-green-darker leading-none md:rounded">
+                    <div class="flex justify-around lg:flex-col lg:justify-start">
                         <a href="{{ route('share_listing.index', $listing) }}"
-                           class="bg-transparent text-center hover:bg-green text-green-dark font-semibold hover:text-white md:my-2 py-2 px-4 border border-green hover:border-transparent rounded no-underline shadow hover:shadow-inner">
+                           class="no-underline text-center form-button-outline">
                             Email to a friend
                         </a>
                         @unless ($listing->favoritedBy($user))
@@ -99,7 +109,7 @@ use App\Models\User;
                                   action="{{ route('region_listing.store', compact('region', 'listing')) }}">
                                 @csrf
                                 <button type="submit"
-                                        class="w-full bg-transparent hover:bg-green text-green-dark font-semibold hover:text-white md:my-2 py-2 px-4 border border-green hover:border-transparent rounded shadow hover:shadow-inner">
+                                        class="w-full form-button-outline">
                                     Add to favorites
                                 </button>
                             </form>
@@ -108,7 +118,7 @@ use App\Models\User;
                 </div>
             @endif
             <div
-                class="flex flex-wrap self-start my-3 justify-around lg:justify-center rounded shadow border border-grey-light bg-grey-lightest">
+                class="panel-ads-listing">
                 @include('partials.ad')
                 @include('partials.ad')
             </div>

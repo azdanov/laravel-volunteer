@@ -60,7 +60,7 @@ Route::group(['prefix' => 'listing'], static function (): void {
 
             Route::delete('{listing}', [ListingController::class, 'destroy'])
                 ->name('listing.destroy');
-        });
+    });
 
     Route::get('favorite', [ListingController::class, 'index'])
         ->name('listing.index');

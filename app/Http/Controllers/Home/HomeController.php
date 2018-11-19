@@ -24,6 +24,7 @@ class HomeController extends Controller
             ->get();
 
         $featured = Listing::with(['region', 'category'])
+            ->isPaid()
             ->isFeatured()
             ->isLive()
             ->limit(5)

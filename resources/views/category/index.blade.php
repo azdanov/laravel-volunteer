@@ -10,11 +10,12 @@ use App\Models\Category;
 @extends('layouts.app')
 
 @section('content')
-    {{ Breadcrumbs::render('categories') }}
-    <div class="bg-transparent text-left sm:mb-1 sm:pt-3 lg:px-5">
-        <div class="bg-grey-lighter shadow border border-t-0 text-white leading-none sm:rounded">
-            <div class="bg-grey-light border border-r-0 border-l-0 px-4 py-2 sm:rounded-t">
-                <h2 class="font-bold mr-6 text-2xl text-green-darker">Categories</h2>
+    {{ Breadcrumbs::render('generic', 'Categories') }}
+
+    <div class="panel-outer">
+        <div class="panel-inner">
+            <div class="panel-heading">
+                <h2 class="panel-heading-text">Categories</h2>
             </div>
             <div class="flex flex-wrap lg:flex-no-wrap px-4 py-4">
                 @foreach($categories as $category)
@@ -29,9 +30,7 @@ use App\Models\Category;
                                     ({{ $category->listingsCount() }})
                                 </small>
                             </h3>
-
                             <hr class="border-b mr-12 md:mr-0">
-
                             @foreach ($category->children as $subCategory)
                                 <p class="flex items-center text-green-darker mt-2">
                                     <span class="mr-2 select-none">&middot;</span>
@@ -44,13 +43,11 @@ use App\Models\Category;
                                     </small>
                                 </p>
                             @endforeach
-
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
-        {{--TODO: add regions--}}
     </div>
 @endsection
 

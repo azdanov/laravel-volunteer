@@ -18,6 +18,6 @@ class StoreListingContactFormRequest extends FormRequest
      */
     public function rules(): array
     {
-        return ['message' => 'required|string|min:3|max:255'];
+        return ['message' => 'required|string|max:255'];
     }
 }

@@ -1,62 +1,124 @@
-/**
- * This injects Tailwind's base styles, which is a combination of
- * Normalize.css and some additional base styles.
- *
- * You can see the styles here:
- * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
- *
- * If using `postcss-import`, use this import instead:
- *
- * @import "tailwindcss/preflight";
- */
 @tailwind preflight;
-
-/**
-  * This injects any component classes registered by plugins.
-  *
-  * If using `postcss-import`, use this import instead:
-  *
-  * @import "tailwindcss/components";
-  */
 @tailwind components;
 
-/**
-  * Here you would add any of your custom component classes; stuff that you'd
-  * want loaded *before* the utilities so that the utilities could still
-  * override them.
-  *
-  * Example:
-  *
-  * .btn { ... }
-  * .form-input { ... }
-  *
-  * Or if using a preprocessor or `postcss-import`:
-  *
-  * @import "components/buttons";
-  * @import "components/forms";
-  */
+.panel-outer {
+    @apply .bg-transparent .text-left .mb-3;
+}
 
-/**
-  * This injects all of Tailwind's utility classes, generated based on your
-  * config file.
-  *
-  * If using `postcss-import`, use this import instead:
-  *
-  * @import "tailwindcss/utilities";
-  */
+.panel-inner {
+    @apply .bg-white .shadow .border .border-grey-light .text-white .leading-none ;
+}
+
+.panel-heading {
+    @apply .bg-grey-lighter .border-b .border-grey-light .px-4 .py-2 .text-green-darker;
+}
+
+.panel-heading-text {
+    @apply .font-bold .text-lg .text-green-darker .no-underline;
+}
+
+.panel-ads {
+    @apply .flex .flex-wrap .self-start .justify-around .w-full .mt-3 .mb-4 .rounded .shadow .border .border-grey-light .bg-white;
+}
+
+.panel-ads-listing {
+    @apply .flex .flex-wrap .self-start .my-2 .justify-around .rounded .shadow .border .border-grey-light .bg-white;
+}
+
+.form-outer {
+    @apply .w-full .flex .justify-center .mt-6;
+}
+
+.form-inner {
+    @apply .bg-white .shadow-md .rounded .px-8 .pt-6 .pb-8 .mb-4 .flex-grow .max-w-xs;
+}
+
+.form-title {
+    @apply .mb-2 .text-grey-darker;
+}
+
+.form-label {
+    @apply .block .text-grey-darker .text-sm .font-bold .mb-2;
+}
+
+.form-input {
+    @apply .shadow .appearance-none .border .rounded .w-full .py-2 .px-3 .text-grey-darker .leading-tight;
+}
+
+.form-input:focus {
+    @apply .outline-none .shadow-outline;
+}
+
+.form-input--error {
+    @apply .border-red .mb-2;
+}
+
+.form-error-text {
+    @apply .text-red .text-xs .italic;
+}
+
+.form-button {
+    @apply .bg-green .text-white .font-bold .py-2 .px-4 .rounded .shadow-1;
+}
+
+.form-button:focus {
+    @apply .outline-none .shadow-outline;
+}
+
+.form-button:hover {
+    @apply .bg-green-dark;
+}
+
+.form-button-outline {
+    @apply .bg-transparent .text-green-dark .font-semibold .py-2 .px-4 .border .border-green .rounded .shadow-1;
+}
+
+.form-button-outline:hover {
+    @apply .bg-green .text-white .border-transparent;
+}
+
+.flash {
+    @apply .flex .items-center .justify-center .text-grey-darkest .text-sm .font-bold .px-4 .py-3 .shadow-1;
+}
+
+.flash--status {
+    @apply .bg-blue-lighter;
+}
+
+.flash--success {
+    @apply .bg-green-lighter;
+}
+
+.flash--error {
+    @apply .bg-red-lighter;
+}
+
+@screen lg {
+    .panel-outer {
+        @apply .px-5;
+    }
+    .panel-ads {
+        @apply .w-1/4;
+    }
+    .panel-ads-listing {
+        @apply .justify-center;
+    }
+}
+@screen md {
+    .panel-ads {
+        @apply .mt-0;
+    }
+    .form-button-outline {
+        @apply my-2;
+    }
+}
+@screen sm {
+    .panel-inner {
+        @apply .rounded;
+    }
+    .panel-heading {
+        @apply .rounded-t;
+    }
+}
+
 @tailwind utilities;
-
-/**
-  * Here you would add any custom utilities you need that don't come out of the
-  * box with Tailwind.
-  *
-  * Example :
-  *
-  * .bg-pattern-graph-paper { ... }
-  * .skew-45 { ... }
-  *
-  * Or if using a preprocessor or `postcss-import`:
-  *
-  * @import "utilities/background-patterns";
-  * @import "utilities/skew-transforms";
-  */

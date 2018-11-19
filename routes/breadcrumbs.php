@@ -14,10 +14,11 @@ Breadcrumbs::for('home', static function (Crumbs $crumbs): void {
     $crumbs->push('Home', route('home'));
 });
 
-// Home > Regions
-Breadcrumbs::for('regions', static function (Crumbs $crumbs): void {
+
+// Home > [Generic]
+Breadcrumbs::for('generic', static function (Crumbs $crumbs, string $name): void {
     $crumbs->parent('home');
-    $crumbs->push('Regions', route('region.index'));
+    $crumbs->push($name);
 });
 
 // Home > {Region}
@@ -30,18 +31,12 @@ Breadcrumbs::for('region', static function (Crumbs $crumbs, Region $region): voi
     $crumbs->push($region->name, route('region.store', $region));
 });
 
-// Home > Categories
-Breadcrumbs::for('categories', static function (Crumbs $crumbs): void {
-    $crumbs->parent('home');
-    $crumbs->push('Categories', route('category.index'));
-});
-
 // Home > {Category}
 Breadcrumbs::for('category', static function (Crumbs $crumbs, Category $category): void {
     if ($category->parent) {
         $crumbs->parent('category', $category->parent);
     } else {
-        $crumbs->parent('categories');
+        $crumbs->parent('generic', 'Categories');
     }
     $crumbs->push($category->name, route('listing.show', $category));
 });
@@ -76,36 +71,6 @@ Breadcrumbs::for(
     }
 );
 
-// Home > [Form]
-Breadcrumbs::for('form', static function (Crumbs $crumbs, string $name): void {
-    $crumbs->parent('home');
-    $crumbs->push($name);
-});
-
-// Home > Favorite
-Breadcrumbs::for('favorite', static function (Crumbs $crumbs): void {
-    $crumbs->parent('home');
-    $crumbs->push('Favorite', route('listing.index'));
-});
-
-// Home > Unpublished
-Breadcrumbs::for('unpublished', static function (Crumbs $crumbs): void {
-    $crumbs->parent('home');
-    $crumbs->push('Unpublished', route('listing.index'));
-});
-
-// Home > Published
-Breadcrumbs::for('published', static function (Crumbs $crumbs): void {
-    $crumbs->parent('home');
-    $crumbs->push('Published', route('listing.index'));
-});
-
-// Home > Listing Create
-Breadcrumbs::for('listing_create', static function (Crumbs $crumbs): void {
-    $crumbs->parent('home');
-    $crumbs->push('Create Listing', route('listing.create'));
-});
-
 // Home > Listing Share
 Breadcrumbs::for('share_listing', static function (Crumbs $crumbs, Listing $listing): void {
     $crumbs->parent('region_category_listing', $listing->region, $listing->category, $listing);
@@ -115,6 +80,11 @@ Breadcrumbs::for('share_listing', static function (Crumbs $crumbs, Listing $list
 // Home > {Listing} Edit
 Breadcrumbs::for('listing_edit', static function (Crumbs $crumbs, Listing $listing): void {
     $crumbs->parent('home');
+    if ($listing->live) {
+        $crumbs->push('Published', route('published_listing.index'));
+    } else {
+        $crumbs->push('Unpublished', route('unpublished_listing.index'));
+    }
     $crumbs->push($listing->title . ' (Edit)', route('listing.edit', $listing));
 });
 

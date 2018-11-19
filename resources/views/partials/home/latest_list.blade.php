@@ -7,22 +7,21 @@ use App\Models\Listing;
 /** @var Listing[] $listings */
 
 ?>
-<div class="bg-transparent text-left mb-3 lg:px-5">
+<div class="panel-outer">
     <p class="ml-2 mb-1 text-grey-dark text-sm">Latest</p>
-    <div class="bg-grey-lightest shadow border border-grey-light leading-none sm:rounded">
-        <div
-            class="bg-grey-lighter border-b border-grey-light text-green-darker px-4 py-2 sm:rounded-t">
-            <div class="flex">
+    <div class="panel-inner">
+        <div class="panel-heading">
+            <div class="flex text-green-darker">
                 <div class="w-1/3 md:w-3/5">
-                    <p class="font-bold no-underline">Job Title</p>
+                    <p class="panel-heading-text">Job Title</p>
                 </div>
                 <div class="w-2/3 md:w-2/5 pl-4 lg:pl-6 flex justify-between">
-                    <p class="font-bold no-underline">Category</p>
-                    <p class="font-bold no-underline">Location</p>
+                    <p class="panel-heading-text">Category</p>
+                    <p class="panel-heading-text">Location</p>
                 </div>
             </div>
         </div>
-        <div class="flex flex-col justify-center flex-wrap lg:flex-no-wrap px-4 pt-3 pb-1">
+        <div class="flex flex-col justify-center text-green-darker flex-wrap lg:flex-no-wrap px-4 pt-3 pb-1">
             @foreach($listings as $listing)
                 <div class="flex justify-between items-center mb-3">
                     <div class="w-1/3 md:w-3/5">

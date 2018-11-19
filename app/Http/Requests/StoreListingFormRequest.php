@@ -21,8 +21,8 @@ class StoreListingFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|min:3|max:60',
-            'body' => 'required|string|min:3|max:255',
+            'title' => 'required|string|max:60',
+            'body' => 'required|string|max:255',
             'category_id' => [
                 'required',
                 Rule::exists('categories', 'id')

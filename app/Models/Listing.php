@@ -36,7 +36,7 @@ use function array_merge;
  * @property User $user
  * @property Collection|User[] $favorites
  * @property bool $paid
- * @property-read Collection|User[] $viewedUsers
+ * @property Collection|User[] $viewedUsers
  * @method static Builder|Listing newModelQuery()
  * @method static Builder|Listing newQuery()
  * @method static Builder|Listing query()
@@ -64,6 +64,7 @@ use function array_merge;
  * @method static Builder|Listing orderByPivot($column = 'created_at', $order = 'desc')
  * @method static Builder|Listing isFeatured()
  * @method static Builder|Listing wherePaid($value)
+ * @method static Builder|Listing isPaid()
  * @mixin \Eloquent
  */
 class Listing extends Model
@@ -81,6 +82,11 @@ class Listing extends Model
     public function scopeIsFeatured(Builder $query): Builder
     {
         return $query->where('featured', true);
+    }
+
+    public function scopeIsPaid(Builder $query): Builder
+    {
+        return $query->where('paid', true);
     }
 
     public function scopeIsDraft(Builder $query): Builder

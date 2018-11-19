@@ -10,16 +10,16 @@ use App\Models\Region;
 @extends('layouts.app')
 
 @section('content')
-    {{ Breadcrumbs::render('regions') }}
+    {{ Breadcrumbs::render('generic', 'Regions') }}
 
-    <div class="bg-transparent text-left sm:mb-1 sm:pt-3 lg:px-5">
-        <div class="bg-grey-lightest shadow border border-grey-light text-white leading-none sm:rounded">
+    <div class="panel-outer">
+        <div class="panel-inner">
             @foreach($regions as $country)
-                <div class="bg-grey-lighter border-b border-grey-light px-4 py-2 sm:rounded-t">
-                    <a class="font-bold mr-6 text-2xl text-green-darker no-underline"
+                <div class="panel-heading">
+                    <a class="panel-heading-text"
                        href="{{ route('region.store', $country) }}">{{ $country->name }}</a>
                 </div>
-                <div class="flex flex-wrap lg:flex-no-wrap px-4 py-4">
+                <div class="flex flex-wrap lg:flex-no-wrap px-4 my-2">
                     @foreach($country->children as $state)
                         <div class="w-1/2 md:w-1/3 lg:w-full lg:ml-6 mt-3 mb-3 lg:mb-0">
                             <div>
@@ -39,7 +39,6 @@ use App\Models\Region;
                                         </a>
                                     </p>
                                 @endforeach
-
                             </div>
                         </div>
                     @endforeach

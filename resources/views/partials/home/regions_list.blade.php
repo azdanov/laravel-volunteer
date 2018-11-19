@@ -7,10 +7,10 @@ use App\Models\Region;
 /** @var Region[] $regions */
 ?>
 
-<div class="bg-transparent text-left mb-3 lg:px-5">
-    <div class="bg-grey-lightest shadow border border-grey-light text-white text-center md:text-left leading-none sm:rounded">
-        <div class="bg-grey-lighter border-b border-grey-light px-4 py-2 sm:rounded-t">
-            <a class="font-bold md:mr-6 text-green-darker no-underline"
+<div class="panel-outer">
+    <div class="panel-inner">
+        <div class="panel-heading">
+            <a class="panel-heading-text"
                href="{{ route('region.index') }}">Regions</a>
         </div>
         <div class="flex flex-wrap px-4 py-3">
