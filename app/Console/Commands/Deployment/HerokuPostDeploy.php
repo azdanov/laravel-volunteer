@@ -17,7 +17,7 @@ class HerokuPostDeploy extends Command
     {
         if (app()->environment('production')) {
             $this->call('migrate', ['--force', true]);
-
+            $this->call('db:seed'); // Demo Content
             return;
         }
 
@@ -26,9 +26,5 @@ class HerokuPostDeploy extends Command
         }
 
         $this->call('migrate');
-
-        if ($this->option('seed')) {
-            $this->call('db:seed');
-        }
     }
 }
