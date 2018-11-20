@@ -13,12 +13,12 @@ use App\Models\Region;
             <a class="panel-heading-text"
                href="{{ route('region.index') }}">Regions</a>
         </div>
-        <div class="flex flex-wrap px-4 py-3">
+        <div class="flex flex-wrap px-4 py-3 text-center md:text-left">
             <div class="w-full md:w-4/5">
                 @foreach($regions as $country)
                     <a class="block font-semibold text-green-darker no-underline"
                        href="{{ route('region.store', $country) }}">{{ $country->name }}</a>
-                    <hr class="border-b mr-6">
+                    <hr class="border-b md:mr-6">
                     <div class="flex flex-wrap justify-between">
                         @foreach($country->children as $stateIndex => $state)
                             @if ($stateIndex === 4)
@@ -32,7 +32,7 @@ use App\Models\Region;
                                         {{ $state->name }}
                                     </a>
 
-                                    <hr class="border-b mx-8 sm:mx-12 md:hidden">
+                                    <hr class="border-b mx-2 md:mx-8 sm:mx-12 md:hidden">
 
                                     @foreach ($state->children as $cityIndex => $city)
                                         @if ($cityIndex === 3)
