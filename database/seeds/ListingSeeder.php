@@ -9,6 +9,6 @@ class ListingSeeder extends Seeder
 {
     public function run(): void
     {
-        factory(Listing::class, 30)->create();
+        factory(Listing::class, 100)->create();
     }
 }

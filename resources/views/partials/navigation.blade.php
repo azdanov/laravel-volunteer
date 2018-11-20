@@ -6,11 +6,11 @@
             @include('partials.logo')
             <div class="ml-1 w-32 flex flex-wrap">
                 <a href="{{ route('home') }}"
-                   class="font-semibold text-2xl tracking-tight text-green-dark no-underline">
+                   class="font-semibold text-3xl tracking-tight text-green-dark no-underline">
                     Volunteer
                 </a>
                 @if ($global_region)
-                    <a class="-mt-2 select-none ml-1 text-sm no-underline text-green-dark hover:underline"
+                    <a class="-mt-2 select-none text-lg ml-1 text-sm no-underline text-green-dark hover:underline"
                        href="{{ route('region_category.show', [$global_region]) }}">{{ $global_region->name }}</a>
                 @endif
             </div>
@@ -29,7 +29,7 @@
 
         @include('partials.search')
 
-        <div class="w-full md:w-auto sm:block" id="menu">
+        <div class="w-full md:w-auto text-lg sm:block" id="menu">
             <div
                 class="text-md sm:mt-2 lg:mt-0 flex flex-wrap items-center justify-center lg:justify-end">
                 @guest

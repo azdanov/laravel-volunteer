@@ -9,7 +9,7 @@ use App\Models\Region;
 /** @var Region $region */
 ?>
 
-<div class="mb-4 w-full md:w-1/2 lg:w-1/3">
+<div class="sm:pr-1 lg:pr-3 w-full md:w-1/2 lg:w-1/3 leading-tight">
     <div class="text-green-darker flex flex-col mb-2">
         <h5 class="font-normal mb-1">
             @if ($listing->live)

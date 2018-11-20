@@ -30,7 +30,7 @@ class HomeController extends Controller
             ->isPaid()
             ->isFeatured()
             ->isLive()
-            ->limit(5)
+            ->limit(4)
             ->get()
             ->shuffle();
 

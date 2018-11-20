@@ -18,13 +18,13 @@ use App\Models\Listing;
             <div class="panel-heading">
                 <h2 class="panel-heading-text">{{ $category->name }}</h2>
             </div>
-            <div class="flex flex-wrap lg:flex-no-wrap px-4 pt-4">
+            <div class="flex flex-wrap justify-between lg:flex-no-wrap px-4 pt-4">
                 @if ($listings->isNotEmpty())
                     @foreach($listings as $listing)
                         @include('partials.listings.listing', compact('listing'))
                     @endforeach
                 @else
-                    <p class="text-green-darker">Currently no volunteer opportunities are available.
+                    <p class="text-green-darker mb-4">Currently no volunteer opportunities are available.
                         Check again soon!</p>
                 @endif
             </div>

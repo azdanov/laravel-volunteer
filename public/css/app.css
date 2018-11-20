@@ -1487,6 +1487,7 @@ table {
   border-color: #dae1e7;
   color: #fff;
   line-height: 1;
+  text-align: center;
 }
 
 .panel-heading {
@@ -1719,6 +1720,10 @@ table {
 @media (min-width: 768px) {
   .panel-ads {
     margin-top: 0;
+  }
+
+  .panel-inner {
+    text-align: left;
   }
 
   .form-button-outline {
@@ -7430,7 +7435,7 @@ table {
 }
 
 html {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 @media (max-width: 577px) {

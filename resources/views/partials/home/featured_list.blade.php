@@ -3,10 +3,10 @@
         <div class="panel-heading">
             <span class="panel-heading-text">Featured</span>
         </div>
-        <div class="flex flex-wrap px-4 py-3">
+        <div class="flex flex-wrap justify-between px-4 py-3">
             @foreach ($featured as $listing)
-                <div class="w-1/2 my-2 md:w-1/5 inline-flex flex-col">
-                    <a class="font-semibold text-left text-green-darker no-underline"
+                <div class="w-full my-2 md:mx-1 md:w-1/5 inline-flex flex-col">
+                    <a class="font-semibold text-green-darker no-underline"
                        href="{{ route('region_category_listing.show', ['region' => $listing->region, 'category' => $listing->category, 'listing' => $listing]) }}">
                         {{ $listing->title }}
                     </a>

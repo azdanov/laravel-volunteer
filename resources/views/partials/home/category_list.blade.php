@@ -13,17 +13,17 @@ use App\Models\Category;
             <a class="panel-heading-text"
                href="{{ route('category.index') }}">Categories</a>
         </div>
-        <div class="flex justify-between flex-wrap px-4 py-3">
+        <div class="flex justify-between text-center md:text-left flex-wrap py-3">
             @foreach ($categories as $category)
-                <div class="w-1/2 my-2 md:w-1/5">
-                    <a class="font-semibold text-left text-green-darker no-underline"
+                <div class="w-1/2 my-2 md:w-1/4">
+                    <a class="font-semibold mx-4 text-green-darker no-underline"
                        href="{{ route('listing.show', compact('category')) }}">
                         {{ $category->name }}
+                        ({{ $category->listingsCount() }})
                     </a>
                 </div>
             @endforeach
-            <div
-                class="flex-1 mt-3 pt-2 border-t whitespace-no-wrap">
+            <div class="w-full mt-3 pt-2 border-t whitespace-no-wrap">
                 <div class="flex items-center justify-center mt-1">
                     <svg class="opacity-75 h-4 w-4 mr-1 hidden lg:block"
                          xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,7 @@ use App\Models\Category;
                             d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
                     </svg>
                     <a class="font-semibold text-left text-green-darker no-underline"
-                       href="#">
+                       href="{{ route('listing.show', compact('category')) }}">
                         More Categories
                     </a>
                 </div>

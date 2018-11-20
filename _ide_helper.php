@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.7.13 on 2018-11-20 08:44:58.
+ * Generated for Laravel 5.7.13 on 2018-11-20 11:10:30.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -15338,9 +15338,7 @@ namespace DaveJamesMiller\Breadcrumbs\Facades {
 }
 
 
-namespace  {
-
-    use Kalnoy\Nestedset\Collection;
+namespace  { 
 
     class App extends \Illuminate\Support\Facades\App {}
 
@@ -15661,7 +15659,7 @@ namespace  {
              * Execute the query as a "select" statement.
              *
              * @param array $columns
-             * @return \Illuminate\Database\Eloquent\Collection|Collection|static[]
+             * @return \Illuminate\Database\Eloquent\Collection|static[] 
              * @static 
              */ 
             public static function get($columns = array())

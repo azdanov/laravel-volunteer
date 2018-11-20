@@ -12,6 +12,7 @@
     @yield('content')
 </main>
 
+@include('cookieConsent::index')
 @include('partials.footer')
 </body>
 </html>

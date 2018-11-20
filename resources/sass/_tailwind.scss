@@ -6,7 +6,7 @@
 }
 
 .panel-inner {
-    @apply .bg-white .shadow .border .border-grey-light .text-white .leading-none ;
+    @apply .bg-white .shadow .border .border-grey-light .text-white .leading-none .text-center;
 }
 
 .panel-heading {
@@ -107,6 +107,9 @@
 @screen md {
     .panel-ads {
         @apply .mt-0;
+    }
+    .panel-inner {
+        @apply .text-left;
     }
     .form-button-outline {
         @apply my-2;
