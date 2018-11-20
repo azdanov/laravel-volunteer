@@ -8,12 +8,15 @@ use App\Models\Category;
 use App\Models\Listing;
 use App\Models\Region;
 use Illuminate\Contracts\View\View;
+use SEO;
 use function compact;
 
 class HomeController extends Controller
 {
     public function index(): View
     {
+        SEO::setTitle('Home');
+
         $regions = Region::get()->toTree();
         $categories = Category::get()->toTree();
         $listings = Listing::with(['region', 'category'])

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    {{ Breadcrumbs::render('form', 'Request Password Reset') }}
+    {{ Breadcrumbs::render('generic', 'Request Reset') }}
 
     <div class="form-outer">
         <form class="form-inner" method="POST" action="{{ route('password.email') }}">

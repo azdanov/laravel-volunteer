@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Listing;
 use App\Models\User;
 use Illuminate\View\View;
+use SEO;
 use function compact;
 
 class PublishedListingController extends Controller
@@ -19,6 +20,8 @@ class PublishedListingController extends Controller
 
     public function index(): View
     {
+        SEO::setTitle('Published');
+
         /** @var User $user */
         $user = auth()->user();
 

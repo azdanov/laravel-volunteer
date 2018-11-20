@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use function compact;
+use SEO;
 
 class ViewedListingController extends Controller
 {
@@ -21,6 +22,8 @@ class ViewedListingController extends Controller
 
     public function index(Request $request): View
     {
+        SEO::setTitle('Viewed');
+
         /** @var User $user */
         $user = $request->user();
 

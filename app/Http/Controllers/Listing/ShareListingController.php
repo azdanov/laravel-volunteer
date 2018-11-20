@@ -11,6 +11,7 @@ use App\Models\Listing;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Mail;
+use SEO;
 use function collect;
 
 class ShareListingController extends Controller
@@ -24,6 +25,8 @@ class ShareListingController extends Controller
 
     public function index(Listing $listing): View
     {
+        SEO::setTitle('Share');
+
         return view('share_listing.show', [
             'listing' => $listing,
             'max_email' => $this::MAX_EMAIL,

@@ -17,12 +17,15 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 use function compact;
+use SEO;
 use function view;
 
 class ListingController extends Controller
 {
     public function index(): View
     {
+        SEO::setTitle('Listing');
+
         /** @var User $user */
         $user = auth()->user();
         abort_if(!$user, Response::HTTP_NOT_FOUND);
@@ -36,6 +39,8 @@ class ListingController extends Controller
 
     public function show(Category $category): View
     {
+        SEO::setTitle($category->name);
+
         $listings = Listing::with(['user', 'region', 'category'])
             ->isLive()
             ->fromCategory($category)
@@ -47,6 +52,8 @@ class ListingController extends Controller
 
     public function create(): View
     {
+        SEO::setTitle('Create');
+
         return view('listing.create');
     }
 
@@ -71,6 +78,8 @@ class ListingController extends Controller
      */
     public function edit(Listing $listing): View
     {
+        SEO::setTitle('Edit ' . $listing->title);
+
         $this->authorize('edit', $listing);
 
         return view('listing.edit', compact('listing'));

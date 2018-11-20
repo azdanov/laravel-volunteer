@@ -12,9 +12,11 @@ class RegionTableSeeder extends Seeder
         $regions = [
             [
                 'name' => 'Estonia',
+                'usable' => false,
                 'children' => [
                     [
                         'name' => 'Harjumaa',
+                        'usable' => false,
                         'children' => [
                             ['name' => 'Tallinn'],
                             ['name' => 'Maardu'],
@@ -27,6 +29,7 @@ class RegionTableSeeder extends Seeder
                     ],
                     [
                         'name' => 'Tartumaa',
+                        'usable' => false,
                         'children' => [
                             ['name' => 'Tartu'],
                             ['name' => 'Kallaste'],
@@ -35,6 +38,7 @@ class RegionTableSeeder extends Seeder
                     ],
                     [
                         'name' => 'Ida-Virumaa',
+                        'usable' => false,
                         'children' => [
                             ['name' => 'Kohtla-Järve'],
                             ['name' => 'Narva'],
@@ -44,6 +48,7 @@ class RegionTableSeeder extends Seeder
                     ],
                     [
                         'name' => 'Pärnumaa',
+                        'usable' => false,
                         'children' => [
                             ['name' => 'Pärnu'],
                             ['name' => 'Sindi'],
@@ -53,6 +58,7 @@ class RegionTableSeeder extends Seeder
                     ],
                     [
                         'name' => 'Lääne-Virumaa',
+                        'usable' => false,
                         'children' => [
                             ['name' => 'Rakvere'],
                         ],

@@ -15,12 +15,15 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
+use SEO;
 use function compact;
 
 class RegionCategoryListingController extends Controller
 {
     public function index(Region $region, Category $category): View
     {
+        SEO::setTitle($region->name . ' - ' . $category->name);
+
         $listings = Listing::with(['user', 'region', 'category'])
             ->isLive()
             ->inRegion($region)
@@ -33,6 +36,7 @@ class RegionCategoryListingController extends Controller
 
     public function show(Request $request, Region $region, Category $category, Listing $listing): View
     {
+        SEO::setTitle($region->name . ' - ' . $category->name . ' - ' . $listing->title);
         abort_unless($listing->live, Response::HTTP_NOT_FOUND);
 
         /** @var User $user */

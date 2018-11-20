@@ -12,6 +12,7 @@ class CategoryTableSeeder extends Seeder
         $categories = [
             [
                 'name' => 'Business',
+                'usable' => false,
                 'children' => [
                     ['name' => 'Sales'],
                     ['name' => 'Accounting'],
@@ -20,6 +21,7 @@ class CategoryTableSeeder extends Seeder
             ],
             [
                 'name' => 'Technology',
+                'usable' => false,
                 'children' => [
                     ['name' => 'Web Development'],
                     ['name' => 'PC Setup'],
@@ -29,6 +31,7 @@ class CategoryTableSeeder extends Seeder
             ],
             [
                 'name' => 'Assistance',
+                'usable' => false,
                 'children' => [
                     ['name' => 'Babysitting'],
                     ['name' => 'Elderly Care'],
@@ -38,6 +41,7 @@ class CategoryTableSeeder extends Seeder
             ],
             [
                 'name' => 'Physical Work',
+                'usable' => false,
                 'children' => [
                     ['name' => 'Landscaping'],
                     ['name' => 'Gardening'],

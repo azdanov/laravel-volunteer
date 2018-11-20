@@ -10,6 +10,7 @@ use Braintree\Gateway;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use SEO;
 use function compact;
 use function number_format;
 
@@ -31,6 +32,8 @@ class PaymentListingController extends Controller
      */
     public function show(Listing $listing)
     {
+        SEO::setTitle('Pay ' . $listing->title);
+
         $this->authorize('access', $listing);
 
         if ($listing->paid) {

@@ -9,6 +9,7 @@ use App\Models\Listing;
 use App\Models\User;
 use Illuminate\View\View;
 use function compact;
+use SEO;
 
 class UnpublishedListingController extends Controller
 {
@@ -19,6 +20,8 @@ class UnpublishedListingController extends Controller
 
     public function index(): View
     {
+        SEO::setTitle('Unpublished');
+
         /** @var User $user */
         $user = auth()->user();
 

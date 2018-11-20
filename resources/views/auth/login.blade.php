@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    {{ Breadcrumbs::render('form', 'Login') }}
+    {{ Breadcrumbs::render('generic', 'Login') }}
 
     <div class="form-outer">
         <form class="form-inner"

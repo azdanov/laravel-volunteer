@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    {{ Breadcrumbs::render('form', 'Verify Email') }}
+    {{ Breadcrumbs::render('generic', 'Verify Email') }}
 
     <h2>Verify Your Email Address</h2>
 
