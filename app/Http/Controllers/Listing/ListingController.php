@@ -65,7 +65,7 @@ class ListingController extends Controller
         $listing->category_id = $request->category_id;
         $listing->region_id = $request->region_id;
         $listing->featured = $request->featured === 'on';
-        $listing->paid = true;
+        $listing->paid = false;
         $listing->user()->associate($request->user());
 
         $listing->save();
