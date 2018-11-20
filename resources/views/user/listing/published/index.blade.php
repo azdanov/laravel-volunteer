@@ -18,7 +18,7 @@ use App\Models\Listing;
             <div class="panel-heading">
                 <h2 class="panel-heading-text">Published</h2>
             </div>
-            <div class="flex flex-wrap justify-between lg:flex-no-wrap px-4 pt-4">
+            <div class="flex flex-wrap justify-between lg:flex-no-wrap px-4 py-4">
                 @if ($listings->isNotEmpty())
                     @each('partials.listings.own_listing', $listings, 'listing'))
                 @else

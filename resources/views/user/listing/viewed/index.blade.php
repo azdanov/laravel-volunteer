@@ -19,7 +19,7 @@ use App\Models\Listing;
                 <h2 class="panel-heading-text">Recently Viewed</h2>
                 <small class="mt-1 text-grey-darker">Showing {{ $limit }} latest</small>
             </div>
-            <div class="flex flex-wrap justify-between lg:flex-no-wrap px-4 pt-4">
+            <div class="flex flex-wrap justify-between lg:flex-no-wrap px-4 py-4">
                 @if ($listings->isNotEmpty())
                     @each('partials.listings.listing', $listings, 'listing')
                 @else
