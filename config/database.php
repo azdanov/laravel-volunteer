@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -58,11 +58,11 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => parse_url(getenv('DATABASE_URL'), PHP_URL_HOST),
+            'port' => parse_url(getenv('DATABASE_URL'), PHP_URL_PORT),
+            'database' => substr(parse_url(getenv('DATABASE_URL'), PHP_URL_PATH), 1),
+            'username' => parse_url(getenv('DATABASE_URL'), PHP_URL_USER),
+            'password' => parse_url(getenv('DATABASE_URL'), PHP_URL_PASS),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
@@ -111,16 +111,15 @@ return [
         'client' => 'predis',
 
         'default' => [
-            'host' => env('REDIS_HOST', '127.0.0.1'),
-            'password' => env('REDIS_PASSWORD', null),
-            'port' => env('REDIS_PORT', 6379),
+            'host' => parse_url(env('REDIS_URL'), PHP_URL_HOST),
+            'password' => parse_url(env('REDIS_URL'), PHP_URL_PASS),
+            'port' => parse_url(env('REDIS_URL'), PHP_URL_PORT),
             'database' => env('REDIS_DB', 0),
         ],
-
         'cache' => [
-            'host' => env('REDIS_HOST', '127.0.0.1'),
-            'password' => env('REDIS_PASSWORD', null),
-            'port' => env('REDIS_PORT', 6379),
+            'host' => parse_url(env('REDIS_URL'), PHP_URL_HOST),
+            'password' => parse_url(env('REDIS_URL'), PHP_URL_PASS),
+            'port' => parse_url(env('REDIS_URL'), PHP_URL_PORT),
             'database' => env('REDIS_CACHE_DB', 1),
         ],
     ],

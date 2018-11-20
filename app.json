@@ -1,0 +1,76 @@
+{
+    "name": "laravel-volunteer",
+    "scripts": {
+        "postdeploy": "php artisan postdeploy:heroku"
+    },
+    "stack": "heroku-18",
+    "env": {
+        "ALGOLIA_APP_ID": {
+            "required": false
+        },
+        "ALGOLIA_SECRET": {
+            "required": false
+        },
+        "APP_DEBUG": {
+            "required": false
+        },
+        "MAIL_HOST": {
+            "required": true
+        },
+        "MAIL_PASSWORD": {
+            "required": true
+        },
+        "MAIL_PORT": {
+            "required": true
+        },
+        "MAIL_USERNAME": {
+            "required": true
+        },
+        "APP_ENV": {
+            "required": false
+        },
+        "APP_KEY": {
+            "required": true
+        },
+        "APP_URL": {
+            "required": true
+        },
+        "CACHE_DRIVER": {
+            "required": true
+        },
+        "QUEUE_DRIVER": {
+            "required": true
+        },
+        "SCOUT_DRIVER": {
+            "required": true
+        },
+        "SCOUT_QUEUE": {
+            "required": true
+        },
+        "QUEUE_CONNECTION": {
+            "required": true
+        },
+        "SESSION_DRIVER": {
+            "required": true
+        }
+    },
+    "formation": {
+        "web": {
+            "quantity": 1,
+            "size": "hobby"
+        },
+        "worker": {
+            "quantity": 1,
+            "size": "hobby"
+        }
+    },
+    "addons": ["heroku-postgresql:hobby-dev", "heroku-redis:hobby-dev"],
+    "buildpacks": [
+        {
+            "url": "heroku/php"
+        },
+        {
+            "url": "heroku/nodejs"
+        }
+    ]
+}

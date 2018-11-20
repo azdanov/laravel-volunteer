@@ -40,6 +40,11 @@ return [
             'channels' => ['daily'],
         ],
 
+        'heroku' => [
+            'driver' => 'stack',
+            'channel' => ['errorlog'],
+        ],
+
         'single' => [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),

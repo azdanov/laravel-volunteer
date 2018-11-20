@@ -7,7 +7,6 @@ return [
         'description' => 'Find a volunteer position.',
         'region' => 'estonia',
         'listing_pagination' => 10,
-        'email' => env('MAIL_FROM_ADDRESS', 'hello@volunteer.com'),
         'featured_price' => 7,
     ],
     'braintree' => [

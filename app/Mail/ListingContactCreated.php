@@ -45,7 +45,7 @@ class ListingContactCreated extends Mailable implements ShouldQueue
                 ]
             )
             ->subject(sprintf($subject, $this->sender->name, $this->listing->title))
-            ->from(config('volunteer.default.email'))
+            ->from(config('mail.from.address'))
             ->replyTo($this->sender->email);
     }
 }

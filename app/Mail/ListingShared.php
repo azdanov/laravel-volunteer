@@ -47,7 +47,7 @@ class ListingShared extends Mailable implements ShouldQueue
         $subject = '%s shared %s with you';
 
         return $this
-            ->from(config('volunteer.default.email'))
+            ->from(config('mail.from.address'))
             ->markdown('emails.listing.share', [
                 'listing' => $this->listing,
                 'recipient' => $this->recipient,
@@ -55,7 +55,7 @@ class ListingShared extends Mailable implements ShouldQueue
                 'body' => $this->body,
             ])
             ->subject(sprintf($subject, $this->sender->name, $this->listing->title))
-            ->from(config('volunteer.default.email'))
+            ->from(config('mail.from.address'))
             ->replyTo($this->sender->email);
     }
 }
