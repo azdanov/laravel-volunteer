@@ -18,7 +18,7 @@ use App\Models\Listing;
             <div class="panel-heading">
                 <h2 class="panel-heading-text">{{ $category->name }}</h2>
             </div>
-            <div class="flex flex-wrap justify-between lg:flex-no-wrap px-4 pt-4">
+            <div class="flex flex-wrap justify-between px-4 pt-4">
                 @if ($listings->isNotEmpty())
                     @foreach($listings as $listing)
                         @include('partials.listings.listing', compact('listing'))
