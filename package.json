@@ -11,15 +11,14 @@
         "postinstall": "npm run production"
     },
     "devDependencies": {
+        "algoliasearch": "^3.30.0",
+        "braintree-web-drop-in": "^1.14.1",
         "cross-env": "^5.1",
+        "instantsearch.js": "^2.10.4",
         "laravel-mix": "^2.0",
         "laravel-mix-purgecss": "^3.0.0",
         "laravel-mix-tailwind": "^0.1.0",
         "tailwindcss": "^0.7.2"
     },
-    "dependencies": {
-        "algoliasearch": "^3.30.0",
-        "braintree-web-drop-in": "^1.14.1",
-        "instantsearch.js": "^2.10.4"
-    }
+    "dependencies": {}
 }
