@@ -6,10 +6,19 @@
     "stack": "heroku-18",
     "env": {
         "ALGOLIA_APP_ID": {
-            "required": false
+            "required": true
         },
         "ALGOLIA_SECRET": {
-            "required": false
+            "required": true
+        },
+        "MIX_ALGOLIA_CLIENT_ID": {
+            "required": true
+        },
+        "MIX_ALGOLIA_CLIENT_KEY": {
+            "required": true
+        },
+        "MIX_ALGOLIA_CLIENT_INDEX": {
+            "required": true
         },
         "APP_DEBUG": {
             "required": false

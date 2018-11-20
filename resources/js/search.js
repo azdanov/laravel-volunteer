@@ -8,12 +8,12 @@ if (searchForm) {
     const hitsElement = searchForm.querySelector("#hits");
 
     const client = algoliasearch(
-        "4PN91CX56L",
-        "4948d13b2129e56e110dd6b9fb3340dc"
+        process.env.MIX_ALGOLIA_CLIENT_ID,
+        process.env.MIX_ALGOLIA_CLIENT_KEY
     );
 
     const search = instantsearch({
-        indexName: "listings",
+        indexName: process.env.MIX_ALGOLIA_CLIENT_INDEX,
         routing: true,
         searchClient: client,
         searchFunction(helper) {
@@ -46,10 +46,12 @@ if (searchForm) {
             container: "#hits",
             templates: {
                 empty: "<small>No results</small>",
-                item: ({ region, _highlightResult, category, id }) => {
+                item: ({ region, _highlightResult, category, id, live }) => {
                     const url = `${window.location.origin}/region/${
                         region.slug
                     }/category/${category.slug}/listing/${id}`;
+
+                    if (!live) return null;
 
                     return `
                         <a href="${url}" class="no-underline text-sm text-green-darker hover:underline">
