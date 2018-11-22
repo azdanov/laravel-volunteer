@@ -27,10 +27,6 @@ class AppServiceProvider extends ServiceProvider
         Paginator::defaultView('vendor.pagination.default');
 
         Paginator::defaultSimpleView('vendor.pagination.simple-default');
-
-        if ($this->app->isLocal()) {
-            $this->app->register(TelescopeServiceProvider::class);
-        }
     }
 
     public function register(): void
