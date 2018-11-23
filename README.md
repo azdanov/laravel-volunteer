@@ -6,8 +6,7 @@ Exploring Laravel by building a simple [BREAD](http://paul-m-jones.com/archives/
 
 ## Getting started
 
-Read how to setup [Docker](./docker/README.md) /
-[Homestead](https://laravel.com/docs/5.7/homestead).
+Read how to setup [Docker](./docker/README.md) / [Homestead](https://laravel.com/docs/5.7/homestead).
 
 Or use [Valet](https://github.com/laravel/valet) and locally installed dependencies.
 
@@ -18,6 +17,13 @@ Or use [Valet](https://github.com/laravel/valet) and locally installed dependenc
 -   [PostgreSQL](https://www.postgresql.org/)
 -   [Redis](https://redis.io/)
 -   [Node LTS](https://nodejs.org/en/)
+
+### Services
+
+These services are required for using the searching and payment functionality in this demo.
+
+-   [Algolia](https://www.algolia.com/) - [Free plan](https://www.algolia.com/users/sign_up/hacker)
+-   [Braintree](https://www.braintreepayments.com/) - [Sandbox version](https://www.braintreepayments.com/sandbox)
 
 ### Installing
 
