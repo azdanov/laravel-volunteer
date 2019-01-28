@@ -1,4 +1,4 @@
-# Laravel Volunteer Website
+# Laravel Volunteer Website &middot; [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/azdanov/laravel-volunteer-website/blob/master/LICENSE)
 
 Exploring Laravel by building a simple [BREAD](http://paul-m-jones.com/archives/291) website. _Live demo unavailable due to Heroku limitations._
 
