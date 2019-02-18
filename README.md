@@ -1,6 +1,6 @@
 # Laravel Volunteer Website &middot; [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/azdanov/laravel-volunteer-website/blob/master/LICENSE)
 
-Exploring Laravel by building a simple [BREAD](http://paul-m-jones.com/archives/291) website. _Live demo unavailable due to Heroku limitations._
+Exploring Laravel by building a simple [BREAD](http://paul-m-jones.com/archives/291) website. [Live](https://laravel-volunteer.herokuapp.com/).
 
 ![Laravel Volunteer Screenshot](https://user-images.githubusercontent.com/6123841/48793924-25d0ef00-ed01-11e8-8cb9-53f0b2f0aa43.png "Laravel Volunteer Screenshot")
 
@@ -69,12 +69,22 @@ For this example the demo is named: `my_demo_name`.
     ```sh
     heroku config:set --app my_demo_name APP_KEY=$(php artisan --no-ansi key:generate --show)
     heroku config:set --app my_demo_name QUEUE_CONNECTION=redis SESSION_DRIVER=redis CACHE_DRIVER=redis SCOUT_QUEUE=true
+
+    heroku config:set --app my_demo_name BRAINTREE_ENVIRONMENT=sandbox
+    heroku config:set --app my_demo_name BRAINTREE_MERCHANT_ID=<id>
+    heroku config:set --app my_demo_name BRAINTREE_PUBLIC_KEY=<key>
+    heroku config:set --app my_demo_name BRAINTREE_PRIVATE_KEY=<key>
+    
+    heroku config:set --app my_demo_name ALGOLIA_APP_ID=<id>
+    heroku config:set --app my_demo_name ALGOLIA_SECRET=<secret>
+    heroku config:set --app my_demo_name MIX_ALGOLIA_CLIENT_ID=<id>
+    heroku config:set --app my_demo_name MIX_ALGOLIA_CLIENT_KEY=<key>
     ```
 5. Deploy to Heroku
     ```sh
     git push heroku master
     ```
-6. Run migrations
+6. Run demo migrations
     ```sh
     heroku run -a my_demo_name php artisan migrate
     heroku run -a my_demo_name php artisan db:seed
