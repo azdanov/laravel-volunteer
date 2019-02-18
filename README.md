@@ -79,6 +79,7 @@ For this example the demo is named: `my_demo_name`.
     heroku config:set --app my_demo_name ALGOLIA_SECRET=<secret>
     heroku config:set --app my_demo_name MIX_ALGOLIA_CLIENT_ID=<id>
     heroku config:set --app my_demo_name MIX_ALGOLIA_CLIENT_KEY=<key>
+    heroku config:set --app my_demo_name MIX_ALGOLIA_CLIENT_INDEX=<index>
     ```
 5. Deploy to Heroku
     ```sh
