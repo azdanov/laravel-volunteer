@@ -95,6 +95,8 @@ For this example the demo is named: `my_demo_name`.
     heroku config:set --app my_demo_name APP_ENV=development APP_DEBUG=true APP_LOG_LEVEL=debug TELESCOPE_ENABLED=true
     ```
 
+Any issues during deployment are usually because of wrong env variables for external services (redis, postgres, braintree, algolia, algolia client).
+
 ## License
 
 [MIT](./LICENSE)
